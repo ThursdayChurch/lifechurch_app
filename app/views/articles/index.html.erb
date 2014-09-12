@@ -1,0 +1,49 @@
+<h1>Listing articles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contact person</th>
+      <th>Contact email</th>
+      <th>Description</th>
+      <th>Display rank</th>
+      <th>Ta1</th>
+      <th>Ta2</th>
+      <th>Ta3</th>
+      <th>Ta4</th>
+      <th>Ta5</th>
+      <th>Advert main page</th>
+      <th>Title</th>
+      <th>Slug</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.name %></td>
+        <td><%= article.contact_person %></td>
+        <td><%= article.contact_email %></td>
+        <td><%= article.description %></td>
+        <td><%= article.display_rank %></td>
+        <td><%= article.ta1 %></td>
+        <td><%= article.ta2 %></td>
+        <td><%= article.ta3 %></td>
+        <td><%= article.ta4 %></td>
+        <td><%= article.ta5 %></td>
+        <td><%= article.advert_main_page %></td>
+        <td><%= article.title %></td>
+        <td><%= article.slug %></td>
+        <td><%= link_to 'Show', article %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Article', new_article_path %>

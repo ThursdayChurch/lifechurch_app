@@ -1,0 +1,79 @@
+<h1>Listing abouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service day 1</th>
+      <th>Service time 1</th>
+      <th>Service day 2</th>
+      <th>Service time 2</th>
+      <th>Service day 3</th>
+      <th>Service time 3</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Postal code</th>
+      <th>Phone number</th>
+      <th>Toll free phone number</th>
+      <th>Fax number</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Gmaps</th>
+      <th>Youtube</th>
+      <th>Facebook</th>
+      <th>Video stream</th>
+      <th>Twitter</th>
+      <th>Country</th>
+      <th>Province</th>
+      <th>Life pulse</th>
+      <th>Leaders blog</th>
+      <th>Store</th>
+      <th>Video</th>
+      <th>Articles</th>
+      <th>Name</th>
+      <th>Slug</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @abouts.each do |about| %>
+      <tr>
+        <td><%= about.service_day_1 %></td>
+        <td><%= about.service_time_1 %></td>
+        <td><%= about.service_day_2 %></td>
+        <td><%= about.service_time_2 %></td>
+        <td><%= about.service_day_3 %></td>
+        <td><%= about.service_time_3 %></td>
+        <td><%= about.address %></td>
+        <td><%= about.city %></td>
+        <td><%= about.postal_code %></td>
+        <td><%= about.phone_number %></td>
+        <td><%= about.toll_free_phone_number %></td>
+        <td><%= about.fax_number %></td>
+        <td><%= about.latitude %></td>
+        <td><%= about.longitude %></td>
+        <td><%= about.gmaps %></td>
+        <td><%= about.youtube %></td>
+        <td><%= about.facebook %></td>
+        <td><%= about.video_stream %></td>
+        <td><%= about.twitter %></td>
+        <td><%= about.country %></td>
+        <td><%= about.province %></td>
+        <td><%= about.life_pulse %></td>
+        <td><%= about.leaders_blog %></td>
+        <td><%= about.store %></td>
+        <td><%= about.video %></td>
+        <td><%= about.articles %></td>
+        <td><%= about.name %></td>
+        <td><%= about.slug %></td>
+        <td><%= link_to 'Show', about %></td>
+        <td><%= link_to 'Edit', edit_about_path(about) %></td>
+        <td><%= link_to 'Destroy', about, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New About', new_about_path %>

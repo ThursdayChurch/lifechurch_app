@@ -1,0 +1,47 @@
+<h1>Listing ministries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contact person</th>
+      <th>Contact email</th>
+      <th>Description</th>
+      <th>Display rank</th>
+      <th>Ta1</th>
+      <th>Ta2</th>
+      <th>Ta3</th>
+      <th>Ta4</th>
+      <th>Ta5</th>
+      <th>Advert main page</th>
+      <th>Slug</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ministries.each do |ministry| %>
+      <tr>
+        <td><%= ministry.name %></td>
+        <td><%= ministry.contact_person %></td>
+        <td><%= ministry.contact_email %></td>
+        <td><%= ministry.description %></td>
+        <td><%= ministry.display_rank %></td>
+        <td><%= ministry.ta1 %></td>
+        <td><%= ministry.ta2 %></td>
+        <td><%= ministry.ta3 %></td>
+        <td><%= ministry.ta4 %></td>
+        <td><%= ministry.ta5 %></td>
+        <td><%= ministry.advert_main_page %></td>
+        <td><%= ministry.slug %></td>
+        <td><%= link_to 'Show', ministry %></td>
+        <td><%= link_to 'Edit', edit_ministry_path(ministry) %></td>
+        <td><%= link_to 'Destroy', ministry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ministry', new_ministry_path %>

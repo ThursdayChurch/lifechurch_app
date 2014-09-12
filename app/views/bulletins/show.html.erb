@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bulletin.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bulletin.description %>
+</p>
+
+<p>
+  <strong>Display till:</strong>
+  <%= @bulletin.display_till %>
+</p>
+
+<p>
+  <strong>Display start:</strong>
+  <%= @bulletin.display_start %>
+</p>
+
+<p>
+  <strong>Advert main page:</strong>
+  <%= @bulletin.advert_main_page %>
+</p>
+
+<p>
+  <strong>Bulletin image:</strong>
+  <%= @bulletin.bulletin_image %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @bulletin.url %>
+</p>
+
+<p>
+  <strong>Members only:</strong>
+  <%= @bulletin.members_only %>
+</p>
+
+<p>
+  <strong>Image processed:</strong>
+  <%= @bulletin.image_processed %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @bulletin.slug %>
+</p>
+
+<%= link_to 'Edit', edit_bulletin_path(@bulletin) %> |
+<%= link_to 'Back', bulletins_path %>

@@ -1,0 +1,67 @@
+<h1>Listing events_forms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event setup form</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Receive emails</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Notes</th>
+      <th>C f 1 s</th>
+      <th>C f 2 s</th>
+      <th>C f 3 s</th>
+      <th>C f 4 s</th>
+      <th>C f 5 b</th>
+      <th>C f 6 b</th>
+      <th>C f 7 b</th>
+      <th>C f 8 b</th>
+      <th>C f 9 t</th>
+      <th>C f 10 t</th>
+      <th>C f 11 t</th>
+      <th>C f 12 t</th>
+      <th>Age</th>
+      <th>Bday</th>
+      <th>Sex</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events_forms.each do |events_form| %>
+      <tr>
+        <td><%= events_form.event_setup_form_id %></td>
+        <td><%= events_form.first_name %></td>
+        <td><%= events_form.last_name %></td>
+        <td><%= events_form.receive_emails %></td>
+        <td><%= events_form.email %></td>
+        <td><%= events_form.phone_number %></td>
+        <td><%= events_form.notes %></td>
+        <td><%= events_form.c_f_1_s %></td>
+        <td><%= events_form.c_f_2_s %></td>
+        <td><%= events_form.c_f_3_s %></td>
+        <td><%= events_form.c_f_4_s %></td>
+        <td><%= events_form.c_f_5_b %></td>
+        <td><%= events_form.c_f_6_b %></td>
+        <td><%= events_form.c_f_7_b %></td>
+        <td><%= events_form.c_f_8_b %></td>
+        <td><%= events_form.c_f_9_t %></td>
+        <td><%= events_form.c_f_10_t %></td>
+        <td><%= events_form.c_f_11_t %></td>
+        <td><%= events_form.c_f_12_t %></td>
+        <td><%= events_form.age %></td>
+        <td><%= events_form.bday %></td>
+        <td><%= events_form.sex %></td>
+        <td><%= link_to 'Show', events_form %></td>
+        <td><%= link_to 'Edit', edit_events_form_path(events_form) %></td>
+        <td><%= link_to 'Destroy', events_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Events form', new_events_form_path %>

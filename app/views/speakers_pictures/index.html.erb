@@ -1,0 +1,29 @@
+<h1>Listing speakers_pictures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Speaker image</th>
+      <th>Speaker</th>
+      <th>Image processed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @speakers_pictures.each do |speakers_picture| %>
+      <tr>
+        <td><%= speakers_picture.speaker_image %></td>
+        <td><%= speakers_picture.speaker_id %></td>
+        <td><%= speakers_picture.image_processed %></td>
+        <td><%= link_to 'Show', speakers_picture %></td>
+        <td><%= link_to 'Edit', edit_speakers_picture_path(speakers_picture) %></td>
+        <td><%= link_to 'Destroy', speakers_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Speakers picture', new_speakers_picture_path %>

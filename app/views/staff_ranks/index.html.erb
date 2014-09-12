@@ -1,0 +1,27 @@
+<h1>Listing staff_ranks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ranking</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @staff_ranks.each do |staff_rank| %>
+      <tr>
+        <td><%= staff_rank.ranking %></td>
+        <td><%= staff_rank.category %></td>
+        <td><%= link_to 'Show', staff_rank %></td>
+        <td><%= link_to 'Edit', edit_staff_rank_path(staff_rank) %></td>
+        <td><%= link_to 'Destroy', staff_rank, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Staff rank', new_staff_rank_path %>

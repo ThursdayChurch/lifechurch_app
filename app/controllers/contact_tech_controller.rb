@@ -1,0 +1,2 @@
+class ContactTechController < ApplicationController
+end

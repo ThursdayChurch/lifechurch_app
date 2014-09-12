@@ -1,0 +1,37 @@
+<h1>Listing life_pulses_stocks_pictures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Life pulse</th>
+      <th>Life pulse image</th>
+      <th>Title</th>
+      <th>Summary</th>
+      <th>Image processed</th>
+      <th>Main page</th>
+      <th>Life pulse stock image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @life_pulses_stocks_pictures.each do |life_pulses_stocks_picture| %>
+      <tr>
+        <td><%= life_pulses_stocks_picture.life_pulse_id %></td>
+        <td><%= life_pulses_stocks_picture.life_pulse_image %></td>
+        <td><%= life_pulses_stocks_picture.title %></td>
+        <td><%= life_pulses_stocks_picture.summary %></td>
+        <td><%= life_pulses_stocks_picture.image_processed %></td>
+        <td><%= life_pulses_stocks_picture.main_page %></td>
+        <td><%= life_pulses_stocks_picture.life_pulse_stock_image %></td>
+        <td><%= link_to 'Show', life_pulses_stocks_picture %></td>
+        <td><%= link_to 'Edit', edit_life_pulses_stocks_picture_path(life_pulses_stocks_picture) %></td>
+        <td><%= link_to 'Destroy', life_pulses_stocks_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Life pulses stocks picture', new_life_pulses_stocks_picture_path %>

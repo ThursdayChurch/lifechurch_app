@@ -1,0 +1,18 @@
+<%= simple_form_for(@life_pulse) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :keywords %>
+    <%= f.input :from_pastor_desk %>
+    <%= f.input :template_selected %>
+    <%= f.input :content %>
+    <%= f.input :title %>
+    <%= f.input :summary %>
+    <%= f.input :flickr_id %>
+    <%= f.input :slug %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

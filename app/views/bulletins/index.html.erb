@@ -1,0 +1,43 @@
+<h1>Listing bulletins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Display till</th>
+      <th>Display start</th>
+      <th>Advert main page</th>
+      <th>Bulletin image</th>
+      <th>Url</th>
+      <th>Members only</th>
+      <th>Image processed</th>
+      <th>Slug</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bulletins.each do |bulletin| %>
+      <tr>
+        <td><%= bulletin.name %></td>
+        <td><%= bulletin.description %></td>
+        <td><%= bulletin.display_till %></td>
+        <td><%= bulletin.display_start %></td>
+        <td><%= bulletin.advert_main_page %></td>
+        <td><%= bulletin.bulletin_image %></td>
+        <td><%= bulletin.url %></td>
+        <td><%= bulletin.members_only %></td>
+        <td><%= bulletin.image_processed %></td>
+        <td><%= bulletin.slug %></td>
+        <td><%= link_to 'Show', bulletin %></td>
+        <td><%= link_to 'Edit', edit_bulletin_path(bulletin) %></td>
+        <td><%= link_to 'Destroy', bulletin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bulletin', new_bulletin_path %>

@@ -1,0 +1,89 @@
+<h1>Listing events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event name</th>
+      <th>Event date</th>
+      <th>Event time</th>
+      <th>Contact email</th>
+      <th>Location</th>
+      <th>Contact person</th>
+      <th>Description</th>
+      <th>Remove event date</th>
+      <th>Display main page</th>
+      <th>Event start time</th>
+      <th>Use form button</th>
+      <th>Which form</th>
+      <th>Download link</th>
+      <th>Share download</th>
+      <th>Use contact</th>
+      <th>Recurring day</th>
+      <th>Recurring on</th>
+      <th>Advertisement</th>
+      <th>Internal link url</th>
+      <th>Internal link</th>
+      <th>No expiry</th>
+      <th>Template selected</th>
+      <th>Full event</th>
+      <th>Event type</th>
+      <th>Summary</th>
+      <th>Force on main page</th>
+      <th>Enable disable ad</th>
+      <th>Highlight</th>
+      <th>Scheduled when</th>
+      <th>Schedule</th>
+      <th>Next occurence</th>
+      <th>Options</th>
+      <th>Slug</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.event_name %></td>
+        <td><%= event.event_date %></td>
+        <td><%= event.event_time %></td>
+        <td><%= event.contact_email %></td>
+        <td><%= event.location %></td>
+        <td><%= event.contact_person %></td>
+        <td><%= event.description %></td>
+        <td><%= event.remove_event_date %></td>
+        <td><%= event.display_main_page %></td>
+        <td><%= event.event_start_time %></td>
+        <td><%= event.use_form_button %></td>
+        <td><%= event.which_form %></td>
+        <td><%= event.download_link %></td>
+        <td><%= event.share_download %></td>
+        <td><%= event.use_contact %></td>
+        <td><%= event.recurring_day %></td>
+        <td><%= event.recurring_on %></td>
+        <td><%= event.advertisement %></td>
+        <td><%= event.internal_link_url %></td>
+        <td><%= event.internal_link %></td>
+        <td><%= event.no_expiry %></td>
+        <td><%= event.template_selected %></td>
+        <td><%= event.full_event %></td>
+        <td><%= event.event_type %></td>
+        <td><%= event.summary %></td>
+        <td><%= event.force_on_main_page %></td>
+        <td><%= event.enable_disable_ad %></td>
+        <td><%= event.highlight %></td>
+        <td><%= event.scheduled_when %></td>
+        <td><%= event.schedule %></td>
+        <td><%= event.next_occurence %></td>
+        <td><%= event.options %></td>
+        <td><%= event.slug %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>

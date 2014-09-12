@@ -1,0 +1,20 @@
+<%= simple_form_for(@site_setup) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :youtube %>
+    <%= f.input :facebook %>
+    <%= f.input :video_stream %>
+    <%= f.input :twitter %>
+    <%= f.input :life_pulse %>
+    <%= f.input :leaders_blog %>
+    <%= f.input :store %>
+    <%= f.input :video %>
+    <%= f.input :articles %>
+    <%= f.input :shutdown %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

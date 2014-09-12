@@ -1,0 +1,67 @@
+<h1>Listing church_staffs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Spouse first name</th>
+      <th>Title</th>
+      <th>Started service</th>
+      <th>Description</th>
+      <th>Contact email</th>
+      <th>Image</th>
+      <th>Birthday</th>
+      <th>Blog</th>
+      <th>Url</th>
+      <th>Phone ext</th>
+      <th>Phone number</th>
+      <th>Full name</th>
+      <th>Email</th>
+      <th>Facebook</th>
+      <th>Twitter</th>
+      <th>Google plus</th>
+      <th>Linked in</th>
+      <th>Birth location</th>
+      <th>Category</th>
+      <th>Rank</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @church_staffs.each do |church_staff| %>
+      <tr>
+        <td><%= church_staff.first_name %></td>
+        <td><%= church_staff.last_name %></td>
+        <td><%= church_staff.spouse_first_name %></td>
+        <td><%= church_staff.title %></td>
+        <td><%= church_staff.started_service %></td>
+        <td><%= church_staff.description %></td>
+        <td><%= church_staff.contact_email %></td>
+        <td><%= church_staff.image %></td>
+        <td><%= church_staff.birthday %></td>
+        <td><%= church_staff.blog %></td>
+        <td><%= church_staff.url %></td>
+        <td><%= church_staff.phone_ext %></td>
+        <td><%= church_staff.phone_number %></td>
+        <td><%= church_staff.full_name %></td>
+        <td><%= church_staff.email_id %></td>
+        <td><%= church_staff.facebook %></td>
+        <td><%= church_staff.twitter %></td>
+        <td><%= church_staff.google_plus %></td>
+        <td><%= church_staff.linked_in %></td>
+        <td><%= church_staff.birth_location %></td>
+        <td><%= church_staff.category %></td>
+        <td><%= church_staff.rank %></td>
+        <td><%= link_to 'Show', church_staff %></td>
+        <td><%= link_to 'Edit', edit_church_staff_path(church_staff) %></td>
+        <td><%= link_to 'Destroy', church_staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Church staff', new_church_staff_path %>

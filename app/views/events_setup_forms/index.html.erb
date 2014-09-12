@@ -1,0 +1,93 @@
+<h1>Listing events_setup_forms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Email for forms</th>
+      <th>C f 1</th>
+      <th>C f 2</th>
+      <th>C f 3</th>
+      <th>C f 4</th>
+      <th>C f 5</th>
+      <th>C f 6</th>
+      <th>C f 7</th>
+      <th>C f 8</th>
+      <th>C f 9</th>
+      <th>C f 10</th>
+      <th>C f 11</th>
+      <th>C f 12</th>
+      <th>Age</th>
+      <th>C f 1 h</th>
+      <th>C f 2 h</th>
+      <th>C f 3 h</th>
+      <th>C f 4 h</th>
+      <th>C f 5 h</th>
+      <th>C f 6 h</th>
+      <th>C f 7 h</th>
+      <th>C f 8 h</th>
+      <th>C f 9 h</th>
+      <th>C f 10 h</th>
+      <th>C f 11 h</th>
+      <th>C f 12 h</th>
+      <th>Phone</th>
+      <th>Note</th>
+      <th>Bday</th>
+      <th>Sex</th>
+      <th>Use form</th>
+      <th>Down link</th>
+      <th>Ok to contact</th>
+      <th>Form title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events_setup_forms.each do |events_setup_form| %>
+      <tr>
+        <td><%= events_setup_form.event_id %></td>
+        <td><%= events_setup_form.email_for_forms %></td>
+        <td><%= events_setup_form.c_f_1 %></td>
+        <td><%= events_setup_form.c_f_2 %></td>
+        <td><%= events_setup_form.c_f_3 %></td>
+        <td><%= events_setup_form.c_f_4 %></td>
+        <td><%= events_setup_form.c_f_5 %></td>
+        <td><%= events_setup_form.c_f_6 %></td>
+        <td><%= events_setup_form.c_f_7 %></td>
+        <td><%= events_setup_form.c_f_8 %></td>
+        <td><%= events_setup_form.c_f_9 %></td>
+        <td><%= events_setup_form.c_f_10 %></td>
+        <td><%= events_setup_form.c_f_11 %></td>
+        <td><%= events_setup_form.c_f_12 %></td>
+        <td><%= events_setup_form.age %></td>
+        <td><%= events_setup_form.c_f_1_h %></td>
+        <td><%= events_setup_form.c_f_2_h %></td>
+        <td><%= events_setup_form.c_f_3_h %></td>
+        <td><%= events_setup_form.c_f_4_h %></td>
+        <td><%= events_setup_form.c_f_5_h %></td>
+        <td><%= events_setup_form.c_f_6_h %></td>
+        <td><%= events_setup_form.c_f_7_h %></td>
+        <td><%= events_setup_form.c_f_8_h %></td>
+        <td><%= events_setup_form.c_f_9_h %></td>
+        <td><%= events_setup_form.c_f_10_h %></td>
+        <td><%= events_setup_form.c_f_11_h %></td>
+        <td><%= events_setup_form.c_f_12_h %></td>
+        <td><%= events_setup_form.phone %></td>
+        <td><%= events_setup_form.note %></td>
+        <td><%= events_setup_form.bday %></td>
+        <td><%= events_setup_form.sex %></td>
+        <td><%= events_setup_form.use_form %></td>
+        <td><%= events_setup_form.down_link %></td>
+        <td><%= events_setup_form.ok_to_contact %></td>
+        <td><%= events_setup_form.form_title %></td>
+        <td><%= link_to 'Show', events_setup_form %></td>
+        <td><%= link_to 'Edit', edit_events_setup_form_path(events_setup_form) %></td>
+        <td><%= link_to 'Destroy', events_setup_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Events setup form', new_events_setup_form_path %>

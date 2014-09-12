@@ -1,0 +1,32 @@
+<%= simple_form_for(@church_staff) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :spouse_first_name %>
+    <%= f.input :title %>
+    <%= f.input :started_service %>
+    <%= f.input :description %>
+    <%= f.input :contact_email %>
+    <%= f.input :image %>
+    <%= f.input :birthday %>
+    <%= f.input :blog %>
+    <%= f.input :url %>
+    <%= f.input :phone_ext %>
+    <%= f.input :phone_number %>
+    <%= f.input :full_name %>
+    <%= f.input :email_id %>
+    <%= f.input :facebook %>
+    <%= f.input :twitter %>
+    <%= f.input :google_plus %>
+    <%= f.input :linked_in %>
+    <%= f.input :birth_location %>
+    <%= f.input :category %>
+    <%= f.input :rank %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

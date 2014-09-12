@@ -1,0 +1,29 @@
+<h1>Listing sermons_pictures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sermon image</th>
+      <th>Image processed</th>
+      <th>Sermons</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sermons_pictures.each do |sermons_picture| %>
+      <tr>
+        <td><%= sermons_picture.sermon_image %></td>
+        <td><%= sermons_picture.image_processed %></td>
+        <td><%= sermons_picture.sermons_id %></td>
+        <td><%= link_to 'Show', sermons_picture %></td>
+        <td><%= link_to 'Edit', edit_sermons_picture_path(sermons_picture) %></td>
+        <td><%= link_to 'Destroy', sermons_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sermons picture', new_sermons_picture_path %>

@@ -1,0 +1,31 @@
+<h1>Listing ministries_pictures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ministry image</th>
+      <th>Image processed</th>
+      <th>Ministries</th>
+      <th>Ministry</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ministries_pictures.each do |ministries_picture| %>
+      <tr>
+        <td><%= ministries_picture.ministry_image %></td>
+        <td><%= ministries_picture.image_processed %></td>
+        <td><%= ministries_picture.ministries_id %></td>
+        <td><%= ministries_picture.ministry_id %></td>
+        <td><%= link_to 'Show', ministries_picture %></td>
+        <td><%= link_to 'Edit', edit_ministries_picture_path(ministries_picture) %></td>
+        <td><%= link_to 'Destroy', ministries_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ministries picture', new_ministries_picture_path %>

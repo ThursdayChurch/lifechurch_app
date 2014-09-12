@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Speaker image:</strong>
+  <%= @speakers_picture.speaker_image %>
+</p>
+
+<p>
+  <strong>Speaker:</strong>
+  <%= @speakers_picture.speaker_id %>
+</p>
+
+<p>
+  <strong>Image processed:</strong>
+  <%= @speakers_picture.image_processed %>
+</p>
+
+<%= link_to 'Edit', edit_speakers_picture_path(@speakers_picture) %> |
+<%= link_to 'Back', speakers_pictures_path %>

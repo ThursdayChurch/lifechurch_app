@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @schedule.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @schedule.description %>
+</p>
+
+<p>
+  <strong>End month:</strong>
+  <%= @schedule.end_month %>
+</p>
+
+<p>
+  <strong>Start month:</strong>
+  <%= @schedule.start_month %>
+</p>
+
+<p>
+  <strong>Schedule image:</strong>
+  <%= @schedule.schedule_image %>
+</p>
+
+<p>
+  <strong>Image processed:</strong>
+  <%= @schedule.image_processed %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @schedule.url %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @schedule.slug %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedules_path %>

@@ -1,0 +1,38 @@
+<%= simple_form_for(@about) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :service_day_1 %>
+    <%= f.input :service_time_1 %>
+    <%= f.input :service_day_2 %>
+    <%= f.input :service_time_2 %>
+    <%= f.input :service_day_3 %>
+    <%= f.input :service_time_3 %>
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.input :postal_code %>
+    <%= f.input :phone_number %>
+    <%= f.input :toll_free_phone_number %>
+    <%= f.input :fax_number %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
+    <%= f.input :gmaps %>
+    <%= f.input :youtube %>
+    <%= f.input :facebook %>
+    <%= f.input :video_stream %>
+    <%= f.input :twitter %>
+    <%= f.input :country %>
+    <%= f.input :province %>
+    <%= f.input :life_pulse %>
+    <%= f.input :leaders_blog %>
+    <%= f.input :store %>
+    <%= f.input :video %>
+    <%= f.input :articles %>
+    <%= f.input :name %>
+    <%= f.input :slug %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

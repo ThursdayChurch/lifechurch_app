@@ -1,0 +1,16 @@
+<%= simple_form_for(@church_staffs_picture) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :image %>
+    <%= f.input :church_staff_id %>
+    <%= f.input :image_processed %>
+    <%= f.input :staff_image %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

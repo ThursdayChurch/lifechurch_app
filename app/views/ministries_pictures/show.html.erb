@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ministry image:</strong>
+  <%= @ministries_picture.ministry_image %>
+</p>
+
+<p>
+  <strong>Image processed:</strong>
+  <%= @ministries_picture.image_processed %>
+</p>
+
+<p>
+  <strong>Ministries:</strong>
+  <%= @ministries_picture.ministries_id %>
+</p>
+
+<p>
+  <strong>Ministry:</strong>
+  <%= @ministries_picture.ministry_id %>
+</p>
+
+<%= link_to 'Edit', edit_ministries_picture_path(@ministries_picture) %> |
+<%= link_to 'Back', ministries_pictures_path %>

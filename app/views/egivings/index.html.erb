@@ -1,0 +1,89 @@
+<h1>Listing egivings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Send email giver</th>
+      <th>Email of giver</th>
+      <th>Name on card</th>
+      <th>Name on card key</th>
+      <th>Name on card iv</th>
+      <th>Card number</th>
+      <th>Card number key</th>
+      <th>Card number iv</th>
+      <th>Ccv number</th>
+      <th>Ccv number key</th>
+      <th>Ccv number iv</th>
+      <th>Date month</th>
+      <th>Date month key</th>
+      <th>Date month iv</th>
+      <th>Date year</th>
+      <th>Date year key</th>
+      <th>Date year iv</th>
+      <th>Giving</th>
+      <th>Year</th>
+      <th>Card type</th>
+      <th>Amountfinal</th>
+      <th>Propose of donation</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Province</th>
+      <th>Country</th>
+      <th>Postal code</th>
+      <th>Phone number</th>
+      <th>Finalamount</th>
+      <th>Giving year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @egivings.each do |egiving| %>
+      <tr>
+        <td><%= egiving.amount %></td>
+        <td><%= egiving.send_email_giver %></td>
+        <td><%= egiving.email_of_giver %></td>
+        <td><%= egiving.name_on_card %></td>
+        <td><%= egiving.name_on_card_key %></td>
+        <td><%= egiving.name_on_card_iv %></td>
+        <td><%= egiving.card_number %></td>
+        <td><%= egiving.card_number_key %></td>
+        <td><%= egiving.card_number_iv %></td>
+        <td><%= egiving.ccv_number %></td>
+        <td><%= egiving.ccv_number_key %></td>
+        <td><%= egiving.ccv_number_iv %></td>
+        <td><%= egiving.date_month %></td>
+        <td><%= egiving.date_month_key %></td>
+        <td><%= egiving.date_month_iv %></td>
+        <td><%= egiving.date_year %></td>
+        <td><%= egiving.date_year_key %></td>
+        <td><%= egiving.date_year_iv %></td>
+        <td><%= egiving.giving %></td>
+        <td><%= egiving.year %></td>
+        <td><%= egiving.card_type %></td>
+        <td><%= egiving.amountfinal %></td>
+        <td><%= egiving.propose_of_donation %></td>
+        <td><%= egiving.first_name %></td>
+        <td><%= egiving.last_name %></td>
+        <td><%= egiving.address %></td>
+        <td><%= egiving.city %></td>
+        <td><%= egiving.province %></td>
+        <td><%= egiving.country %></td>
+        <td><%= egiving.postal_code %></td>
+        <td><%= egiving.phone_number %></td>
+        <td><%= egiving.finalamount %></td>
+        <td><%= egiving.giving_year %></td>
+        <td><%= link_to 'Show', egiving %></td>
+        <td><%= link_to 'Edit', edit_egiving_path(egiving) %></td>
+        <td><%= link_to 'Destroy', egiving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Egiving', new_egiving_path %>

@@ -1,0 +1,43 @@
+<%= simple_form_for(@egiving) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :amount %>
+    <%= f.input :send_email_giver %>
+    <%= f.input :email_of_giver %>
+    <%= f.input :name_on_card %>
+    <%= f.input :name_on_card_key %>
+    <%= f.input :name_on_card_iv %>
+    <%= f.input :card_number %>
+    <%= f.input :card_number_key %>
+    <%= f.input :card_number_iv %>
+    <%= f.input :ccv_number %>
+    <%= f.input :ccv_number_key %>
+    <%= f.input :ccv_number_iv %>
+    <%= f.input :date_month %>
+    <%= f.input :date_month_key %>
+    <%= f.input :date_month_iv %>
+    <%= f.input :date_year %>
+    <%= f.input :date_year_key %>
+    <%= f.input :date_year_iv %>
+    <%= f.input :giving %>
+    <%= f.input :year %>
+    <%= f.input :card_type %>
+    <%= f.input :amountfinal %>
+    <%= f.input :propose_of_donation %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.input :province %>
+    <%= f.input :country %>
+    <%= f.input :postal_code %>
+    <%= f.input :phone_number %>
+    <%= f.input :finalamount %>
+    <%= f.input :giving_year %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

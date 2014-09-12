@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @life_pulse.keywords %>
+</p>
+
+<p>
+  <strong>From pastor desk:</strong>
+  <%= @life_pulse.from_pastor_desk %>
+</p>
+
+<p>
+  <strong>Template selected:</strong>
+  <%= @life_pulse.template_selected %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @life_pulse.content %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @life_pulse.title %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @life_pulse.summary %>
+</p>
+
+<p>
+  <strong>Flickr:</strong>
+  <%= @life_pulse.flickr_id %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @life_pulse.slug %>
+</p>
+
+<%= link_to 'Edit', edit_life_pulse_path(@life_pulse) %> |
+<%= link_to 'Back', life_pulses_path %>

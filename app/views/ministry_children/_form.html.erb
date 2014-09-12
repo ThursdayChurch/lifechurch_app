@@ -1,0 +1,23 @@
+<%= simple_form_for(@ministry_child) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :contact_person %>
+    <%= f.input :contact_email %>
+    <%= f.input :description %>
+    <%= f.input :display_rank %>
+    <%= f.input :ta1 %>
+    <%= f.input :ta2 %>
+    <%= f.input :ta3 %>
+    <%= f.input :ta4 %>
+    <%= f.input :ta5 %>
+    <%= f.input :advert_main_page %>
+    <%= f.input :ministry_id %>
+    <%= f.input :slug %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

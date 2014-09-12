@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sermon image:</strong>
+  <%= @sermons_picture.sermon_image %>
+</p>
+
+<p>
+  <strong>Image processed:</strong>
+  <%= @sermons_picture.image_processed %>
+</p>
+
+<p>
+  <strong>Sermons:</strong>
+  <%= @sermons_picture.sermons_id %>
+</p>
+
+<%= link_to 'Edit', edit_sermons_picture_path(@sermons_picture) %> |
+<%= link_to 'Back', sermons_pictures_path %>

@@ -1,0 +1,2 @@
+module SermonsPicturesHelper
+end

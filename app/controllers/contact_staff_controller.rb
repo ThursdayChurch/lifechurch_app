@@ -1,0 +1,2 @@
+class ContactStaffController < ApplicationController
+end

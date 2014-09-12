@@ -1,0 +1,43 @@
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :event_name %>
+    <%= f.input :event_date %>
+    <%= f.input :event_time %>
+    <%= f.input :contact_email %>
+    <%= f.input :location %>
+    <%= f.input :contact_person %>
+    <%= f.input :description %>
+    <%= f.input :remove_event_date %>
+    <%= f.input :display_main_page %>
+    <%= f.input :event_start_time %>
+    <%= f.input :use_form_button %>
+    <%= f.input :which_form %>
+    <%= f.input :download_link %>
+    <%= f.input :share_download %>
+    <%= f.input :use_contact %>
+    <%= f.input :recurring_day %>
+    <%= f.input :recurring_on %>
+    <%= f.input :advertisement %>
+    <%= f.input :internal_link_url %>
+    <%= f.input :internal_link %>
+    <%= f.input :no_expiry %>
+    <%= f.input :template_selected %>
+    <%= f.input :full_event %>
+    <%= f.input :event_type %>
+    <%= f.input :summary %>
+    <%= f.input :force_on_main_page %>
+    <%= f.input :enable_disable_ad %>
+    <%= f.input :highlight %>
+    <%= f.input :scheduled_when %>
+    <%= f.input :schedule %>
+    <%= f.input :next_occurence %>
+    <%= f.input :options %>
+    <%= f.input :slug %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

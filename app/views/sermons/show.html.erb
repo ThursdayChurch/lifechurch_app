@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date of sermon:</strong>
+  <%= @sermon.date_of_sermon %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sermon.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sermon.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @sermon.category %>
+</p>
+
+<p>
+  <strong>Audio url:</strong>
+  <%= @sermon.audio_url %>
+</p>
+
+<p>
+  <strong>Video url:</strong>
+  <%= @sermon.video_url %>
+</p>
+
+<p>
+  <strong>Display until:</strong>
+  <%= @sermon.display_until %>
+</p>
+
+<p>
+  <strong>Speaker:</strong>
+  <%= @sermon.speaker_id %>
+</p>
+
+<p>
+  <strong>Members only:</strong>
+  <%= @sermon.members_only %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @sermon.url %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @sermon.slug %>
+</p>
+
+<%= link_to 'Edit', edit_sermon_path(@sermon) %> |
+<%= link_to 'Back', sermons_path %>
