@@ -46,3 +46,40 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+
+
+
+gem 'rails_12factor', :group => :production
+
+gem 'validates_timeliness'
+gem 'redcarpet'
+#gem 'bluecloth'
+ 
+ 
+gem "heroku"
+gem "rmagick"
+gem "mini_magick"
+gem "carrierwave"
+gem 'carrierwave_direct'
+gem "bootstrap-switch-rails"
+gem 'country_select'
+gem 'jquery-timepicker-addon-rails'
+gem "font-awesome-rails"
+gem 'will_paginate' 
+gem 'bootstrap-will_paginate' 
+gem 'roo'
+gem "letter_opener", :group => :development
+gem "strongbox"
+gem "nifty-generators", :group => :development
+gem 'validates_formatting_of'
+gem 'exception_notification' 
+gem 'gmaps4rails'
+gem 'mandrill-api'
+gem 'fog'
+gem 'prawn','1.0.0.rc1' 
+gem 'money-rails'
+gem "friendly_id" 
+gem "gibbon"  
+gem "therubyracer"
+gem "less-rails"
+gem 'twitter-bootstrap-rails', '>= 3.2.0'
