@@ -1,6 +1,5 @@
-<h1>Editing staff_rank</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @staff_rank %> |
-<%= link_to 'Back', staff_ranks_path %>
+<%- model_class = StaffRank -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

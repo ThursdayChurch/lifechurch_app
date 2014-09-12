@@ -1,14 +1,14 @@
-<%= simple_form_for(@ministry_children_picture) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @ministry_children_picture, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :ministrychild_image %>
+  <%= error_span(@ministry_children_picture[:ministrychild_image]) %>
+  <%= f.input :image_processed %>
+  <%= error_span(@ministry_children_picture[:image_processed]) %>
+  <%= f.input :ministrychild_id %>
+  <%= error_span(@ministry_children_picture[:ministrychild_id]) %>
+  <%= f.input :ministry_id %>
+  <%= error_span(@ministry_children_picture[:ministry_id]) %>
 
-  <div class="form-inputs">
-    <%= f.input :ministrychild_image %>
-    <%= f.input :image_processed %>
-    <%= f.input :ministrychild_id %>
-    <%= f.input :ministry_id %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                ministry_children_pictures_path, :class => 'btn btn-default' %>
 <% end %>

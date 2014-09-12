@@ -1,31 +1,42 @@
-<h1>Listing ministries_pictures</h1>
-
-<table>
+<%- model_class = MinistriesPicture -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Ministry image</th>
-      <th>Image processed</th>
-      <th>Ministries</th>
-      <th>Ministry</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:ministry_image) %></th>
+      <th><%= model_class.human_attribute_name(:image_processed) %></th>
+      <th><%= model_class.human_attribute_name(:ministries_id) %></th>
+      <th><%= model_class.human_attribute_name(:ministry_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @ministries_pictures.each do |ministries_picture| %>
       <tr>
+        <td><%= link_to ministries_picture.id, ministries_picture_path(ministries_picture) %></td>
         <td><%= ministries_picture.ministry_image %></td>
         <td><%= ministries_picture.image_processed %></td>
         <td><%= ministries_picture.ministries_id %></td>
         <td><%= ministries_picture.ministry_id %></td>
-        <td><%= link_to 'Show', ministries_picture %></td>
-        <td><%= link_to 'Edit', edit_ministries_picture_path(ministries_picture) %></td>
-        <td><%= link_to 'Destroy', ministries_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l ministries_picture.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_ministries_picture_path(ministries_picture), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      ministries_picture_path(ministries_picture),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Ministries picture', new_ministries_picture_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_ministries_picture_path,
+            :class => 'btn btn-primary' %>

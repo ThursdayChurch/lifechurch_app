@@ -1,114 +1,61 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = ChurchStaff -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @church_staff.first_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @church_staff.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @church_staff.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:spouse_first_name) %>:</strong></dt>
+  <dd><%= @church_staff.spouse_first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @church_staff.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:started_service) %>:</strong></dt>
+  <dd><%= @church_staff.started_service %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @church_staff.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
+  <dd><%= @church_staff.contact_email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
+  <dd><%= @church_staff.image %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:birthday) %>:</strong></dt>
+  <dd><%= @church_staff.birthday %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:blog) %>:</strong></dt>
+  <dd><%= @church_staff.blog %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
+  <dd><%= @church_staff.url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_ext) %>:</strong></dt>
+  <dd><%= @church_staff.phone_ext %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
+  <dd><%= @church_staff.phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:full_name) %>:</strong></dt>
+  <dd><%= @church_staff.full_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email_id) %>:</strong></dt>
+  <dd><%= @church_staff.email_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:facebook) %>:</strong></dt>
+  <dd><%= @church_staff.facebook %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:twitter) %>:</strong></dt>
+  <dd><%= @church_staff.twitter %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:google_plus) %>:</strong></dt>
+  <dd><%= @church_staff.google_plus %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:linked_in) %>:</strong></dt>
+  <dd><%= @church_staff.linked_in %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:birth_location) %>:</strong></dt>
+  <dd><%= @church_staff.birth_location %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
+  <dd><%= @church_staff.category %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rank) %>:</strong></dt>
+  <dd><%= @church_staff.rank %></dd>
+</dl>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @church_staff.last_name %>
-</p>
-
-<p>
-  <strong>Spouse first name:</strong>
-  <%= @church_staff.spouse_first_name %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @church_staff.title %>
-</p>
-
-<p>
-  <strong>Started service:</strong>
-  <%= @church_staff.started_service %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @church_staff.description %>
-</p>
-
-<p>
-  <strong>Contact email:</strong>
-  <%= @church_staff.contact_email %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @church_staff.image %>
-</p>
-
-<p>
-  <strong>Birthday:</strong>
-  <%= @church_staff.birthday %>
-</p>
-
-<p>
-  <strong>Blog:</strong>
-  <%= @church_staff.blog %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @church_staff.url %>
-</p>
-
-<p>
-  <strong>Phone ext:</strong>
-  <%= @church_staff.phone_ext %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @church_staff.phone_number %>
-</p>
-
-<p>
-  <strong>Full name:</strong>
-  <%= @church_staff.full_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @church_staff.email_id %>
-</p>
-
-<p>
-  <strong>Facebook:</strong>
-  <%= @church_staff.facebook %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
-  <%= @church_staff.twitter %>
-</p>
-
-<p>
-  <strong>Google plus:</strong>
-  <%= @church_staff.google_plus %>
-</p>
-
-<p>
-  <strong>Linked in:</strong>
-  <%= @church_staff.linked_in %>
-</p>
-
-<p>
-  <strong>Birth location:</strong>
-  <%= @church_staff.birth_location %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @church_staff.category %>
-</p>
-
-<p>
-  <strong>Rank:</strong>
-  <%= @church_staff.rank %>
-</p>
-
-<%= link_to 'Edit', edit_church_staff_path(@church_staff) %> |
-<%= link_to 'Back', church_staffs_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              church_staffs_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_church_staff_path(@church_staff), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              church_staff_path(@church_staff),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

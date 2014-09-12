@@ -1,34 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = ChurchStaffsPicture -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @church_staffs_picture.first_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @church_staffs_picture.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @church_staffs_picture.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
+  <dd><%= @church_staffs_picture.image %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:church_staff_id) %>:</strong></dt>
+  <dd><%= @church_staffs_picture.church_staff_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_processed) %>:</strong></dt>
+  <dd><%= @church_staffs_picture.image_processed %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:staff_image) %>:</strong></dt>
+  <dd><%= @church_staffs_picture.staff_image %></dd>
+</dl>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @church_staffs_picture.last_name %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @church_staffs_picture.image %>
-</p>
-
-<p>
-  <strong>Church staff:</strong>
-  <%= @church_staffs_picture.church_staff_id %>
-</p>
-
-<p>
-  <strong>Image processed:</strong>
-  <%= @church_staffs_picture.image_processed %>
-</p>
-
-<p>
-  <strong>Staff image:</strong>
-  <%= @church_staffs_picture.staff_image %>
-</p>
-
-<%= link_to 'Edit', edit_church_staffs_picture_path(@church_staffs_picture) %> |
-<%= link_to 'Back', church_staffs_pictures_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              church_staffs_pictures_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_church_staffs_picture_path(@church_staffs_picture), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              church_staffs_picture_path(@church_staffs_picture),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

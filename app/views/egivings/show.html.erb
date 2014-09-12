@@ -1,169 +1,83 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Egiving -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @egiving.amount %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:amount) %>:</strong></dt>
+  <dd><%= @egiving.amount %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:send_email_giver) %>:</strong></dt>
+  <dd><%= @egiving.send_email_giver %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email_of_giver) %>:</strong></dt>
+  <dd><%= @egiving.email_of_giver %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name_on_card) %>:</strong></dt>
+  <dd><%= @egiving.name_on_card %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name_on_card_key) %>:</strong></dt>
+  <dd><%= @egiving.name_on_card_key %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name_on_card_iv) %>:</strong></dt>
+  <dd><%= @egiving.name_on_card_iv %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:card_number) %>:</strong></dt>
+  <dd><%= @egiving.card_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:card_number_key) %>:</strong></dt>
+  <dd><%= @egiving.card_number_key %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:card_number_iv) %>:</strong></dt>
+  <dd><%= @egiving.card_number_iv %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ccv_number) %>:</strong></dt>
+  <dd><%= @egiving.ccv_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ccv_number_key) %>:</strong></dt>
+  <dd><%= @egiving.ccv_number_key %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ccv_number_iv) %>:</strong></dt>
+  <dd><%= @egiving.ccv_number_iv %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date_month) %>:</strong></dt>
+  <dd><%= @egiving.date_month %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date_month_key) %>:</strong></dt>
+  <dd><%= @egiving.date_month_key %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date_month_iv) %>:</strong></dt>
+  <dd><%= @egiving.date_month_iv %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date_year) %>:</strong></dt>
+  <dd><%= @egiving.date_year %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date_year_key) %>:</strong></dt>
+  <dd><%= @egiving.date_year_key %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date_year_iv) %>:</strong></dt>
+  <dd><%= @egiving.date_year_iv %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:giving) %>:</strong></dt>
+  <dd><%= @egiving.giving %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:year) %>:</strong></dt>
+  <dd><%= @egiving.year %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:card_type) %>:</strong></dt>
+  <dd><%= @egiving.card_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:amountfinal) %>:</strong></dt>
+  <dd><%= @egiving.amountfinal %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:propose_of_donation) %>:</strong></dt>
+  <dd><%= @egiving.propose_of_donation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @egiving.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @egiving.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @egiving.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @egiving.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:province) %>:</strong></dt>
+  <dd><%= @egiving.province %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
+  <dd><%= @egiving.country %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:postal_code) %>:</strong></dt>
+  <dd><%= @egiving.postal_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
+  <dd><%= @egiving.phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:finalamount) %>:</strong></dt>
+  <dd><%= @egiving.finalamount %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:giving_year) %>:</strong></dt>
+  <dd><%= @egiving.giving_year %></dd>
+</dl>
 
-<p>
-  <strong>Send email giver:</strong>
-  <%= @egiving.send_email_giver %>
-</p>
-
-<p>
-  <strong>Email of giver:</strong>
-  <%= @egiving.email_of_giver %>
-</p>
-
-<p>
-  <strong>Name on card:</strong>
-  <%= @egiving.name_on_card %>
-</p>
-
-<p>
-  <strong>Name on card key:</strong>
-  <%= @egiving.name_on_card_key %>
-</p>
-
-<p>
-  <strong>Name on card iv:</strong>
-  <%= @egiving.name_on_card_iv %>
-</p>
-
-<p>
-  <strong>Card number:</strong>
-  <%= @egiving.card_number %>
-</p>
-
-<p>
-  <strong>Card number key:</strong>
-  <%= @egiving.card_number_key %>
-</p>
-
-<p>
-  <strong>Card number iv:</strong>
-  <%= @egiving.card_number_iv %>
-</p>
-
-<p>
-  <strong>Ccv number:</strong>
-  <%= @egiving.ccv_number %>
-</p>
-
-<p>
-  <strong>Ccv number key:</strong>
-  <%= @egiving.ccv_number_key %>
-</p>
-
-<p>
-  <strong>Ccv number iv:</strong>
-  <%= @egiving.ccv_number_iv %>
-</p>
-
-<p>
-  <strong>Date month:</strong>
-  <%= @egiving.date_month %>
-</p>
-
-<p>
-  <strong>Date month key:</strong>
-  <%= @egiving.date_month_key %>
-</p>
-
-<p>
-  <strong>Date month iv:</strong>
-  <%= @egiving.date_month_iv %>
-</p>
-
-<p>
-  <strong>Date year:</strong>
-  <%= @egiving.date_year %>
-</p>
-
-<p>
-  <strong>Date year key:</strong>
-  <%= @egiving.date_year_key %>
-</p>
-
-<p>
-  <strong>Date year iv:</strong>
-  <%= @egiving.date_year_iv %>
-</p>
-
-<p>
-  <strong>Giving:</strong>
-  <%= @egiving.giving %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @egiving.year %>
-</p>
-
-<p>
-  <strong>Card type:</strong>
-  <%= @egiving.card_type %>
-</p>
-
-<p>
-  <strong>Amountfinal:</strong>
-  <%= @egiving.amountfinal %>
-</p>
-
-<p>
-  <strong>Propose of donation:</strong>
-  <%= @egiving.propose_of_donation %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @egiving.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @egiving.last_name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @egiving.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @egiving.city %>
-</p>
-
-<p>
-  <strong>Province:</strong>
-  <%= @egiving.province %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @egiving.country %>
-</p>
-
-<p>
-  <strong>Postal code:</strong>
-  <%= @egiving.postal_code %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @egiving.phone_number %>
-</p>
-
-<p>
-  <strong>Finalamount:</strong>
-  <%= @egiving.finalamount %>
-</p>
-
-<p>
-  <strong>Giving year:</strong>
-  <%= @egiving.giving_year %>
-</p>
-
-<%= link_to 'Edit', edit_egiving_path(@egiving) %> |
-<%= link_to 'Back', egivings_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              egivings_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_egiving_path(@egiving), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              egiving_path(@egiving),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

@@ -1,18 +1,22 @@
-<%= simple_form_for(@life_pulse) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @life_pulse, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :keywords %>
+  <%= error_span(@life_pulse[:keywords]) %>
+  <%= f.input :from_pastor_desk %>
+  <%= error_span(@life_pulse[:from_pastor_desk]) %>
+  <%= f.input :template_selected %>
+  <%= error_span(@life_pulse[:template_selected]) %>
+  <%= f.input :content %>
+  <%= error_span(@life_pulse[:content]) %>
+  <%= f.input :title %>
+  <%= error_span(@life_pulse[:title]) %>
+  <%= f.input :summary %>
+  <%= error_span(@life_pulse[:summary]) %>
+  <%= f.input :flickr_id %>
+  <%= error_span(@life_pulse[:flickr_id]) %>
+  <%= f.input :slug %>
+  <%= error_span(@life_pulse[:slug]) %>
 
-  <div class="form-inputs">
-    <%= f.input :keywords %>
-    <%= f.input :from_pastor_desk %>
-    <%= f.input :template_selected %>
-    <%= f.input :content %>
-    <%= f.input :title %>
-    <%= f.input :summary %>
-    <%= f.input :flickr_id %>
-    <%= f.input :slug %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                life_pulses_path, :class => 'btn btn-default' %>
 <% end %>

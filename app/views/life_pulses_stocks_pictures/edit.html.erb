@@ -1,6 +1,5 @@
-<h1>Editing life_pulses_stocks_picture</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @life_pulses_stocks_picture %> |
-<%= link_to 'Back', life_pulses_stocks_pictures_path %>
+<%- model_class = LifePulsesStocksPicture -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

@@ -1,17 +1,20 @@
-<%= simple_form_for(@life_pulses_stocks_picture) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @life_pulses_stocks_picture, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :life_pulse_id %>
+  <%= error_span(@life_pulses_stocks_picture[:life_pulse_id]) %>
+  <%= f.input :life_pulse_image %>
+  <%= error_span(@life_pulses_stocks_picture[:life_pulse_image]) %>
+  <%= f.input :title %>
+  <%= error_span(@life_pulses_stocks_picture[:title]) %>
+  <%= f.input :summary %>
+  <%= error_span(@life_pulses_stocks_picture[:summary]) %>
+  <%= f.input :image_processed %>
+  <%= error_span(@life_pulses_stocks_picture[:image_processed]) %>
+  <%= f.input :main_page %>
+  <%= error_span(@life_pulses_stocks_picture[:main_page]) %>
+  <%= f.input :life_pulse_stock_image %>
+  <%= error_span(@life_pulses_stocks_picture[:life_pulse_stock_image]) %>
 
-  <div class="form-inputs">
-    <%= f.input :life_pulse_id %>
-    <%= f.input :life_pulse_image %>
-    <%= f.input :title %>
-    <%= f.input :summary %>
-    <%= f.input :image_processed %>
-    <%= f.input :main_page %>
-    <%= f.input :life_pulse_stock_image %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                life_pulses_stocks_pictures_path, :class => 'btn btn-default' %>
 <% end %>

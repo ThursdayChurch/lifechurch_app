@@ -1,114 +1,61 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = EventsForm -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Event setup form:</strong>
-  <%= @events_form.event_setup_form_id %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:event_setup_form_id) %>:</strong></dt>
+  <dd><%= @events_form.event_setup_form_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @events_form.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @events_form.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:receive_emails) %>:</strong></dt>
+  <dd><%= @events_form.receive_emails %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @events_form.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
+  <dd><%= @events_form.phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
+  <dd><%= @events_form.notes %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_1_s) %>:</strong></dt>
+  <dd><%= @events_form.c_f_1_s %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_2_s) %>:</strong></dt>
+  <dd><%= @events_form.c_f_2_s %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_3_s) %>:</strong></dt>
+  <dd><%= @events_form.c_f_3_s %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_4_s) %>:</strong></dt>
+  <dd><%= @events_form.c_f_4_s %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_5_b) %>:</strong></dt>
+  <dd><%= @events_form.c_f_5_b %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_6_b) %>:</strong></dt>
+  <dd><%= @events_form.c_f_6_b %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_7_b) %>:</strong></dt>
+  <dd><%= @events_form.c_f_7_b %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_8_b) %>:</strong></dt>
+  <dd><%= @events_form.c_f_8_b %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_9_t) %>:</strong></dt>
+  <dd><%= @events_form.c_f_9_t %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_10_t) %>:</strong></dt>
+  <dd><%= @events_form.c_f_10_t %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_11_t) %>:</strong></dt>
+  <dd><%= @events_form.c_f_11_t %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:c_f_12_t) %>:</strong></dt>
+  <dd><%= @events_form.c_f_12_t %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:age) %>:</strong></dt>
+  <dd><%= @events_form.age %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bday) %>:</strong></dt>
+  <dd><%= @events_form.bday %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sex) %>:</strong></dt>
+  <dd><%= @events_form.sex %></dd>
+</dl>
 
-<p>
-  <strong>First name:</strong>
-  <%= @events_form.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @events_form.last_name %>
-</p>
-
-<p>
-  <strong>Receive emails:</strong>
-  <%= @events_form.receive_emails %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @events_form.email %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @events_form.phone_number %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @events_form.notes %>
-</p>
-
-<p>
-  <strong>C f 1 s:</strong>
-  <%= @events_form.c_f_1_s %>
-</p>
-
-<p>
-  <strong>C f 2 s:</strong>
-  <%= @events_form.c_f_2_s %>
-</p>
-
-<p>
-  <strong>C f 3 s:</strong>
-  <%= @events_form.c_f_3_s %>
-</p>
-
-<p>
-  <strong>C f 4 s:</strong>
-  <%= @events_form.c_f_4_s %>
-</p>
-
-<p>
-  <strong>C f 5 b:</strong>
-  <%= @events_form.c_f_5_b %>
-</p>
-
-<p>
-  <strong>C f 6 b:</strong>
-  <%= @events_form.c_f_6_b %>
-</p>
-
-<p>
-  <strong>C f 7 b:</strong>
-  <%= @events_form.c_f_7_b %>
-</p>
-
-<p>
-  <strong>C f 8 b:</strong>
-  <%= @events_form.c_f_8_b %>
-</p>
-
-<p>
-  <strong>C f 9 t:</strong>
-  <%= @events_form.c_f_9_t %>
-</p>
-
-<p>
-  <strong>C f 10 t:</strong>
-  <%= @events_form.c_f_10_t %>
-</p>
-
-<p>
-  <strong>C f 11 t:</strong>
-  <%= @events_form.c_f_11_t %>
-</p>
-
-<p>
-  <strong>C f 12 t:</strong>
-  <%= @events_form.c_f_12_t %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @events_form.age %>
-</p>
-
-<p>
-  <strong>Bday:</strong>
-  <%= @events_form.bday %>
-</p>
-
-<p>
-  <strong>Sex:</strong>
-  <%= @events_form.sex %>
-</p>
-
-<%= link_to 'Edit', edit_events_form_path(@events_form) %> |
-<%= link_to 'Back', events_forms_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              events_forms_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_events_form_path(@events_form), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              events_form_path(@events_form),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

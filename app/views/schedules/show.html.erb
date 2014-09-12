@@ -1,44 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Schedule -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @schedule.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @schedule.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @schedule.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:end_month) %>:</strong></dt>
+  <dd><%= @schedule.end_month %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:start_month) %>:</strong></dt>
+  <dd><%= @schedule.start_month %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:schedule_image) %>:</strong></dt>
+  <dd><%= @schedule.schedule_image %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_processed) %>:</strong></dt>
+  <dd><%= @schedule.image_processed %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
+  <dd><%= @schedule.url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:slug) %>:</strong></dt>
+  <dd><%= @schedule.slug %></dd>
+</dl>
 
-<p>
-  <strong>Description:</strong>
-  <%= @schedule.description %>
-</p>
-
-<p>
-  <strong>End month:</strong>
-  <%= @schedule.end_month %>
-</p>
-
-<p>
-  <strong>Start month:</strong>
-  <%= @schedule.start_month %>
-</p>
-
-<p>
-  <strong>Schedule image:</strong>
-  <%= @schedule.schedule_image %>
-</p>
-
-<p>
-  <strong>Image processed:</strong>
-  <%= @schedule.image_processed %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @schedule.url %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @schedule.slug %>
-</p>
-
-<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
-<%= link_to 'Back', schedules_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              schedules_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_schedule_path(@schedule), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              schedule_path(@schedule),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

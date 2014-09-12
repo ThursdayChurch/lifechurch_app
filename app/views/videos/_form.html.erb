@@ -1,24 +1,34 @@
-<%= simple_form_for(@video) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @video, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@video[:name]) %>
+  <%= f.input :contact_person %>
+  <%= error_span(@video[:contact_person]) %>
+  <%= f.input :contact_email %>
+  <%= error_span(@video[:contact_email]) %>
+  <%= f.input :description %>
+  <%= error_span(@video[:description]) %>
+  <%= f.input :display_rank %>
+  <%= error_span(@video[:display_rank]) %>
+  <%= f.input :ta1 %>
+  <%= error_span(@video[:ta1]) %>
+  <%= f.input :ta2 %>
+  <%= error_span(@video[:ta2]) %>
+  <%= f.input :ta3 %>
+  <%= error_span(@video[:ta3]) %>
+  <%= f.input :ta4 %>
+  <%= error_span(@video[:ta4]) %>
+  <%= f.input :ta5 %>
+  <%= error_span(@video[:ta5]) %>
+  <%= f.input :advert_main_page %>
+  <%= error_span(@video[:advert_main_page]) %>
+  <%= f.input :title %>
+  <%= error_span(@video[:title]) %>
+  <%= f.input :url %>
+  <%= error_span(@video[:url]) %>
+  <%= f.input :slug %>
+  <%= error_span(@video[:slug]) %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :contact_person %>
-    <%= f.input :contact_email %>
-    <%= f.input :description %>
-    <%= f.input :display_rank %>
-    <%= f.input :ta1 %>
-    <%= f.input :ta2 %>
-    <%= f.input :ta3 %>
-    <%= f.input :ta4 %>
-    <%= f.input :ta5 %>
-    <%= f.input :advert_main_page %>
-    <%= f.input :title %>
-    <%= f.input :url %>
-    <%= f.input :slug %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                videos_path, :class => 'btn btn-default' %>
 <% end %>

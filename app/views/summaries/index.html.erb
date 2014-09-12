@@ -1,25 +1,36 @@
-<h1>Listing summaries</h1>
-
-<table>
+<%- model_class = Summary -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>What we believe</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:what_we_believe) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @summaries.each do |summary| %>
       <tr>
+        <td><%= link_to summary.id, summary_path(summary) %></td>
         <td><%= summary.what_we_believe %></td>
-        <td><%= link_to 'Show', summary %></td>
-        <td><%= link_to 'Edit', edit_summary_path(summary) %></td>
-        <td><%= link_to 'Destroy', summary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l summary.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_summary_path(summary), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      summary_path(summary),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Summary', new_summary_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_summary_path,
+            :class => 'btn btn-primary' %>

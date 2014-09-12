@@ -1,16 +1,18 @@
-<%= simple_form_for(@church_staffs_picture) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @church_staffs_picture, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :first_name %>
+  <%= error_span(@church_staffs_picture[:first_name]) %>
+  <%= f.input :last_name %>
+  <%= error_span(@church_staffs_picture[:last_name]) %>
+  <%= f.input :image %>
+  <%= error_span(@church_staffs_picture[:image]) %>
+  <%= f.input :church_staff_id %>
+  <%= error_span(@church_staffs_picture[:church_staff_id]) %>
+  <%= f.input :image_processed %>
+  <%= error_span(@church_staffs_picture[:image_processed]) %>
+  <%= f.input :staff_image %>
+  <%= error_span(@church_staffs_picture[:staff_image]) %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :image %>
-    <%= f.input :church_staff_id %>
-    <%= f.input :image_processed %>
-    <%= f.input :staff_image %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                church_staffs_pictures_path, :class => 'btn btn-default' %>
 <% end %>

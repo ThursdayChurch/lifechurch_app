@@ -1,54 +1,37 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Bulletin -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @bulletin.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @bulletin.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @bulletin.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:display_till) %>:</strong></dt>
+  <dd><%= @bulletin.display_till %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:display_start) %>:</strong></dt>
+  <dd><%= @bulletin.display_start %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:advert_main_page) %>:</strong></dt>
+  <dd><%= @bulletin.advert_main_page %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bulletin_image) %>:</strong></dt>
+  <dd><%= @bulletin.bulletin_image %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
+  <dd><%= @bulletin.url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:members_only) %>:</strong></dt>
+  <dd><%= @bulletin.members_only %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_processed) %>:</strong></dt>
+  <dd><%= @bulletin.image_processed %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:slug) %>:</strong></dt>
+  <dd><%= @bulletin.slug %></dd>
+</dl>
 
-<p>
-  <strong>Description:</strong>
-  <%= @bulletin.description %>
-</p>
-
-<p>
-  <strong>Display till:</strong>
-  <%= @bulletin.display_till %>
-</p>
-
-<p>
-  <strong>Display start:</strong>
-  <%= @bulletin.display_start %>
-</p>
-
-<p>
-  <strong>Advert main page:</strong>
-  <%= @bulletin.advert_main_page %>
-</p>
-
-<p>
-  <strong>Bulletin image:</strong>
-  <%= @bulletin.bulletin_image %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @bulletin.url %>
-</p>
-
-<p>
-  <strong>Members only:</strong>
-  <%= @bulletin.members_only %>
-</p>
-
-<p>
-  <strong>Image processed:</strong>
-  <%= @bulletin.image_processed %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @bulletin.slug %>
-</p>
-
-<%= link_to 'Edit', edit_bulletin_path(@bulletin) %> |
-<%= link_to 'Back', bulletins_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              bulletins_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_bulletin_path(@bulletin), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              bulletin_path(@bulletin),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

@@ -1,48 +1,52 @@
-<h1>Listing egivings</h1>
-
-<table>
+<%- model_class = Egiving -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Amount</th>
-      <th>Send email giver</th>
-      <th>Email of giver</th>
-      <th>Name on card</th>
-      <th>Name on card key</th>
-      <th>Name on card iv</th>
-      <th>Card number</th>
-      <th>Card number key</th>
-      <th>Card number iv</th>
-      <th>Ccv number</th>
-      <th>Ccv number key</th>
-      <th>Ccv number iv</th>
-      <th>Date month</th>
-      <th>Date month key</th>
-      <th>Date month iv</th>
-      <th>Date year</th>
-      <th>Date year key</th>
-      <th>Date year iv</th>
-      <th>Giving</th>
-      <th>Year</th>
-      <th>Card type</th>
-      <th>Amountfinal</th>
-      <th>Propose of donation</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Province</th>
-      <th>Country</th>
-      <th>Postal code</th>
-      <th>Phone number</th>
-      <th>Finalamount</th>
-      <th>Giving year</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:amount) %></th>
+      <th><%= model_class.human_attribute_name(:send_email_giver) %></th>
+      <th><%= model_class.human_attribute_name(:email_of_giver) %></th>
+      <th><%= model_class.human_attribute_name(:name_on_card) %></th>
+      <th><%= model_class.human_attribute_name(:name_on_card_key) %></th>
+      <th><%= model_class.human_attribute_name(:name_on_card_iv) %></th>
+      <th><%= model_class.human_attribute_name(:card_number) %></th>
+      <th><%= model_class.human_attribute_name(:card_number_key) %></th>
+      <th><%= model_class.human_attribute_name(:card_number_iv) %></th>
+      <th><%= model_class.human_attribute_name(:ccv_number) %></th>
+      <th><%= model_class.human_attribute_name(:ccv_number_key) %></th>
+      <th><%= model_class.human_attribute_name(:ccv_number_iv) %></th>
+      <th><%= model_class.human_attribute_name(:date_month) %></th>
+      <th><%= model_class.human_attribute_name(:date_month_key) %></th>
+      <th><%= model_class.human_attribute_name(:date_month_iv) %></th>
+      <th><%= model_class.human_attribute_name(:date_year) %></th>
+      <th><%= model_class.human_attribute_name(:date_year_key) %></th>
+      <th><%= model_class.human_attribute_name(:date_year_iv) %></th>
+      <th><%= model_class.human_attribute_name(:giving) %></th>
+      <th><%= model_class.human_attribute_name(:year) %></th>
+      <th><%= model_class.human_attribute_name(:card_type) %></th>
+      <th><%= model_class.human_attribute_name(:amountfinal) %></th>
+      <th><%= model_class.human_attribute_name(:propose_of_donation) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
+      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:province) %></th>
+      <th><%= model_class.human_attribute_name(:country) %></th>
+      <th><%= model_class.human_attribute_name(:postal_code) %></th>
+      <th><%= model_class.human_attribute_name(:phone_number) %></th>
+      <th><%= model_class.human_attribute_name(:finalamount) %></th>
+      <th><%= model_class.human_attribute_name(:giving_year) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @egivings.each do |egiving| %>
       <tr>
+        <td><%= link_to egiving.id, egiving_path(egiving) %></td>
         <td><%= egiving.amount %></td>
         <td><%= egiving.send_email_giver %></td>
         <td><%= egiving.email_of_giver %></td>
@@ -76,14 +80,21 @@
         <td><%= egiving.phone_number %></td>
         <td><%= egiving.finalamount %></td>
         <td><%= egiving.giving_year %></td>
-        <td><%= link_to 'Show', egiving %></td>
-        <td><%= link_to 'Edit', edit_egiving_path(egiving) %></td>
-        <td><%= link_to 'Destroy', egiving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l egiving.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_egiving_path(egiving), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      egiving_path(egiving),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Egiving', new_egiving_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_egiving_path,
+            :class => 'btn btn-primary' %>

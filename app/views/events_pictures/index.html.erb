@@ -1,22 +1,26 @@
-<h1>Listing events_pictures</h1>
-
-<table>
+<%- model_class = EventsPicture -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Event image</th>
-      <th>Linked event</th>
-      <th>Description</th>
-      <th>Event</th>
-      <th>Eventimage</th>
-      <th>Image processed</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:event_image) %></th>
+      <th><%= model_class.human_attribute_name(:linked_event) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:event_id) %></th>
+      <th><%= model_class.human_attribute_name(:eventimage) %></th>
+      <th><%= model_class.human_attribute_name(:image_processed) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @events_pictures.each do |events_picture| %>
       <tr>
+        <td><%= link_to events_picture.id, events_picture_path(events_picture) %></td>
         <td><%= events_picture.title %></td>
         <td><%= events_picture.event_image %></td>
         <td><%= events_picture.linked_event %></td>
@@ -24,14 +28,21 @@
         <td><%= events_picture.event_id %></td>
         <td><%= events_picture.eventimage %></td>
         <td><%= events_picture.image_processed %></td>
-        <td><%= link_to 'Show', events_picture %></td>
-        <td><%= link_to 'Edit', edit_events_picture_path(events_picture) %></td>
-        <td><%= link_to 'Destroy', events_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l events_picture.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_events_picture_path(events_picture), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      events_picture_path(events_picture),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Events picture', new_events_picture_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_events_picture_path,
+            :class => 'btn btn-primary' %>

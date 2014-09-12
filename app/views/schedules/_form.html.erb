@@ -1,18 +1,22 @@
-<%= simple_form_for(@schedule) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @schedule, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@schedule[:name]) %>
+  <%= f.input :description %>
+  <%= error_span(@schedule[:description]) %>
+  <%= f.input :end_month %>
+  <%= error_span(@schedule[:end_month]) %>
+  <%= f.input :start_month %>
+  <%= error_span(@schedule[:start_month]) %>
+  <%= f.input :schedule_image %>
+  <%= error_span(@schedule[:schedule_image]) %>
+  <%= f.input :image_processed %>
+  <%= error_span(@schedule[:image_processed]) %>
+  <%= f.input :url %>
+  <%= error_span(@schedule[:url]) %>
+  <%= f.input :slug %>
+  <%= error_span(@schedule[:slug]) %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :end_month %>
-    <%= f.input :start_month %>
-    <%= f.input :schedule_image %>
-    <%= f.input :image_processed %>
-    <%= f.input :url %>
-    <%= f.input :slug %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                schedules_path, :class => 'btn btn-default' %>
 <% end %>

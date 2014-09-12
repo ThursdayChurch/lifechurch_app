@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Announcement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Message:</strong>
-  <%= @announcement.message %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:message) %>:</strong></dt>
+  <dd><%= @announcement.message %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:starts_at) %>:</strong></dt>
+  <dd><%= @announcement.starts_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ends_at) %>:</strong></dt>
+  <dd><%= @announcement.ends_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:green) %>:</strong></dt>
+  <dd><%= @announcement.green %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:colours) %>:</strong></dt>
+  <dd><%= @announcement.colours %></dd>
+</dl>
 
-<p>
-  <strong>Starts at:</strong>
-  <%= @announcement.starts_at %>
-</p>
-
-<p>
-  <strong>Ends at:</strong>
-  <%= @announcement.ends_at %>
-</p>
-
-<p>
-  <strong>Green:</strong>
-  <%= @announcement.green %>
-</p>
-
-<p>
-  <strong>Colours:</strong>
-  <%= @announcement.colours %>
-</p>
-
-<%= link_to 'Edit', edit_announcement_path(@announcement) %> |
-<%= link_to 'Back', announcements_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              announcements_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_announcement_path(@announcement), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              announcement_path(@announcement),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

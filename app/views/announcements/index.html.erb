@@ -1,33 +1,44 @@
-<h1>Listing announcements</h1>
-
-<table>
+<%- model_class = Announcement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Message</th>
-      <th>Starts at</th>
-      <th>Ends at</th>
-      <th>Green</th>
-      <th>Colours</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:message) %></th>
+      <th><%= model_class.human_attribute_name(:starts_at) %></th>
+      <th><%= model_class.human_attribute_name(:ends_at) %></th>
+      <th><%= model_class.human_attribute_name(:green) %></th>
+      <th><%= model_class.human_attribute_name(:colours) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @announcements.each do |announcement| %>
       <tr>
+        <td><%= link_to announcement.id, announcement_path(announcement) %></td>
         <td><%= announcement.message %></td>
         <td><%= announcement.starts_at %></td>
         <td><%= announcement.ends_at %></td>
         <td><%= announcement.green %></td>
         <td><%= announcement.colours %></td>
-        <td><%= link_to 'Show', announcement %></td>
-        <td><%= link_to 'Edit', edit_announcement_path(announcement) %></td>
-        <td><%= link_to 'Destroy', announcement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l announcement.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_announcement_path(announcement), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      announcement_path(announcement),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Announcement', new_announcement_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_announcement_path,
+            :class => 'btn btn-primary' %>

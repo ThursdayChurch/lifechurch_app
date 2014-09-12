@@ -1,22 +1,26 @@
-<h1>Listing life_pulses_stocks_pictures</h1>
-
-<table>
+<%- model_class = LifePulsesStocksPicture -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Life pulse</th>
-      <th>Life pulse image</th>
-      <th>Title</th>
-      <th>Summary</th>
-      <th>Image processed</th>
-      <th>Main page</th>
-      <th>Life pulse stock image</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:life_pulse_id) %></th>
+      <th><%= model_class.human_attribute_name(:life_pulse_image) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:summary) %></th>
+      <th><%= model_class.human_attribute_name(:image_processed) %></th>
+      <th><%= model_class.human_attribute_name(:main_page) %></th>
+      <th><%= model_class.human_attribute_name(:life_pulse_stock_image) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @life_pulses_stocks_pictures.each do |life_pulses_stocks_picture| %>
       <tr>
+        <td><%= link_to life_pulses_stocks_picture.id, life_pulses_stocks_picture_path(life_pulses_stocks_picture) %></td>
         <td><%= life_pulses_stocks_picture.life_pulse_id %></td>
         <td><%= life_pulses_stocks_picture.life_pulse_image %></td>
         <td><%= life_pulses_stocks_picture.title %></td>
@@ -24,14 +28,21 @@
         <td><%= life_pulses_stocks_picture.image_processed %></td>
         <td><%= life_pulses_stocks_picture.main_page %></td>
         <td><%= life_pulses_stocks_picture.life_pulse_stock_image %></td>
-        <td><%= link_to 'Show', life_pulses_stocks_picture %></td>
-        <td><%= link_to 'Edit', edit_life_pulses_stocks_picture_path(life_pulses_stocks_picture) %></td>
-        <td><%= link_to 'Destroy', life_pulses_stocks_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l life_pulses_stocks_picture.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_life_pulses_stocks_picture_path(life_pulses_stocks_picture), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      life_pulses_stocks_picture_path(life_pulses_stocks_picture),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Life pulses stocks picture', new_life_pulses_stocks_picture_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_life_pulses_stocks_picture_path,
+            :class => 'btn btn-primary' %>

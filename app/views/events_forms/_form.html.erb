@@ -1,32 +1,50 @@
-<%= simple_form_for(@events_form) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @events_form, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :event_setup_form_id %>
+  <%= error_span(@events_form[:event_setup_form_id]) %>
+  <%= f.input :first_name %>
+  <%= error_span(@events_form[:first_name]) %>
+  <%= f.input :last_name %>
+  <%= error_span(@events_form[:last_name]) %>
+  <%= f.input :receive_emails %>
+  <%= error_span(@events_form[:receive_emails]) %>
+  <%= f.input :email %>
+  <%= error_span(@events_form[:email]) %>
+  <%= f.input :phone_number %>
+  <%= error_span(@events_form[:phone_number]) %>
+  <%= f.input :notes %>
+  <%= error_span(@events_form[:notes]) %>
+  <%= f.input :c_f_1_s %>
+  <%= error_span(@events_form[:c_f_1_s]) %>
+  <%= f.input :c_f_2_s %>
+  <%= error_span(@events_form[:c_f_2_s]) %>
+  <%= f.input :c_f_3_s %>
+  <%= error_span(@events_form[:c_f_3_s]) %>
+  <%= f.input :c_f_4_s %>
+  <%= error_span(@events_form[:c_f_4_s]) %>
+  <%= f.input :c_f_5_b %>
+  <%= error_span(@events_form[:c_f_5_b]) %>
+  <%= f.input :c_f_6_b %>
+  <%= error_span(@events_form[:c_f_6_b]) %>
+  <%= f.input :c_f_7_b %>
+  <%= error_span(@events_form[:c_f_7_b]) %>
+  <%= f.input :c_f_8_b %>
+  <%= error_span(@events_form[:c_f_8_b]) %>
+  <%= f.input :c_f_9_t %>
+  <%= error_span(@events_form[:c_f_9_t]) %>
+  <%= f.input :c_f_10_t %>
+  <%= error_span(@events_form[:c_f_10_t]) %>
+  <%= f.input :c_f_11_t %>
+  <%= error_span(@events_form[:c_f_11_t]) %>
+  <%= f.input :c_f_12_t %>
+  <%= error_span(@events_form[:c_f_12_t]) %>
+  <%= f.input :age %>
+  <%= error_span(@events_form[:age]) %>
+  <%= f.input :bday %>
+  <%= error_span(@events_form[:bday]) %>
+  <%= f.input :sex %>
+  <%= error_span(@events_form[:sex]) %>
 
-  <div class="form-inputs">
-    <%= f.input :event_setup_form_id %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :receive_emails %>
-    <%= f.input :email %>
-    <%= f.input :phone_number %>
-    <%= f.input :notes %>
-    <%= f.input :c_f_1_s %>
-    <%= f.input :c_f_2_s %>
-    <%= f.input :c_f_3_s %>
-    <%= f.input :c_f_4_s %>
-    <%= f.input :c_f_5_b %>
-    <%= f.input :c_f_6_b %>
-    <%= f.input :c_f_7_b %>
-    <%= f.input :c_f_8_b %>
-    <%= f.input :c_f_9_t %>
-    <%= f.input :c_f_10_t %>
-    <%= f.input :c_f_11_t %>
-    <%= f.input :c_f_12_t %>
-    <%= f.input :age %>
-    <%= f.input :bday %>
-    <%= f.input :sex %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                events_forms_path, :class => 'btn btn-default' %>
 <% end %>

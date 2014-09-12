@@ -1,15 +1,16 @@
-<%= simple_form_for(@announcement) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @announcement, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :message %>
+  <%= error_span(@announcement[:message]) %>
+  <%= f.input :starts_at %>
+  <%= error_span(@announcement[:starts_at]) %>
+  <%= f.input :ends_at %>
+  <%= error_span(@announcement[:ends_at]) %>
+  <%= f.input :green %>
+  <%= error_span(@announcement[:green]) %>
+  <%= f.input :colours %>
+  <%= error_span(@announcement[:colours]) %>
 
-  <div class="form-inputs">
-    <%= f.input :message %>
-    <%= f.input :starts_at %>
-    <%= f.input :ends_at %>
-    <%= f.input :green %>
-    <%= f.input :colours %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                announcements_path, :class => 'btn btn-default' %>
 <% end %>

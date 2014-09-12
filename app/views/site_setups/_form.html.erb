@@ -1,20 +1,26 @@
-<%= simple_form_for(@site_setup) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @site_setup, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :youtube %>
+  <%= error_span(@site_setup[:youtube]) %>
+  <%= f.input :facebook %>
+  <%= error_span(@site_setup[:facebook]) %>
+  <%= f.input :video_stream %>
+  <%= error_span(@site_setup[:video_stream]) %>
+  <%= f.input :twitter %>
+  <%= error_span(@site_setup[:twitter]) %>
+  <%= f.input :life_pulse %>
+  <%= error_span(@site_setup[:life_pulse]) %>
+  <%= f.input :leaders_blog %>
+  <%= error_span(@site_setup[:leaders_blog]) %>
+  <%= f.input :store %>
+  <%= error_span(@site_setup[:store]) %>
+  <%= f.input :video %>
+  <%= error_span(@site_setup[:video]) %>
+  <%= f.input :articles %>
+  <%= error_span(@site_setup[:articles]) %>
+  <%= f.input :shutdown %>
+  <%= error_span(@site_setup[:shutdown]) %>
 
-  <div class="form-inputs">
-    <%= f.input :youtube %>
-    <%= f.input :facebook %>
-    <%= f.input :video_stream %>
-    <%= f.input :twitter %>
-    <%= f.input :life_pulse %>
-    <%= f.input :leaders_blog %>
-    <%= f.input :store %>
-    <%= f.input :video %>
-    <%= f.input :articles %>
-    <%= f.input :shutdown %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                site_setups_path, :class => 'btn btn-default' %>
 <% end %>

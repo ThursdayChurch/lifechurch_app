@@ -1,43 +1,47 @@
-<h1>Listing abouts</h1>
-
-<table>
+<%- model_class = About -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Service day 1</th>
-      <th>Service time 1</th>
-      <th>Service day 2</th>
-      <th>Service time 2</th>
-      <th>Service day 3</th>
-      <th>Service time 3</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Postal code</th>
-      <th>Phone number</th>
-      <th>Toll free phone number</th>
-      <th>Fax number</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Gmaps</th>
-      <th>Youtube</th>
-      <th>Facebook</th>
-      <th>Video stream</th>
-      <th>Twitter</th>
-      <th>Country</th>
-      <th>Province</th>
-      <th>Life pulse</th>
-      <th>Leaders blog</th>
-      <th>Store</th>
-      <th>Video</th>
-      <th>Articles</th>
-      <th>Name</th>
-      <th>Slug</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:service_day_1) %></th>
+      <th><%= model_class.human_attribute_name(:service_time_1) %></th>
+      <th><%= model_class.human_attribute_name(:service_day_2) %></th>
+      <th><%= model_class.human_attribute_name(:service_time_2) %></th>
+      <th><%= model_class.human_attribute_name(:service_day_3) %></th>
+      <th><%= model_class.human_attribute_name(:service_time_3) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:postal_code) %></th>
+      <th><%= model_class.human_attribute_name(:phone_number) %></th>
+      <th><%= model_class.human_attribute_name(:toll_free_phone_number) %></th>
+      <th><%= model_class.human_attribute_name(:fax_number) %></th>
+      <th><%= model_class.human_attribute_name(:latitude) %></th>
+      <th><%= model_class.human_attribute_name(:longitude) %></th>
+      <th><%= model_class.human_attribute_name(:gmaps) %></th>
+      <th><%= model_class.human_attribute_name(:youtube) %></th>
+      <th><%= model_class.human_attribute_name(:facebook) %></th>
+      <th><%= model_class.human_attribute_name(:video_stream) %></th>
+      <th><%= model_class.human_attribute_name(:twitter) %></th>
+      <th><%= model_class.human_attribute_name(:country) %></th>
+      <th><%= model_class.human_attribute_name(:province) %></th>
+      <th><%= model_class.human_attribute_name(:life_pulse) %></th>
+      <th><%= model_class.human_attribute_name(:leaders_blog) %></th>
+      <th><%= model_class.human_attribute_name(:store) %></th>
+      <th><%= model_class.human_attribute_name(:video) %></th>
+      <th><%= model_class.human_attribute_name(:articles) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:slug) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @abouts.each do |about| %>
       <tr>
+        <td><%= link_to about.id, about_path(about) %></td>
         <td><%= about.service_day_1 %></td>
         <td><%= about.service_time_1 %></td>
         <td><%= about.service_day_2 %></td>
@@ -66,14 +70,21 @@
         <td><%= about.articles %></td>
         <td><%= about.name %></td>
         <td><%= about.slug %></td>
-        <td><%= link_to 'Show', about %></td>
-        <td><%= link_to 'Edit', edit_about_path(about) %></td>
-        <td><%= link_to 'Destroy', about, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l about.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_about_path(about), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      about_path(about),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New About', new_about_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_about_path,
+            :class => 'btn btn-primary' %>

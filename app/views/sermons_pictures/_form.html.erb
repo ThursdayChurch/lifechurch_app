@@ -1,13 +1,12 @@
-<%= simple_form_for(@sermons_picture) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @sermons_picture, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :sermon_image %>
+  <%= error_span(@sermons_picture[:sermon_image]) %>
+  <%= f.input :image_processed %>
+  <%= error_span(@sermons_picture[:image_processed]) %>
+  <%= f.input :sermons_id %>
+  <%= error_span(@sermons_picture[:sermons_id]) %>
 
-  <div class="form-inputs">
-    <%= f.input :sermon_image %>
-    <%= f.input :image_processed %>
-    <%= f.input :sermons_id %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                sermons_pictures_path, :class => 'btn btn-default' %>
 <% end %>

@@ -1,144 +1,73 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = About -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Service day 1:</strong>
-  <%= @about.service_day_1 %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:service_day_1) %>:</strong></dt>
+  <dd><%= @about.service_day_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:service_time_1) %>:</strong></dt>
+  <dd><%= @about.service_time_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:service_day_2) %>:</strong></dt>
+  <dd><%= @about.service_day_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:service_time_2) %>:</strong></dt>
+  <dd><%= @about.service_time_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:service_day_3) %>:</strong></dt>
+  <dd><%= @about.service_day_3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:service_time_3) %>:</strong></dt>
+  <dd><%= @about.service_time_3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @about.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @about.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:postal_code) %>:</strong></dt>
+  <dd><%= @about.postal_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
+  <dd><%= @about.phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:toll_free_phone_number) %>:</strong></dt>
+  <dd><%= @about.toll_free_phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fax_number) %>:</strong></dt>
+  <dd><%= @about.fax_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></dt>
+  <dd><%= @about.latitude %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
+  <dd><%= @about.longitude %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:gmaps) %>:</strong></dt>
+  <dd><%= @about.gmaps %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:youtube) %>:</strong></dt>
+  <dd><%= @about.youtube %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:facebook) %>:</strong></dt>
+  <dd><%= @about.facebook %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:video_stream) %>:</strong></dt>
+  <dd><%= @about.video_stream %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:twitter) %>:</strong></dt>
+  <dd><%= @about.twitter %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
+  <dd><%= @about.country %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:province) %>:</strong></dt>
+  <dd><%= @about.province %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:life_pulse) %>:</strong></dt>
+  <dd><%= @about.life_pulse %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:leaders_blog) %>:</strong></dt>
+  <dd><%= @about.leaders_blog %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:store) %>:</strong></dt>
+  <dd><%= @about.store %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:video) %>:</strong></dt>
+  <dd><%= @about.video %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:articles) %>:</strong></dt>
+  <dd><%= @about.articles %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @about.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:slug) %>:</strong></dt>
+  <dd><%= @about.slug %></dd>
+</dl>
 
-<p>
-  <strong>Service time 1:</strong>
-  <%= @about.service_time_1 %>
-</p>
-
-<p>
-  <strong>Service day 2:</strong>
-  <%= @about.service_day_2 %>
-</p>
-
-<p>
-  <strong>Service time 2:</strong>
-  <%= @about.service_time_2 %>
-</p>
-
-<p>
-  <strong>Service day 3:</strong>
-  <%= @about.service_day_3 %>
-</p>
-
-<p>
-  <strong>Service time 3:</strong>
-  <%= @about.service_time_3 %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @about.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @about.city %>
-</p>
-
-<p>
-  <strong>Postal code:</strong>
-  <%= @about.postal_code %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @about.phone_number %>
-</p>
-
-<p>
-  <strong>Toll free phone number:</strong>
-  <%= @about.toll_free_phone_number %>
-</p>
-
-<p>
-  <strong>Fax number:</strong>
-  <%= @about.fax_number %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @about.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @about.longitude %>
-</p>
-
-<p>
-  <strong>Gmaps:</strong>
-  <%= @about.gmaps %>
-</p>
-
-<p>
-  <strong>Youtube:</strong>
-  <%= @about.youtube %>
-</p>
-
-<p>
-  <strong>Facebook:</strong>
-  <%= @about.facebook %>
-</p>
-
-<p>
-  <strong>Video stream:</strong>
-  <%= @about.video_stream %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
-  <%= @about.twitter %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @about.country %>
-</p>
-
-<p>
-  <strong>Province:</strong>
-  <%= @about.province %>
-</p>
-
-<p>
-  <strong>Life pulse:</strong>
-  <%= @about.life_pulse %>
-</p>
-
-<p>
-  <strong>Leaders blog:</strong>
-  <%= @about.leaders_blog %>
-</p>
-
-<p>
-  <strong>Store:</strong>
-  <%= @about.store %>
-</p>
-
-<p>
-  <strong>Video:</strong>
-  <%= @about.video %>
-</p>
-
-<p>
-  <strong>Articles:</strong>
-  <%= @about.articles %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @about.name %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @about.slug %>
-</p>
-
-<%= link_to 'Edit', edit_about_path(@about) %> |
-<%= link_to 'Back', abouts_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              abouts_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_about_path(@about), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              about_path(@about),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

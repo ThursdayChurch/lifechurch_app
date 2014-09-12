@@ -1,32 +1,50 @@
-<%= simple_form_for(@church_staff) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @church_staff, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :first_name %>
+  <%= error_span(@church_staff[:first_name]) %>
+  <%= f.input :last_name %>
+  <%= error_span(@church_staff[:last_name]) %>
+  <%= f.input :spouse_first_name %>
+  <%= error_span(@church_staff[:spouse_first_name]) %>
+  <%= f.input :title %>
+  <%= error_span(@church_staff[:title]) %>
+  <%= f.input :started_service %>
+  <%= error_span(@church_staff[:started_service]) %>
+  <%= f.input :description %>
+  <%= error_span(@church_staff[:description]) %>
+  <%= f.input :contact_email %>
+  <%= error_span(@church_staff[:contact_email]) %>
+  <%= f.input :image %>
+  <%= error_span(@church_staff[:image]) %>
+  <%= f.input :birthday %>
+  <%= error_span(@church_staff[:birthday]) %>
+  <%= f.input :blog %>
+  <%= error_span(@church_staff[:blog]) %>
+  <%= f.input :url %>
+  <%= error_span(@church_staff[:url]) %>
+  <%= f.input :phone_ext %>
+  <%= error_span(@church_staff[:phone_ext]) %>
+  <%= f.input :phone_number %>
+  <%= error_span(@church_staff[:phone_number]) %>
+  <%= f.input :full_name %>
+  <%= error_span(@church_staff[:full_name]) %>
+  <%= f.input :email_id %>
+  <%= error_span(@church_staff[:email_id]) %>
+  <%= f.input :facebook %>
+  <%= error_span(@church_staff[:facebook]) %>
+  <%= f.input :twitter %>
+  <%= error_span(@church_staff[:twitter]) %>
+  <%= f.input :google_plus %>
+  <%= error_span(@church_staff[:google_plus]) %>
+  <%= f.input :linked_in %>
+  <%= error_span(@church_staff[:linked_in]) %>
+  <%= f.input :birth_location %>
+  <%= error_span(@church_staff[:birth_location]) %>
+  <%= f.input :category %>
+  <%= error_span(@church_staff[:category]) %>
+  <%= f.input :rank %>
+  <%= error_span(@church_staff[:rank]) %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :spouse_first_name %>
-    <%= f.input :title %>
-    <%= f.input :started_service %>
-    <%= f.input :description %>
-    <%= f.input :contact_email %>
-    <%= f.input :image %>
-    <%= f.input :birthday %>
-    <%= f.input :blog %>
-    <%= f.input :url %>
-    <%= f.input :phone_ext %>
-    <%= f.input :phone_number %>
-    <%= f.input :full_name %>
-    <%= f.input :email_id %>
-    <%= f.input :facebook %>
-    <%= f.input :twitter %>
-    <%= f.input :google_plus %>
-    <%= f.input :linked_in %>
-    <%= f.input :birth_location %>
-    <%= f.input :category %>
-    <%= f.input :rank %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                church_staffs_path, :class => 'btn btn-default' %>
 <% end %>

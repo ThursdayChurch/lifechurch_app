@@ -1,29 +1,40 @@
-<h1>Listing sermons_pictures</h1>
-
-<table>
+<%- model_class = SermonsPicture -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Sermon image</th>
-      <th>Image processed</th>
-      <th>Sermons</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:sermon_image) %></th>
+      <th><%= model_class.human_attribute_name(:image_processed) %></th>
+      <th><%= model_class.human_attribute_name(:sermons_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @sermons_pictures.each do |sermons_picture| %>
       <tr>
+        <td><%= link_to sermons_picture.id, sermons_picture_path(sermons_picture) %></td>
         <td><%= sermons_picture.sermon_image %></td>
         <td><%= sermons_picture.image_processed %></td>
         <td><%= sermons_picture.sermons_id %></td>
-        <td><%= link_to 'Show', sermons_picture %></td>
-        <td><%= link_to 'Edit', edit_sermons_picture_path(sermons_picture) %></td>
-        <td><%= link_to 'Destroy', sermons_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l sermons_picture.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_sermons_picture_path(sermons_picture), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      sermons_picture_path(sermons_picture),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Sermons picture', new_sermons_picture_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_sermons_picture_path,
+            :class => 'btn btn-primary' %>

@@ -1,6 +1,5 @@
-<h1>Editing site_setup</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @site_setup %> |
-<%= link_to 'Back', site_setups_path %>
+<%- model_class = SiteSetup -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

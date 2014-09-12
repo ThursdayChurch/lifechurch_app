@@ -1,14 +1,14 @@
-<%= simple_form_for(@notification) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @notification, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :email_1 %>
+  <%= error_span(@notification[:email_1]) %>
+  <%= f.input :email_2 %>
+  <%= error_span(@notification[:email_2]) %>
+  <%= f.input :send_email_2 %>
+  <%= error_span(@notification[:send_email_2]) %>
+  <%= f.input :open_site %>
+  <%= error_span(@notification[:open_site]) %>
 
-  <div class="form-inputs">
-    <%= f.input :email_1 %>
-    <%= f.input :email_2 %>
-    <%= f.input :send_email_2 %>
-    <%= f.input :open_site %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                notifications_path, :class => 'btn btn-default' %>
 <% end %>
