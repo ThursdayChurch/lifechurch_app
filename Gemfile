@@ -12,7 +12,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise_invitable'
-gem 'figaro', '>= 1.0.0.rc1'
+gem 'figaro', github: 'sealocal/figaro' #gem 'figaro', '>= 1.0.0.rc1'
 gem 'high_voltage'
 gem 'pg'
 gem 'pundit'
