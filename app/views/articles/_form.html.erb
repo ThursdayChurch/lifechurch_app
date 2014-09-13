@@ -1,0 +1,32 @@
+<%= simple_form_for @article, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@article[:name]) %>
+  <%= f.input :contact_person %>
+  <%= error_span(@article[:contact_person]) %>
+  <%= f.input :contact_email %>
+  <%= error_span(@article[:contact_email]) %>
+  <%= f.input :description %>
+  <%= error_span(@article[:description]) %>
+  <%= f.input :display_rank %>
+  <%= error_span(@article[:display_rank]) %>
+  <%= f.input :ta1 %>
+  <%= error_span(@article[:ta1]) %>
+  <%= f.input :ta2 %>
+  <%= error_span(@article[:ta2]) %>
+  <%= f.input :ta3 %>
+  <%= error_span(@article[:ta3]) %>
+  <%= f.input :ta4 %>
+  <%= error_span(@article[:ta4]) %>
+  <%= f.input :ta5 %>
+  <%= error_span(@article[:ta5]) %>
+  <%= f.input :advert_main_page %>
+  <%= error_span(@article[:advert_main_page]) %>
+  <%= f.input :title %>
+  <%= error_span(@article[:title]) %>
+  <%= f.input :slug %>
+  <%= error_span(@article[:slug]) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                articles_path, :class => 'btn btn-default' %>
+<% end %>

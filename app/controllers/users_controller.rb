@@ -3,7 +3,16 @@ class UsersController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @users = User.all
+     
+    if params[:approved] == "false"
+            @users = User.find_all_by_approved(false)
+            @user_count = User.find_all_by_approved(false).count
+            @approved = true
+    else
+            @users = User.all
+            @user_count = User.count
+            @approved = false
+    end
     authorize User
   end
 
