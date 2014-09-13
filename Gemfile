@@ -85,3 +85,6 @@ gem "gibbon"
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails', '>= 3.2.0'
+ gem 'jquery-fileupload-rails'
+ gem 'bootstrap-modal-rails'
+ gem 'jquery-ui-rails'

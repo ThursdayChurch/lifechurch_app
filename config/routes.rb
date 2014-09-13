@@ -37,6 +37,12 @@ Rails.application.routes.draw do
 
   resources :life_pulses_pictures
 
+
+  get "events/events"
+  get "events/advertisment"
+  get "events/calendar_only"
+  get 'learn_more/:id' => 'events#learn_more', :as => 'learn_more'
+
   resources :events
 
   resources :events_setup_forms
@@ -53,15 +59,50 @@ Rails.application.routes.draw do
 
   resources :church_staffs_pictures
 
+
   resources :bulletins
 
   resources :articles
 
+  match 'announcements/:id/hide', to: 'announcements#hide', :via => :get
   resources :announcements
 
-  resources :abouts
+  resources :abouts, :path => '' do
+    collection do
+     
+      get "mission_method" 
+      get "what_we_believe"
+      get "facility"
+      get "membership"
+      get "giving"
+      get "become_a_believer"
+      get "terms"
+      get "privacy"
+      get "what_to_expect"
+      get "who_we_are"
+      get "our_staff"
+     
+    end
+    
+  end
+
+  match 'contact_event' => 'contact_event#new', :via => :get
+  match 'contact_event' => 'contact_event#create', :via => :post
+ 
+
+  match 'contact_staff' => 'contact_staff#new', :via => :get
+  match 'contact_staff' => 'contact_staff#create',  :via => :post  
+
+  match 'contact_tech' => 'contact_tech#new',  :via => :get
+  match 'contact_tech' => 'contact_tech#create',  :via => :post
+  
+  match 'contact' => 'contact#new',  :via => :get
+  match 'contact' => 'contact#create', :via => :post
 
   root to: 'visitors#index'
+  
+  match "users/approve" => 'users#approve',  :via => :get
+  get "users/edit_site"
   devise_for :users
   resources :users
 end

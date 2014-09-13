@@ -2,6 +2,108 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+ 
+body { padding-top: 85px;
+
+ }
+ @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
+ @import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:200,300');
+ @import url('http://fonts.googleapis.com/css?family=Roboto+Slab');
+ @import url('http://fonts.googleapis.com/css?family=Vollkorn'); 
+
+ 
+//@import "bootstrap-responsive";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+//@import "twitter/bootstrap/responsive-utilities";
+@import "twitter/bootstrap/responsive-utilities.less";
+//@import "bootstrap/responsive-768px-979px";
+//@import "bootstrap/responsive-767px-max";
+@import "bootstrap/responsive-navbar";
+
+
+ 
+ 
+ 
+.navbar
+{
+   // background-color: grey;
+}
+
+/* Red */
+$bgDefault      : #e74c3c;
+$bgHighlight    : #c0392b;
+$colDefault     : #ecf0f1;
+$colHover       : #ffbbbc; 
+/* Green * /
+$bgDefault      : #2ecc71;
+$bgHighlight    : #27ae60;
+$colDefault     : #ecf0f1;
+$colHover       : #d1ffed; /*/
+/* Purple * /
+$bgDefault      : #9b59b6;
+$bgHighlight    : #8e44ad;
+$colDefault     : #ecf0f1;
+$colHover       : #ecdbff; /*/
+/* Orange * /
+$bgDefault      : #e67e22;
+$bgHighlight    : #d35400;
+$colDefault     : #ecf0f1;
+$colHover       : #ffe6d1; /*/
+
+
+/* --- Style --- */
+.navbar-default {
+    background-color: $bgDefault;
+    border-color: $bgHighlight;
+    .navbar-brand {
+        color: $colDefault;
+        &:hover, &:focus {
+            color: $colHover; }}
+    .navbar-nav {
+        > li {
+            > a {
+                color: $colDefault;
+                &:hover, &:focus {
+                    color: $colHover;   }}}
+        .active {
+            > a, > a:hover, > a:focus {
+                color: $colHover;
+                background-color: $bgHighlight; }}
+        .open {
+            > a, > a:hover, > a:focus {
+                color: $colHover;
+                background-color: $bgHighlight;
+                .caret {
+                    border-top-color: $colHover;
+                    border-bottom-color: $colHover; }}}
+        > .dropdown {
+            > a {
+                .caret {
+                    border-top-color: $colDefault;
+                    border-bottom-color: $colDefault; }
+                &:hover, &:focus {
+                    .caret {
+                        border-top-color: $colHover;
+                        border-bottom-color: $colHover; }}}}}
+    .navbar-toggle {
+        border-color: $bgHighlight;
+        &:hover, &:focus {
+            background-color: $bgHighlight; }
+        .icon-bar {
+            background-color: $colDefault; }}}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: $colDefault;
+        &:hover, &:focus {
+            color: $colHover;
+            background-color: $bgHighlight; }}
+}
+
+
+
+
+
 // make all images responsive by default
 img {
   @extend .img-responsive;
