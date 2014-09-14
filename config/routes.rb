@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   resources :speakers_pictures
 
+  get "site_setups/site_setup"
+  
+  
   resources :site_setups
 
   resources :service_times

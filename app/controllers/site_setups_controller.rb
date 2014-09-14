@@ -1,6 +1,16 @@
 class SiteSetupsController < ApplicationController
   before_action :set_site_setup, only: [:show, :edit, :update, :destroy]
 
+
+
+  before_filter :authenticate_user!, :except => [:site_down] 
+ 
+  
+  def site_down
+     
+  end
+  
+
   # GET /site_setups
   # GET /site_setups.json
   def index
