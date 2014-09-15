@@ -24,12 +24,12 @@ class User < ActiveRecord::Base
 
    after_create :send_admin_mail, :assign_default_role, :send_welcome_email#, :add_user_to_mailchimp
 
-   after_save :check_for_email_preferrence 
+ #  after_save :check_for_email_preferrence 
    before_save :update_country_state
 
  
 
-   before_destroy :remove_user_from_mailchimp
+  # before_destroy :remove_user_from_mailchimp
 
 
    def update_country_state
@@ -66,13 +66,13 @@ class User < ActiveRecord::Base
 
 
    def check_for_email_preferrence
-
+     
      if self.yes_receive_email == true
        add_user_to_mailchimp
      else
        remove_user_from_mailchimp
      end    
-
+    
    end
 
    def active_for_authentication?
@@ -118,7 +118,7 @@ class User < ActiveRecord::Base
 
    def add_user_to_mailchimp
         return if email.include?(ENV['ADMIN_EMAIL'])
-        mailchimp = Gibbon.new
+        mailchimp = Gibbon::API.new
         result = mailchimp.list_subscribe({
           :id => ENV['MAILCHIMP_LIST_ID'],
           :email_address => self.email,
@@ -132,7 +132,7 @@ class User < ActiveRecord::Base
       end
 
     def remove_user_from_mailchimp
-      mailchimp = Gibbon.new
+      mailchimp = Gibbon::API.new
       result = mailchimp.list_unsubscribe({
         :id => ENV['MAILCHIMP_LIST_ID'],
         :email_address => self.email,
