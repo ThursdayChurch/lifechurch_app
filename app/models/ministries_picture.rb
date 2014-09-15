@@ -1,5 +1,5 @@
 class MinistriesPicture < ActiveRecord::Base
- # mount_uploader :ministry_image, MinistryImageUploader
+  mount_uploader :ministry_image, MinistryImageUploader
   belongs_to :ministry, :inverse_of => :ministry_pictures
  
      after_create :enqueue_image

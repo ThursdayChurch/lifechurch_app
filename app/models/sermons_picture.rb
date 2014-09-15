@@ -1,5 +1,5 @@
 class SermonsPicture < ActiveRecord::Base
- # mount_uploader :sermon_image, SermonImageUploader
+  mount_uploader :sermon_image, SermonImageUploader
   belongs_to :sermon, :inverse_of => :sermon_pictures
 
 

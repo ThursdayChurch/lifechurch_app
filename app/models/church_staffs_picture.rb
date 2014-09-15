@@ -1,6 +1,6 @@
 class ChurchStaffsPicture < ActiveRecord::Base
   
- # mount_uploader :staff_image, StaffImageUploader
+  mount_uploader :staff_image, StaffImageUploader
 
   belongs_to :church_staff, :inverse_of => :church_staffs_pictures
 

@@ -1,6 +1,6 @@
 class EventsPicture < ActiveRecord::Base
   
-   #mount_uploader :event_image, EventImageUploader
+   mount_uploader :event_image, EventImageUploader
 belongs_to :event, :inverse_of => :event_pictures
 
 

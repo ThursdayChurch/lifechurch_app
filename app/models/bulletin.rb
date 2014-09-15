@@ -2,7 +2,7 @@ class Bulletin < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged 
   
-  #mount_uploader :bulletin_image, BulletinImageUploader
+ mount_uploader :bulletin_image, BulletinImageUploader
  
   resourcify
    

@@ -1,6 +1,6 @@
 class LifePulsesPicture < ActiveRecord::Base
 
- # mount_uploader :life_pulse_image, LifePulseImageUploader
+  mount_uploader :life_pulse_image, LifePulseImageUploader
   belongs_to :life_pulse, :inverse_of => :life_pulse_pictures
 
 

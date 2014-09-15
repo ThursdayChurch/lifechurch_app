@@ -1,5 +1,5 @@
 class SpeakersPicture < ActiveRecord::Base
-   #  mount_uploader :speaker_image, SpeakerImageUploader
+    mount_uploader :speaker_image, SpeakerImageUploader
      
   belongs_to :speaker, :inverse_of => :speaker_pictures
 
