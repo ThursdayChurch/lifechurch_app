@@ -1,3 +1,5 @@
+module SiteSetupsHelper
+  
   def resource_name
     :user
   end
@@ -12,4 +14,3 @@
   
   
 end
-
