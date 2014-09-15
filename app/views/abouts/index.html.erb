@@ -1,90 +1,134 @@
-<%- model_class = About -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:service_day_1) %></th>
-      <th><%= model_class.human_attribute_name(:service_time_1) %></th>
-      <th><%= model_class.human_attribute_name(:service_day_2) %></th>
-      <th><%= model_class.human_attribute_name(:service_time_2) %></th>
-      <th><%= model_class.human_attribute_name(:service_day_3) %></th>
-      <th><%= model_class.human_attribute_name(:service_time_3) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:city) %></th>
-      <th><%= model_class.human_attribute_name(:postal_code) %></th>
-      <th><%= model_class.human_attribute_name(:phone_number) %></th>
-      <th><%= model_class.human_attribute_name(:toll_free_phone_number) %></th>
-      <th><%= model_class.human_attribute_name(:fax_number) %></th>
-      <th><%= model_class.human_attribute_name(:latitude) %></th>
-      <th><%= model_class.human_attribute_name(:longitude) %></th>
-      <th><%= model_class.human_attribute_name(:gmaps) %></th>
-      <th><%= model_class.human_attribute_name(:youtube) %></th>
-      <th><%= model_class.human_attribute_name(:facebook) %></th>
-      <th><%= model_class.human_attribute_name(:video_stream) %></th>
-      <th><%= model_class.human_attribute_name(:twitter) %></th>
-      <th><%= model_class.human_attribute_name(:country) %></th>
-      <th><%= model_class.human_attribute_name(:province) %></th>
-      <th><%= model_class.human_attribute_name(:life_pulse) %></th>
-      <th><%= model_class.human_attribute_name(:leaders_blog) %></th>
-      <th><%= model_class.human_attribute_name(:store) %></th>
-      <th><%= model_class.human_attribute_name(:video) %></th>
-      <th><%= model_class.human_attribute_name(:articles) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:slug) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @abouts.each do |about| %>
-      <tr>
-        <td><%= link_to about.id, about_path(about) %></td>
-        <td><%= about.service_day_1 %></td>
-        <td><%= about.service_time_1 %></td>
-        <td><%= about.service_day_2 %></td>
-        <td><%= about.service_time_2 %></td>
-        <td><%= about.service_day_3 %></td>
-        <td><%= about.service_time_3 %></td>
-        <td><%= about.address %></td>
-        <td><%= about.city %></td>
-        <td><%= about.postal_code %></td>
-        <td><%= about.phone_number %></td>
-        <td><%= about.toll_free_phone_number %></td>
-        <td><%= about.fax_number %></td>
-        <td><%= about.latitude %></td>
-        <td><%= about.longitude %></td>
-        <td><%= about.gmaps %></td>
-        <td><%= about.youtube %></td>
-        <td><%= about.facebook %></td>
-        <td><%= about.video_stream %></td>
-        <td><%= about.twitter %></td>
-        <td><%= about.country %></td>
-        <td><%= about.province %></td>
-        <td><%= about.life_pulse %></td>
-        <td><%= about.leaders_blog %></td>
-        <td><%= about.store %></td>
-        <td><%= about.video %></td>
-        <td><%= about.articles %></td>
-        <td><%= about.name %></td>
-        <td><%= about.slug %></td>
-        <td><%=l about.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_about_path(about), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      about_path(about),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+<div class="mission_bg img-rounded ">
+	<br>
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">About Life Church</span> </td>
+  <td><div class="round_line_hoz"> </div> </td>
 </table>
+<div class="row pull-center">
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_about_path,
-            :class => 'btn btn-primary' %>
+ <div class="round_line_hoz2"> </div> 
+ <div class="span10 pull-center">
+	 <div class="offset1 span9">
+<p class="text-center">
+	<br>
+		<%= image_tag("about_lc_building.png", :class =>"pull-center"  ) %>
+</p></div>
+</div>
+</div>
+ <div class="round_line_hoz2"> </div> 
+ <br>
+ <div  class="row">
+ <div  class="span7  offset1">
+ <p class="pull-left staff_descrip img-rounded">Life Church is a growing, personal, relationship-based church that focuses
+on influencing individuals, families and community with the gospel of 
+Christ. We believe the only hope we have in life is Jesus – so in 
+everything we do we point people toward Him. We do this by making 
+disciples through gospel-centered teaching, worship, prayer, fellowship, 
+service and sacrifice.  Life Church exists to bring glory to God.  We are an 
+assembly of disciples glorifying God together. </p>
+</div><div class=" span1">
+ <table>
+	
+	 <tr><td>
+		 <br>
+	   <%= link_to 'What We Believe', abouts_what_we_believe_path, :class => 'btn btn-primary btn-about '%>
+	</td></tr>
+	 <tr><td> 
+	 <%= link_to 'Mission & Method', abouts_mission_method_path, :class => 'btn btn-primary btn-about '%>
+	</td></tr>
+ <tr><td>
+	  <section id="service_times"> 
+	  <%= link_to 'What To Expect', abouts_what_to_expect_path,  :class => 'btn btn-primary btn-about '%>
+</td></tr>
+ <tr><td> 
+	 <%= link_to 'Leadership', church_staffs_path, :class => 'btn btn-primary btn-about '%>
+</td></tr>
+
+ </table>
+</div><!-- Span7 -->
+</div> <!-- Row -->
+<br>
+ <div class="round_line_hoz2"> </div> 
+ <br>
+ 
+ 
+
+
+<div class="row">
+ <div class="span5 offset1">	
+	 <br>
+ 
+	<%= image_tag("you_are_welcome.png",:style=>"margin-left:50px;") %> 
+ </div>
+ <div class="span4" style="margin-left:89px;">
+	 <p>
+	<h40>Service Times</h40>
+	
+	
+	   <% @service_times.each do |service_time| %>
+
+ 
+	<br>
+  <%= service_time.service_name %>&nbsp;- <%= service_time.start_time.strftime("%l:%M %p")  %> 
+
+ <% end %>
+
+	</p>
+	 
+	<% if user_signed_in? %> 
+	<% if can? :edit, :abouts %>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.trip_setup', :default => t("helpers.links.Setup Service Times")),
+		                      service_times_path, :class => 'btn btn-primary btn-mini-flat' %> 
+			
+				<% end%>
+					 
+				<% end%>
+	</div>
+ 
+</div>
+<br>
+<br>
+<br>
+</section>
+<section id="direction">
+<div class="row-fluid">
+	<div class="offset1 span6">
+     &nbsp;
+	 &nbsp;
+	
+	<iframe width="80%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?q=547+athlone+ave+woodstock+on&amp;ie=UTF8&amp;hq=&amp;hnear=547+Athlone+Ave,+Woodstock,+Ontario+N4S+7V8&amp;gl=ca&amp;ll=43.106388,-80.745452&amp;spn=0.015604,0.034547&amp;t=h&amp;z=14&amp;output=embed&iwloc=near"></iframe><br /><small><a href="https://maps.google.ca/maps?q=547+athlone+ave+woodstock+on&amp;ie=UTF8&amp;hq=&amp;hnear=547+Athlone+Ave,+Woodstock,+Ontario+N4S+7V8&amp;gl=ca&amp;ll=43.106388,-80.745452&amp;spn=0.015604,0.034547&amp;t=h&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+	
+</div> 
+  	<div class="span4">
+		<h2>Church Location</h2>
+		<address>
+			<strong>Life Church International</strong><br>
+			<%=@abouts.address %><br>
+			<%=@abouts.city %><br>
+			<%=@abouts.province %><br>
+			<%=@abouts.postal_code %><br>
+			 <i class="icon-phone"></i>  <%=@abouts.phone_number %><br> 
+		</address>
+		
+		<p><strong>You can see the Church from 401</strong></p>
+		
+		<p><strong>Click on the Map for Directions</strong></p>
+		
+		
+		<% if user_signed_in? %> 
+		<% if can? :edit, :abouts  %>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.show', :default => t("helpers.links.Setup About")),
+		                      about_path(1), :class => 'btn btn-primary btn-mini-flat' %>
+				
+					<% end%>
+					<% end%>
+				 
+		
+		
+	</div>
+</div>
+</section> 
+
+
+ <br>
+</div>

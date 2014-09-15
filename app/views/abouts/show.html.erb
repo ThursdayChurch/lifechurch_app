@@ -4,62 +4,26 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:service_day_1) %>:</strong></dt>
-  <dd><%= @about.service_day_1 %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:service_time_1) %>:</strong></dt>
-  <dd><%= @about.service_time_1 %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:service_day_2) %>:</strong></dt>
-  <dd><%= @about.service_day_2 %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:service_time_2) %>:</strong></dt>
-  <dd><%= @about.service_time_2 %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:service_day_3) %>:</strong></dt>
-  <dd><%= @about.service_day_3 %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:service_time_3) %>:</strong></dt>
-  <dd><%= @about.service_time_3 %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
   <dd><%= @about.address %></dd>
   <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
   <dd><%= @about.city %></dd>
+  <dt><strong>Province:</strong></dt>
+  <dd><%= @about.province %></dd>
+  <dt><strong>Country:</strong></dt>
+  <dd><%= @about.country %></dd>
   <dt><strong><%= model_class.human_attribute_name(:postal_code) %>:</strong></dt>
   <dd><%= @about.postal_code %></dd>
   <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
   <dd><%= @about.phone_number %></dd>
   <dt><strong><%= model_class.human_attribute_name(:toll_free_phone_number) %>:</strong></dt>
   <dd><%= @about.toll_free_phone_number %></dd>
+  
+  <% unless @about.fax_number !=nil %>
   <dt><strong><%= model_class.human_attribute_name(:fax_number) %>:</strong></dt>
   <dd><%= @about.fax_number %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></dt>
-  <dd><%= @about.latitude %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
-  <dd><%= @about.longitude %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:gmaps) %>:</strong></dt>
-  <dd><%= @about.gmaps %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:youtube) %>:</strong></dt>
-  <dd><%= @about.youtube %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:facebook) %>:</strong></dt>
-  <dd><%= @about.facebook %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:video_stream) %>:</strong></dt>
-  <dd><%= @about.video_stream %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:twitter) %>:</strong></dt>
-  <dd><%= @about.twitter %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
-  <dd><%= @about.country %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:province) %>:</strong></dt>
-  <dd><%= @about.province %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:life_pulse) %>:</strong></dt>
-  <dd><%= @about.life_pulse %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:leaders_blog) %>:</strong></dt>
-  <dd><%= @about.leaders_blog %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:store) %>:</strong></dt>
-  <dd><%= @about.store %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:video) %>:</strong></dt>
-  <dd><%= @about.video %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:articles) %>:</strong></dt>
-  <dd><%= @about.articles %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @about.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:slug) %>:</strong></dt>
-  <dd><%= @about.slug %></dd>
+  <% end %>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

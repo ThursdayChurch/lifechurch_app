@@ -1,15 +1,106 @@
 class AboutsController < ApplicationController
-  before_action :set_about, only: [:show, :edit, :update, :destroy]
+ 
+ # load_and_authorize_resource :except => [:index, :home, :our_staff, :who_we_are,:privacy, :terms, :what_to_expect, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
+#  before_filter :authenticate_user!, :except => [:index, :our_staff, :who_we_are, :privacy, :terms, :what_to_expect, :home, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
+ 
+
+  def home
+    @today = DateTime.now.strftime("%Y-%m-%d")
+    
+     @events = Event.where(:display_main_page => true).where("remove_event_date >= ?", @today).sample(5).shuffle 
+  
+   
+     events_side_forced = Event.where(:display_main_page => true).where(:force_on_main_page => true)
+     
+     if events_side_forced.count >= 3
+        @events_side = events_side_forced   
+     else
+        @events_side = Event.where(:display_main_page => true).where("remove_event_date >= ?", @today).order("event_type DESC").order("force_on_main_page DESC").limit(3).shuffle  #.order("highlight DESC")
+     end
+     
+     
+     @abouts = About.last
+    
+  end
+  
+  def our_staff
+    
+    @church_staffs = ChurchStaff.all
+    
+  end
+  
+  def who_we_are
+    @abouts = About.last
+    @service_times = ServiceTime.all
+    @message = Message.new
+    abouts = About.last
+     @json = abouts.to_gmaps4rails
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @abouts }
+    end
+  end
+  
+  def mission_method  
+  
+  end  
+  
+  def what_we_believe 
+    
+     @summaries = Summary.all
+  
+  end
+  
+  def facility
+    
+  end
+  
+  def membership
+    
+  end
+  
+  def giving
+    
+  end
+  
+  def become_a_believer
+    
+  end
+  
+  def privacy
+    
+  end 
+  
+  def terms
+    
+  end
+  
+  def what_to_expect
+    
+  end
+  
+
 
   # GET /abouts
   # GET /abouts.json
   def index
-    @abouts = About.all
+    
+    @abouts = About.last
+    @service_times = ServiceTime.all
+    @message = Message.new
+    abouts = About.last
+     @json = abouts.to_gmaps4rails
+     
+    
   end
 
   # GET /abouts/1
   # GET /abouts/1.json
   def show
+    @about = About.last
+    abouts = About.last
+     @jsons = About.last.to_gmaps4rails
+    @json = About.all.to_gmaps4rails
   end
 
   # GET /abouts/new
@@ -19,30 +110,30 @@ class AboutsController < ApplicationController
 
   # GET /abouts/1/edit
   def edit
+    @about = About.last
   end
 
   # POST /abouts
   # POST /abouts.json
   def create
-    @about = About.new(about_params)
+    @message = Message.new(params[:message])
 
-    respond_to do |format|
-      if @about.save
-        format.html { redirect_to @about, notice: 'About was successfully created.' }
-        format.json { render :show, status: :created, location: @about }
-      else
-        format.html { render :new }
-        format.json { render json: @about.errors, status: :unprocessable_entity }
-      end
+    if @message.valid?
+       ContactMailer.site_message(@message).deliver
+      redirect_to(abouts_path, :notice => "Your message was successfully sent.")
+    else
+      flash.now.alert = "Please fill all fields."
+      render :new
     end
   end
 
   # PATCH/PUT /abouts/1
   # PATCH/PUT /abouts/1.json
   def update
+  @about = About.last
     respond_to do |format|
       if @about.update(about_params)
-        format.html { redirect_to @about, notice: 'About was successfully updated.' }
+        format.html { redirect_to @about, notice: 'General Info was successfully updated.'}
         format.json { render :show, status: :ok, location: @about }
       else
         format.html { render :edit }
@@ -51,21 +142,9 @@ class AboutsController < ApplicationController
     end
   end
 
-  # DELETE /abouts/1
-  # DELETE /abouts/1.json
-  def destroy
-    @about.destroy
-    respond_to do |format|
-      format.html { redirect_to abouts_url, notice: 'About was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
+ 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_about
-      @about = About.find(params[:id])
-    end
+ 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def about_params

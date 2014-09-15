@@ -4,7 +4,7 @@ class Bulletin < ActiveRecord::Base
   
  mount_uploader :bulletin_image, BulletinImageUploader
  
-  resourcify
+  
    
   validates :display_start, presence: true
   

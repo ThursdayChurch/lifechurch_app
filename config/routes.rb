@@ -70,6 +70,11 @@ Rails.application.routes.draw do
   match 'announcements/:id/hide', to: 'announcements#hide', :via => :get
   resources :announcements
 
+  root :to => 'abouts#home'
+  
+ post 'abouts/contact' 
+
+    
   resources :abouts, :path => '' do
     collection do
      
@@ -102,7 +107,7 @@ Rails.application.routes.draw do
   match 'contact' => 'contact#new',  :via => :get
   match 'contact' => 'contact#create', :via => :post
 
-  root to: 'visitors#index'
+ 
   
   match "users/approve" => 'users#approve',  :via => :get
   get "users/edit_site"
