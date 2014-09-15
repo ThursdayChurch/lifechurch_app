@@ -1,12 +1,12 @@
-class Thanks < ActionMailer::Base
+class MemberMailer < ActionMailer::Base
   default from: "from@example.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.thanks.thankyou.subject
+  #   en.member.your_approved.subject
   #
-  def thankyou
+  def your_approved
     @greeting = "Hi"
 
     mail to: "to@example.org"
@@ -15,9 +15,9 @@ class Thanks < ActionMailer::Base
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.thanks.thankyouus.subject
+  #   en.member.welcome_email.subject
   #
-  def thankyouus
+  def welcome_email
     @greeting = "Hi"
 
     mail to: "to@example.org"
@@ -26,9 +26,9 @@ class Thanks < ActionMailer::Base
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.thanks.thankyouother.subject
+  #   en.member.send_using_Mandrill.subject
   #
-  def thankyouother
+  def send_using_Mandrill
     @greeting = "Hi"
 
     mail to: "to@example.org"

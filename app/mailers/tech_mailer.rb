@@ -1,12 +1,12 @@
-class Event < ActionMailer::Base
+class TechMailer < ActionMailer::Base
   default from: "from@example.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.event.event_message.subject
+  #   en.tech.tech_support.subject
   #
-  def event_message
+  def tech_support
     @greeting = "Hi"
 
     mail to: "to@example.org"

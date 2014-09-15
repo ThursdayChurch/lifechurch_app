@@ -18,7 +18,7 @@ class SpeakersPicture < ActiveRecord::Base
 
 
        def perform(id, key)
-         speakerpicture = SpeakerPicture.find(id)
+         speakerpicture = SpeakersPicture.find(id)
          speakerpicture.key = key
          speakerpicture.remote_speaker_image_url = speakerpicture.speaker_image.direct_fog_url(with_path: true)
          speakerpicture.save!
