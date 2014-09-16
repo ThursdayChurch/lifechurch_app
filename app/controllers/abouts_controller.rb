@@ -34,7 +34,7 @@ class AboutsController < ApplicationController
     @service_times = ServiceTime.all
     @message = Message.new
     abouts = About.last
-     @json = abouts.to_gmaps4rails
+    # @json = abouts.to_gmaps4rails
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @abouts }
