@@ -1,15 +1,58 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :find_event]
 
-  # GET /events
-  # GET /events.json
-  def index
-    @events = Event.all
+#  load_and_authorize_resource :except => [:index, :show ]
+  
+ # before_filter :authenticate_user!, :except => [:index, :show ]
+  
+  before_filter :find_event, :only => [:show]
+
+  def find_event 
+    if request.path != event_path(@event)
+       redirect_to @event, status: :moved_permanently
+    end
   end
+  
+  def advertisment
+    @events = Event.where("event_type = ?", 11)
+  end
+  
+  def events
+    @events = Event.where("event_type = ?", 12)
+  end
+  
+  def calendar_only
+    @events = Event.where("event_type = ?", 13)
+  end
+  
+  def index
+    @service_times = ServiceTime.all
+    @events = Event.where(Event.arel_table[:event_type].not_eq(11)) 
+    @events_by_date = @events.group_by(&:event_date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+  end
+  
+  
 
   # GET /events/1
   # GET /events/1.json
   def show
+    # add redirect for ads and calendars - to their index pages  advertisment
+    if @event.event_type == 11
+      redirect_to events_advertisment_path  
+    else
+     
+      if @event.event_type == 13
+        redirect_to events_calendar_only_path  
+      else        
+ 
+    respond_to do |format|
+      format.html  
+      format.json { render json: @event }
+    end
+   end # Calendar Only
+   end # Advertisment
+  
   end
 
   # GET /events/new

@@ -17,13 +17,12 @@
  <% end %>
 
 	</p>
-	<% if user_signed_in? %>
-	<% if can? :edit, :abouts %>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.trip_setup', :default => t("helpers.links.Setup Service Times")),
+	 
+ if can? :edit, :abouts 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Setup Service Times" ,
 		                      service_times_path, :class => 'btn btn-primary btn-mini-flat' %> 
 			
-				<% end%>
-				<% end%>
+			 
 	</div>
 			
 			<div id="events">
