@@ -23,9 +23,11 @@ validates :description, presence: true, length: { maximum: 240 }
 
  
 
- default_scope order: 'church_staffs.rank ASC'
- default_scope order: 'church_staffs.last_name ASC'
+ #default_scope order: 'church_staffs.rank ASC'
+# default_scope order: 'church_staffs.last_name ASC'
  
+  default_scope -> { order(:rank => :ASC) }
+   default_scope -> { order(:last_name => :ASC) }
  
  before_save :combine_first_and_last_name
 

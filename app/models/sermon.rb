@@ -16,7 +16,7 @@ validates  :category, :presence => true
 after_save :create_description
 
 #default_scope order: 'sermons.date_of_sermon DESC'
-
+  default_scope -> { order(:date_of_sermon => :DESC) }
 
 after_validation :move_friendly_id_error_to_name
 

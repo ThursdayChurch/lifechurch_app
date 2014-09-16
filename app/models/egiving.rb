@@ -31,7 +31,7 @@ class Egiving < ActiveRecord::Base
           encrypt_with_public_key :card_number, :date_month, :date_year, :name_on_card,
              :key_pair => Rails.root.join('config','keypair.pem')
 
-default_scope order: 'egivings.created_at DESC'
+#default_scope order: 'egivings.created_at DESC'
 
-
+ default_scope -> { order(:created_at => :DESC) }
 end

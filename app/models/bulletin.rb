@@ -11,8 +11,8 @@ class Bulletin < ActiveRecord::Base
   after_create :enqueue_image  
   
   
-  default_scope order: 'bulletins.display_start DESC' 
-  
+ # default_scope order: 'bulletins.display_start DESC' 
+  default_scope -> { order(:display_start => :DESC) }
  
    
   after_validation :move_friendly_id_error_to_name

@@ -13,8 +13,8 @@ class Schedule < ActiveRecord::Base
   after_create :enqueue_image, :set_end_month_date    
   
   
-  default_scope order: 'schedules.start_month DESC' 
-  
+ # default_scope order: 'schedules.start_month DESC' 
+   default_scope -> { order(:start_month => :DESC) }
  
    
   after_validation :move_friendly_id_error_to_name
