@@ -21,40 +21,41 @@ class Sermon < ActiveRecord::Base
 
 
 
-  def move_friendly_id_error_to_name
-    errors.add :title, *errors.delete(:friendly_id) if errors[:friendly_id].present?
-  end
+      def move_friendly_id_error_to_name
+        errors.add :title, *errors.delete(:friendly_id) if errors[:friendly_id].present?
+      end
   
   
-  def slug_candidates
-    [
-      :title#,
-    #  [:name, :history]#,
-     # [:name, :street, :city],
-     # [:name, :street_number, :street, :city]
-    ]
-  end
+  
+      def slug_candidates
+        [
+          :title#,
+        #  [:name, :history]#,
+         # [:name, :street, :city],
+         # [:name, :street_number, :street, :city]
+        ]
+      end
  
-def self.search(search)
-  if search
-    find(:all, :conditions => ['description LIKE ?', "%#{search}%"])
-  else
-    find(:all)
-  end
-end
+      def self.search(search)
+        if search
+          find(:all, :conditions => ['description LIKE ?', "%#{search}%"])
+        else
+          find(:all)
+        end
+      end
 
-private
+      private
 
-   def create_description
-       sermon= Sermon.find(id)
-       speaker = sermon.speaker 
-       keyword = "#{speaker.title} #{speaker.full_name} #{sermon.date_of_sermon.strftime("%B, %b, %m, %A, %a, %d, %Y") } #{sermon.category}  #{sermon.title} #{sermon.date_of_sermon.strftime("%B #{sermon.date_of_sermon.day.ordinalize}, %Y") }"
-       truncated_keyword =  truncate(keyword, :length => 250)    
-       sermon.update_column(:description, truncated_keyword )
-   end
+         def create_description
+             sermon= Sermon.find(id)
+             speaker = sermon.speaker 
+             keyword = "#{speaker.title} #{speaker.full_name} #{sermon.date_of_sermon.strftime("%B, %b, %m, %A, %a, %d, %Y") } #{sermon.category}  #{sermon.title} #{sermon.date_of_sermon.strftime("%B #{sermon.date_of_sermon.day.ordinalize}, %Y") }"
+             truncated_keyword =  truncate(keyword, :length => 250)    
+             sermon.update_column(:description, truncated_keyword )
+         end
  
   
  
-end
+ 
   
 end
