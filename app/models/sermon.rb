@@ -1,28 +1,31 @@
-class Sermon < ActiveRecord::Base
-  
-    include ActionView::Helpers::TextHelper
-  extend FriendlyId
+class Sermon < ActiveRecord::Base 
+ include ActionView::Helpers::TextHelper
+ extend FriendlyId
  friendly_id :slug_candidates, use: :slugged 
   
   belongs_to :speaker
-has_many :sermon_pictures, :foreign_key => :sermons_id, :primary_key =>  :id, :inverse_of => :sermon, :dependent => :destroy
+  has_many :sermon_pictures, :foreign_key => :sermons_id, :primary_key =>  :id, :inverse_of => :sermon, :dependent => :destroy
 
 
-validates  :title, :presence => true
-validates  :date_of_sermon, :presence => true
-validates  :category, :presence => true
+  validates  :title, :presence => true
+  validates  :date_of_sermon, :presence => true
+  validates  :category, :presence => true
  
 
-after_save :create_description
-
-#default_scope order: 'sermons.date_of_sermon DESC'
+  after_save :create_description
+ 
   default_scope -> { order(:date_of_sermon => :DESC) }
 
-after_validation :move_friendly_id_error_to_name
+
+  after_validation :move_friendly_id_error_to_name
+
+
 
   def move_friendly_id_error_to_name
     errors.add :title, *errors.delete(:friendly_id) if errors[:friendly_id].present?
   end
+  
+  
   def slug_candidates
     [
       :title#,

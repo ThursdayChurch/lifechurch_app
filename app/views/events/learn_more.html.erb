@@ -1,0 +1,32 @@
+<%- model_class = Event -%>
+<div class="page-header">
+ 
+  <h1><%= @event.event_name %>	</h1>
+	<hr class="line_break">
+	
+	<div class="row" style="text-align:center">
+
+	<%= display_event_picture(@event) %>
+	</div> 
+		<hr class="line_break">
+</div>
+<%= @event.event_date.strftime("%b %d %Y") %> at <%= @event.event_start_time.strftime("%l:%M %p") %>  or in <%= time_ago_in_words(@event.event_date) %> from now
+<div class="form-actions">
+	
+<div class="pull-center">	
+	<%= @event.description %>
+	  <%=  BlueCloth.new(@event.description).to_html.html_safe %>
+	<br>
+	<br>
+	
+    <%= link_to t('.new', :default => t("helpers.links.Sign Up")),
+                     contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %> &nbsp&nbsp&nbsp&nbsp&nbsp
+					 <%= link_to t('.new', :default => t("helpers.links.Print Details")),
+                     contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %>
+					 &nbsp&nbsp&nbsp&nbsp&nbsp
+					 <%= link_to t('.new', :default => t("helpers.links.Contact Us")),
+                     contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %>
+</div>	
+ 
+
+</div>

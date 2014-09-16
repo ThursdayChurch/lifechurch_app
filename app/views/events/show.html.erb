@@ -1,169 +1,223 @@
-<p id="notice"><%= notice %></p>
+ <% provide(:title, @event.event_name.html_safe ) %>
 
-<p>
-  <strong>Event name:</strong>
-  <%= @event.event_name %>
-</p>
+<%- model_class = Event -%>
+<div class="row "> 
+	<div class="span10  mission_bg img-rounded">
 
-<p>
-  <strong>Event date:</strong>
-  <%= @event.event_date %>
-</p>
+		 
+	    <% if @event.template_selected == 1 %>
+	       
+		      <%= render :partial => 'template1', :locals => {:event => @event}  %>
+	   <%  elsif @event.template_selected == 2 %>
+	         <%= render :partial => 'template2', :locals => {:event => @event}  %>
+		   <% else %>
+	    
+	   
+ 
+						<br>
+					<table width="100%" class="table_zero"> 
+					 <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text"><%= @event.event_name.html_safe %></span> </td>
+					  <td><hr class="round_line_hoz" /></td>
+					</table>
+					 <hr class="round_line_hoz2 " /> 
+ 
+					 <div class="row ">
+	 
+					  <div class="span10">   <br>
+	
+					 <%= render :partial => 'picture' %> 
+					 <br>
 
-<p>
-  <strong>Event time:</strong>
-  <%= @event.event_time %>
-</p>
+					</div>
+					</div>
+					  <hr class="round_line_hoz2 " /> 
+					<div class="row ">
+	 
+					 <div class="span10 pull-center">  
+ 
+						 <p>
+					      <%= event_happen_when(@event)%>
+					  </p>
+  
+					  <br>
+					  <div id="request-invite"   style="display: 'block';">
+	    
+					    <div   style="margin-bottom: 120px; overflow: visible">
+					      <p>Share with your friends!</p>
+					      <div id="tweet" style="display:inline-block;">
+					        <a class="twitter-share-button" data-count="horizontal" data-text="Check out this event" data-url="<%= event_path(@event)  %>" data-via="<%= @about_menu.twitter %>" data-related="<%= @event.event_name.html_safe %>" href="https://twitter.com/share"></a>
+					      </div>
+						  
+			 
+						  
+					 
+	 
+								    <div id="facebook" style="display:inline-block;">
+								     <span style="display:inline-block; ">
+								       <div class="fb-like" data-href="<%= event_path(@event)  %>" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90">
+								       </div> </span>
+								 	        </div>
+	 
+	 
+		 	 
+						  <span style="display:inline-block; ">
+					      <div class="g-plusone" data-annotation="inline" data-href="<%= event_url(@event)%>" data-size="medium" data-width="120">
+					      </div>
+						        </span>
+					    </div>
+					  </div>
+  
+					  <div class="event_text">
+ 
+ 
 
-<p>
-  <strong>Contact email:</strong>
-  <%= @event.contact_email %>
-</p>
+					  <%=  markdown(@event.description)%>
+ 
+					  	<br>
+					  	<br>
+ 
+	 
+						<% if @event.use_form_button? %>
+					      <%= link_to t('.new', :default => t("helpers.links.Sign Up")),
+					                       new_event_form_path(:event_setup_form_id => @event.which_form), :class => 'btn   btn-primary btn-mini-flat' %> &nbsp&nbsp&nbsp&nbsp&nbsp<%end%> 
+				 
+										   <% if @event.share_download? %>
+  					 
+										   <%= link_to t('.sign_up', :default => t("helpers.links.Print Details")), @event.download_link, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>				 
+					  					 &nbsp&nbsp&nbsp&nbsp&nbsp<%end%> 
+										 <% if @event.use_contact? %>
+					  					 <%= link_to t('.new', :default => t("helpers.links.Contact Us")),
+					                       contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %><%end%> 
+ 
+ 
+					 </div>
+					  </div>
+					    </div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
+ 
+					<br>
+  <% end%>
+<div class="row ">
+	 
+ <div class="span10"> 
+	
+<% if user_signed_in? %>
+<% if can? :edit, :events %>
+ 
+ 
+ <br><br><br>
+<dl class="dl-horizontal"><h4>Options:</h4> 
+ 
+  <dt><strong><%= model_class.human_attribute_name(:event_name) %>:</strong></dt>
+  <dd><%= @event.event_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:recurring_on) %>:</strong></dt>
+   
+  <dd><%= event_form_bool(@event.recurring_on) %></dd>
+  <% unless @event.recurring_day.blank? %>
+  <dt><strong><%= model_class.human_attribute_name(:recurring_day) %>:</strong></dt>
+  <dd><%= @event.recurring_day %></dd>
+    <%end%> 
+  <dt><strong><%= model_class.human_attribute_name(:event_date) %>:</strong></dt>
+  <dd><%= @event.event_date.strftime("%B #{@event.event_date.day.ordinalize}, %Y") %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:event_time) %>:</strong></dt>
+  <dd><%= @event.event_start_time.strftime("%l:%M %p") %></dd>
+  
+  <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
+  <dd><%= @event.contact_email %></dd>
+ 
+  
+   <% unless @event.location.blank? %>
+  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
+  <dd><%= @event.location %></dd>
+   <%end%> 
+   <% unless @event.contact_person.blank? %>
+  <dt><strong><%= model_class.human_attribute_name(:contact_person) %>:</strong></dt>
+  <dd><%= @event.contact_person %></dd>
+  <%end%> 
+ <% unless @event.description.blank? %>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @event.description %></dd>
+  <%end%> 
+  <% unless @event.remove_event_date.blank? %>
+  <dt><strong><%= model_class.human_attribute_name(:remove_event_date) %>:</strong></dt>
+  <dd><%= @event.remove_event_date.strftime("%B #{@event.remove_event_date.day.ordinalize}, %Y")%></dd>
+  <%end%> 
+ 
+  <dt><strong>Display on Main Page: </strong></dt>
+  <dd><%= status_display_main_page(@event) %> <br></dd>
+  <dt><strong>Display "Contact Us": </strong></dt>
+  <dd><%= event_form_bool(@event.use_contact) %> <br></dd>
+ 
+  <dt><strong>Show "Print Details" </strong></dt>
+  <dd><%= event_form_bool(@event.share_download) %></dd>
+ 
+   <% unless @event.download_link.blank? %>
+  <dt><strong>Linked Location </strong></dt>
+  <dd><%= @event.download_link %></dd>
+  <%end%> 
+  
+ <% unless @event.use_form_button.blank? %>
+ <dt><strong>Turn On Form </strong></dt>
+ <dd><%= event_form_bool(@event.use_form_button) %></dd>
+   <%end%> 
+   <% unless @event.which_form.blank? %>
+  <dt><strong>Using Form: </strong></dt>
+  <dd><%= which_form_used(@event) %></dd>
+  <%end%> 
 
-<p>
-  <strong>Contact person:</strong>
-  <%= @event.contact_person %>
-</p>
+   
+  
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+     
+</dl>
+<%end%> 
+<%end%> 
+ 
+ <br>
+ <br>
+ 
+<div class=" col-md-10">
+    <%= link_to t('.back', :default => t("helpers.links.View all Events")),
+                events_events_path, :class => 'btn btn-flat btn-info'  %>
+				<% if user_signed_in? %>
+				<% if can? :edit, :events %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_event_path(@event), :class => 'btn btn-flat btn-primary ' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                event_path(@event),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger btn-flat ' %>
+			    <%end%> 
+			    <%end%> 
+		 
+</div>
+<br>  <br>
+<br>
+<br>
+ 
+<% if user_signed_in? %>
+<% if can? :edit, :events %>
+<h4>List of Available Forms </h4>
+<%= link_to t('.new', :default => t("helpers.links.Create a New Form for #{@event.event_name}")),
+              new_event_setup_form_path(:event_id => @event.id), :class => 'btn btn-mini-flat btn-success'  %>
+  <br>
+  <br>
+  
+   <%= render :partial => 'setup_form', :event => @event %> 
+   <%end%> 
+   <%end%>  
+  
+</div>
+</div>
+</div> <!-- col-md--->
 
-<p>
-  <strong>Remove event date:</strong>
-  <%= @event.remove_event_date %>
-</p>
-
-<p>
-  <strong>Display main page:</strong>
-  <%= @event.display_main_page %>
-</p>
-
-<p>
-  <strong>Event start time:</strong>
-  <%= @event.event_start_time %>
-</p>
-
-<p>
-  <strong>Use form button:</strong>
-  <%= @event.use_form_button %>
-</p>
-
-<p>
-  <strong>Which form:</strong>
-  <%= @event.which_form %>
-</p>
-
-<p>
-  <strong>Download link:</strong>
-  <%= @event.download_link %>
-</p>
-
-<p>
-  <strong>Share download:</strong>
-  <%= @event.share_download %>
-</p>
-
-<p>
-  <strong>Use contact:</strong>
-  <%= @event.use_contact %>
-</p>
-
-<p>
-  <strong>Recurring day:</strong>
-  <%= @event.recurring_day %>
-</p>
-
-<p>
-  <strong>Recurring on:</strong>
-  <%= @event.recurring_on %>
-</p>
-
-<p>
-  <strong>Advertisement:</strong>
-  <%= @event.advertisement %>
-</p>
-
-<p>
-  <strong>Internal link url:</strong>
-  <%= @event.internal_link_url %>
-</p>
-
-<p>
-  <strong>Internal link:</strong>
-  <%= @event.internal_link %>
-</p>
-
-<p>
-  <strong>No expiry:</strong>
-  <%= @event.no_expiry %>
-</p>
-
-<p>
-  <strong>Template selected:</strong>
-  <%= @event.template_selected %>
-</p>
-
-<p>
-  <strong>Full event:</strong>
-  <%= @event.full_event %>
-</p>
-
-<p>
-  <strong>Event type:</strong>
-  <%= @event.event_type %>
-</p>
-
-<p>
-  <strong>Summary:</strong>
-  <%= @event.summary %>
-</p>
-
-<p>
-  <strong>Force on main page:</strong>
-  <%= @event.force_on_main_page %>
-</p>
-
-<p>
-  <strong>Enable disable ad:</strong>
-  <%= @event.enable_disable_ad %>
-</p>
-
-<p>
-  <strong>Highlight:</strong>
-  <%= @event.highlight %>
-</p>
-
-<p>
-  <strong>Scheduled when:</strong>
-  <%= @event.scheduled_when %>
-</p>
-
-<p>
-  <strong>Schedule:</strong>
-  <%= @event.schedule %>
-</p>
-
-<p>
-  <strong>Next occurence:</strong>
-  <%= @event.next_occurence %>
-</p>
-
-<p>
-  <strong>Options:</strong>
-  <%= @event.options %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @event.slug %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<div class="span1">
+ <%= render :partial => 'abouts/side_buttons'%>
+ 
+</div>
+</div> <!-- Row-->
+</div> 
+ 
+ 
+  

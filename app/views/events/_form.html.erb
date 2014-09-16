@@ -1,43 +1,60 @@
-<%= simple_form_for(@event) do |f| %>
+ 
+
+<%= simple_form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
+
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :event_name %>
-    <%= f.input :event_date %>
-    <%= f.input :event_time %>
-    <%= f.input :contact_email %>
-    <%= f.input :location %>
-    <%= f.input :contact_person %>
-    <%= f.input :description %>
-    <%= f.input :remove_event_date %>
-    <%= f.input :display_main_page %>
-    <%= f.input :event_start_time %>
-    <%= f.input :use_form_button %>
-    <%= f.input :which_form %>
-    <%= f.input :download_link %>
-    <%= f.input :share_download %>
-    <%= f.input :use_contact %>
-    <%= f.input :recurring_day %>
-    <%= f.input :recurring_on %>
-    <%= f.input :advertisement %>
-    <%= f.input :internal_link_url %>
-    <%= f.input :internal_link %>
-    <%= f.input :no_expiry %>
-    <%= f.input :template_selected %>
-    <%= f.input :full_event %>
-    <%= f.input :event_type %>
-    <%= f.input :summary %>
-    <%= f.input :force_on_main_page %>
-    <%= f.input :enable_disable_ad %>
-    <%= f.input :highlight %>
-    <%= f.input :scheduled_when %>
-    <%= f.input :schedule %>
-    <%= f.input :next_occurence %>
-    <%= f.input :options %>
-    <%= f.input :slug %>
-  </div>
+ 
 
+
+
+ 
+<% if @event.errors.any? %>  
+  <div id="errorExplanation">  
+    <h4><%= pluralize(@event.errors.count, "error") %> prohibited this Application from being created:</h4>  
+    <ul>  
+    <% @event.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>  
+    <% end %>  
+    </ul>  
+  </div>  
+  <% end %>
+
+  <%= f.input :event_type, as: :hidden, input_html: {value: f.object.event_type || 12}  %>
+
+   <div class="form-actions">
+	  
+	   
+ 	   <% if params[:event_type] == '11' ||  @event.event_type == 11 %>
+ 	   <%= render :partial => 'ad' , :locals => {:f => f} %>
+ 	   <% end %>
+ 	     <% if params[:event_type] == '12' ||  @event.event_type == 12 %>
+ 	   <%= render :partial => 'full_event', :locals => {:f => f}  %>
+ 	      <% end %>
+ 	     <% if params[:event_type] == '13'||  @event.event_type == 13 %>
+ 	   <%= render :partial => 'cal_only', :locals => {:f => f}  %>
+ 	      <% end %>
+   </div>
+	
+
+	
+	
+	
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+   
+   <% if params[:event_type] == '11' ||  @event.event_type == 11 %>
+   <%= link_to  "cancel" ,
+                events_advertisment_path, :class => 'btn ' %>
+   <% end %>
+     <% if params[:event_type] == '12' ||  @event.event_type == 12 %>
+       <%= link_to  "cancel" ,
+                 events_events_path, :class => 'btn ' %>
+      <% end %>
+     <% if params[:event_type] == '13'||  @event.event_type == 13 %>
+       <%= link_to  "cancel" ,
+                 events_calendar_only_path, :class => 'btn ' %>
+      <% end %>
+  
   </div>
 <% end %>
