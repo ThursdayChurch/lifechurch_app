@@ -8,7 +8,10 @@ class ApplicationController < ActionController::Base
   
   
   before_filter :set_ministries, :setup_about_info, :setup_site_setup_info, :update_last_sign_in_at, :require_login 
-
+  include Pundit
+  
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+ 
 
  def set_ministries
     @ministries_menu = Ministry.all
@@ -59,5 +62,19 @@ class ApplicationController < ActionController::Base
     end
   end
    
+  private
+
+  def user_not_authorized
+    flash[:alert] = "Access denied."
+    redirect_to (request.referrer || root_path)
+  end
   
 end
+
+ 
+
+   
+
+
+
+ 

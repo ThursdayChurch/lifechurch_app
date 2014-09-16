@@ -1,6 +1,6 @@
 class ChurchStaff < ActiveRecord::Base
   include Tokenable
-    resourcify
+   
 has_many :staff_ranks, :foreign_key => :ranking, :primary_key =>  :rank
 has_many :church_staffs_pictures, :foreign_key => :church_staff_id, :primary_key =>  :id, :inverse_of => :church_staff, :dependent => :destroy
 

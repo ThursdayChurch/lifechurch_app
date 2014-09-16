@@ -4,9 +4,7 @@ class Sermon < ActiveRecord::Base
   extend FriendlyId
  friendly_id :slug_candidates, use: :slugged 
   
-  resourcify
-
-belongs_to :speaker
+  belongs_to :speaker
 has_many :sermon_pictures, :foreign_key => :sermons_id, :primary_key =>  :id, :inverse_of => :sermon, :dependent => :destroy
 
 

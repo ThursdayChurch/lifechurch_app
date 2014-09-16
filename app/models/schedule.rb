@@ -7,9 +7,7 @@ class Schedule < ActiveRecord::Base
  
   
   mount_uploader :schedule_image, ScheduleImageUploader
-    resourcify
-   
-  validates :start_month, presence: true
+    validates :start_month, presence: true
 
   before_save :create_name
   after_create :enqueue_image, :set_end_month_date    

@@ -72,27 +72,7 @@ Rails.application.routes.draw do
 
   root :to => 'abouts#home'
   
- post 'abouts/contact' 
-
-    
-  resources :abouts, :path => '' do
-    collection do
-     
-      get "mission_method" 
-      get "what_we_believe"
-      get "facility"
-      get "membership"
-      get "giving"
-      get "become_a_believer"
-      get "terms"
-      get "privacy"
-      get "what_to_expect"
-      get "who_we_are"
-      get "our_staff"
-     
-    end
-    
-  end
+ 
 
   match 'contact_event' => 'contact_event#new', :via => :get
   match 'contact_event' => 'contact_event#create', :via => :post
@@ -113,4 +93,25 @@ Rails.application.routes.draw do
   get "users/edit_site"
   devise_for :users
   resources :users
+  post 'abouts/contact' 
+
+    
+   resources :abouts, :path => '' do
+     collection do
+     
+       get "mission_method" 
+       get "what_we_believe"
+       get "facility"
+       get "membership"
+       get "giving"
+       get "become_a_believer"
+       get "terms"
+       get "privacy"
+       get "what_to_expect"
+       get "who_we_are"
+       get "our_staff"
+     
+     end
+    
+   end
 end

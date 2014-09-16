@@ -99,8 +99,8 @@ class AboutsController < ApplicationController
   def show
     @about = About.last
     abouts = About.last
-     @jsons = About.last.to_gmaps4rails
-    @json = About.all.to_gmaps4rails
+   #  @jsons = About.last.to_gmaps4rails
+   # @json = About.all.to_gmaps4rails
   end
 
   # GET /abouts/new

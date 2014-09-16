@@ -3,20 +3,20 @@
 # Modify this file to change the behavior of a 'not authorized' error.
 # Be sure to restart your server when you modify this file.
 module PunditHelper
-  extend ActiveSupport::Concern
+#  extend ActiveSupport::Concern
 
-  included do
-    include Pundit
-    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+#  included do
+  #  include Pundit
+ #   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+#  end
+
+ # private
+
+ # def user_not_authorized
+ #   flash[:alert] = "Access denied."
+ #   redirect_to (request.referrer || root_path)
+ # end
+
   end
 
-  private
-
-  def user_not_authorized
-    flash[:alert] = "Access denied."
-    redirect_to (request.referrer || root_path)
-  end
-
-end
-
-ApplicationController.send :include, PunditHelper
+#ApplicationController.send :include, PunditHelper

@@ -13,8 +13,19 @@ class UsersController < ApplicationController
             @user_count = User.count
             @approved = false
     end
-    authorize User
+   authorize User
   end
+
+  def approve
+  
+     user = User.find(params[:id])
+     user.update_attributes(:approved => true)
+    # MemberMailer.your_approved(user).deliver
+     redirect_to :action => "index", :approved => "false"
+  end
+  
+
+
 
   def show
     @user = User.find(params[:id])
