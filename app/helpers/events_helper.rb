@@ -6,14 +6,14 @@ module EventsHelper
   
   
   def remained_ev
-   content_tag(:div, t('.characters_remaining').html_safe, class: "remaining_ev")        
+   content_tag(:div, "characters remaining", class: "remaining_ev")        
   end
   
       
  	  
   def display_event_picture(event_pictures)
   
-      if event_pictures.event_pictures.present?  
+      if event_pictures.events_pictures.present?  
       for event_picture in @event.event_pictures  
         if event_picture.image_processed?  
           return image_tag event_picture.event_image_url(:main), :class =>"img-rounded pull-center"   
@@ -35,7 +35,7 @@ module EventsHelper
 
      if event_pictures.event_type == 11
 
-                 if event_pictures.event_pictures.present?  
+                 if event_pictures.events_pictures.present?  
                    for event_picture in event_pictures.event_pictures  
                     if event_picture.image_processed?  
             
@@ -64,7 +64,7 @@ module EventsHelper
                  end
           else
             
-            if event_pictures.event_pictures.present?  
+            if event_pictures.events_pictures.present?  
               for event_picture in event_pictures.event_pictures  
                if event_picture.image_processed?  
     
@@ -88,7 +88,7 @@ module EventsHelper
        if event_pictures.event_type == 11
          
          
-             if event_pictures.event_pictures.present?  
+             if event_pictures.events_pictures.present?  
                    for event_picture in event_pictures.event_pictures  
                          if event_picture.image_processed?  
                                  if event_pictures.internal_link_url.blank?
@@ -111,7 +111,7 @@ module EventsHelper
          
              end  
      else
-           if event_pictures.event_pictures.present?  
+           if event_pictures.events_pictures.present?  
                for event_picture in event_pictures.event_pictures  
                if event_picture.image_processed?  
                 

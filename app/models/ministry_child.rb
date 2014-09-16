@@ -19,7 +19,7 @@ class MinistryChild < ActiveRecord::Base
  
  # default_scope order: 'ministry_children.display_rank ASC' 
  
-  default_scope -> { order(:display_rank => :ASC) }
+  default_scope -> { order(:display_rank => :asc) }
  
   after_validation :move_friendly_id_error_to_name
 

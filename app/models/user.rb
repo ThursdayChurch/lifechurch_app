@@ -1,14 +1,16 @@
 class User < ActiveRecord::Base
-  enum role: [:user, :vip, :admin]
+  enum role: [:user, :member, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
-    self.role ||= :user
+    self.role ||= :member
   end
+
+ 
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :invitable, :database_authenticatable, :registerable,# :confirmable,
+  devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
  
@@ -22,7 +24,7 @@ class User < ActiveRecord::Base
   # attr_accessible :role_ids, :as => :admin
  #  attr_accessible :name, :email, :address, :city, :province, :country_selected, :country_id, :state_id, :postal_code,  :birthday, :gender, :home_phone, :password, :password_confirmation, :remember_me, :approved, :yes_receive_email, :captcha, :captcha_key
 
-   after_create :send_admin_mail, :assign_default_role, :send_welcome_email#, :add_user_to_mailchimp
+   after_create :send_admin_mail, :send_welcome_email#, :add_user_to_mailchimp
 
  #  after_save :check_for_email_preferrence 
    before_save :update_country_state
@@ -88,9 +90,7 @@ class User < ActiveRecord::Base
      end
    end        
 
-   def assign_default_role
-     add_role(:member)
-   end
+
  
    def send_admin_mail
      AdminMailer.new_user_waiting_for_approval(self).deliver
@@ -105,6 +105,12 @@ class User < ActiveRecord::Base
        recoverable.send_reset_password_instructions
      end
      recoverable
+   end
+
+
+   def approved!
+       self.approved = true 
+       save(validate: false)
    end
 
 

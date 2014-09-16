@@ -14,8 +14,8 @@ class Speaker < ActiveRecord::Base
   private 
 
   def combine_first_and_last_name
-     full_name = "#{self.first_name} #{self.last_name}" 
-     self.full_name = full_name
+    # self.full_name  = "#{self.first_name} #{self.last_name}" 
+    # add full_name to DB
   end
 
 end

@@ -13,8 +13,8 @@ class About < ActiveRecord::Base
    
     def slug_candidates
       [
-        :name,
-        [:name, :history]#,
+        :name#,
+        #[:name, :history]#,
        # [:name, :street, :city],
        # [:name, :street_number, :street, :city]
       ]

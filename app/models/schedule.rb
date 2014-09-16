@@ -13,7 +13,7 @@ class Schedule < ActiveRecord::Base
   
   
  # default_scope order: 'schedules.start_month DESC' 
-   default_scope -> { order(:start_month => :DESC) }
+   default_scope -> { order(:start_month => :desc) }
  
    
   after_validation :move_friendly_id_error_to_name
