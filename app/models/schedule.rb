@@ -3,8 +3,7 @@ class Schedule < ActiveRecord::Base
     friendly_id :slug_candidates, use: :slugged 
  
  
-  attr_accessible :description, :end_month, :image_processed, :name, :schedule_image, :slug, :start_month, :url
- 
+  
   
   mount_uploader :schedule_image, ScheduleImageUploader
     validates :start_month, presence: true
