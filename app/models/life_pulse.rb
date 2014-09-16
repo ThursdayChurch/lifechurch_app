@@ -2,7 +2,7 @@ class LifePulse < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged 
-  attr_accessible :content, :flickr_id, :from_pastor_desk, :keywords, :summary, :template_selected, :title
+ 
   
 
   has_many :life_pulse_pictures, :foreign_key => :life_pulse_id, :primary_key =>  :id, :inverse_of => :life_pulse, :dependent => :destroy
