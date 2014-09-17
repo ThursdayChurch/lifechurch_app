@@ -43,6 +43,9 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    bh (1.0.1)
+      actionpack
+      activesupport
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-modal-rails (2.2.5)
@@ -415,6 +418,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  bh (~> 1.0.1)
   binding_of_caller
   bootstrap-modal-rails
   bootstrap-sass
