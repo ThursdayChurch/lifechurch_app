@@ -89,3 +89,5 @@ gem 'twitter-bootstrap-rails', '>= 3.2.0'
  gem 'bootstrap-modal-rails'
  gem 'jquery-ui-rails'
  gem 'bh', '~> 1.0.1'
+ gem 'google-api-client'
+ 
