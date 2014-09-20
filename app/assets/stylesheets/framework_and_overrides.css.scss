@@ -10,7 +10,15 @@
 @import url('http://fonts.googleapis.com/css?family=Roboto+Slab');
 @import url('http://fonts.googleapis.com/css?family=Vollkorn'); 
 
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
 
+.navbar .navbar-collapse {
+  text-align: center;
+}
 
 // make all images responsive by default
 img {
