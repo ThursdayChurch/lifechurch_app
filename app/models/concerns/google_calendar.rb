@@ -6,7 +6,7 @@ module Calendar
  
   API_VERSION = 'v3'
   CACHED_API_FILE = "calendar-#{API_VERSION}.cache"
-  CALENDAR_ID = Rails.application.secrets.calendarId
+  CALENDAR_ID =  ENV["calendarId"]
  
   def gcal_event_insert
     params = {
@@ -77,13 +77,13 @@ private
     @client = Google::APIClient.new(:application_name => 'EventR', :application_version => '1.0.0')
  
     # Load our credentials for the service account
-    key = Google::APIClient::KeyUtils.load_from_pkcs12(Rails.application.secrets.key_file, Rails.application.secrets.key_secret)
+    key = Google::APIClient::KeyUtils.load_from_pkcs12(ENV["key_file"], ENV["key_secret"])
     @client.authorization = Signet::OAuth2::Client.new(
       :token_credential_uri => 'https://accounts.google.com/o/oauth2/token',
       :audience => 'https://accounts.google.com/o/oauth2/token',
       :scope => 'https://www.googleapis.com/auth/calendar',
-      :issuer => Rails.application.secrets.service_account_email,
-      :person => Rails.application.secrets.impersonate_user_email,
+      :issuer => ENV["service_account_email"],
+      :person => ENV["impersonate_user_email"],
       :signing_key => key)
  
     # Request a token for our service account
