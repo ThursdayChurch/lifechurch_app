@@ -88,6 +88,6 @@ gem 'twitter-bootstrap-rails', '>= 3.2.0'
  gem 'jquery-fileupload-rails'
  gem 'bootstrap-modal-rails'
  gem 'jquery-ui-rails'
- gem 'bh', '~> 1.0.1'
+ gem 'bh', '~> 1.1.0'
  gem 'google-api-client'
  
