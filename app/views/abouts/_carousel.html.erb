@@ -1,54 +1,52 @@
 
 	<div id="myCarousel" class="carousel slide col-md-8 " >
-		<ol class="carousel-indicators">
+		
+			<ol class="carousel-indicators">
 		  
-			<% @events.each.with_index  do |event, index| %> 
-					<% if index == 0 %> 
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li> 
-				 <% else %>	
-				<li data-target="#myCarousel" data-slide-to="#{index}"></li>
+				<% @events.each.with_index  do |event, index| %> 
+							<% if index == 0 %> 
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li> 
+						 <% else %>	
+						<li data-target="#myCarousel" data-slide-to="#{index}"></li>
 					
-				  <% end %>
- 					<% end %>
+						  <% end %>
+	 			 <% end %>
 			 	
-		</ol>
+			</ol>
+		
 		<div class="carousel-inner">
 		 
 		 <% @events.each.with_index  do |event, index| %>
 		    
 				<% if index == 0 %> 
-	 	<div class="item active">
+	 				<div class="item active">
 	 
-			 <% else %>
+			 		   <% else %>
 			    	<div class="item">
-			  <% end %> 
-		 	<%= display_carousel_event_picture(event) %>
+			    <% end %> 
+		 	
+			
+				<%= display_carousel_event_picture(event) %>
 		 	 
 	  	  
 	  	     <% if event.event_type == 12 %>
 			 		<div class="carousel-caption">
 			 		<h4><%= event.event_name.html_safe %></h4>
-			 	 <p><%= event_happen_when(event)%>
-			
-			 		 
-			
-			 	 <%= link_to 'Learn More', event_path(event), :class => "pull-right btn btn-mini-flat btn-primary"%>
-			     
-			  </p>
-			 					 </div> 
+			 	 		<p><%= event_happen_when(event)%> <%= link_to 'Learn More', event_path(event), :class => "pull-right btn btn-mini-flat btn-primary"%> </p>
+			 		</div> 
 						 
 	  	      <% end %>
 	  	 
-				</div>
+		 		 </div>
 		  
-			    <% end %>
+			<% end %>
 			
 		</div>
 		
-		
+
 		<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
 		<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
 		
-
+ </div>	
 		 
 

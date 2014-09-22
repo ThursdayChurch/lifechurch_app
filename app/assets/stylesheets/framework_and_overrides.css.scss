@@ -20,6 +20,21 @@
   text-align: center;
 }
 
+#background{
+	
+background-color: white;	
+	
+	
+}
+.flat_line_images {
+     border: 1px solid black;
+    //max-width: 70px;
+    display: inline-block;
+	width:100%;
+	height:50px;
+	margin: 0px 0px 15px 15px;
+	 vertical-align: top;
+}
 // make all images responsive by default
 img {
   @extend .img-responsive;

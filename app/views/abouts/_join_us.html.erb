@@ -1,30 +1,4 @@
 
- <div id='background' class='row-fluid '>
-        <div class='col-md-12'>
-	
-
-
-
-            <div class='row col-md-12 '>
-		<br><%= image_tag("disciples.png", size: "373x29")%><%= link_to (image_tag( "service_time.png", size: "273x29", :class=>'image_no_padding')),  abouts_path + "#service_times"  %><%= link_to (image_tag( "new_here.png", size: "131x29", :class=>'image_no_padding' )),  what_to_expect_abouts_path  %><%= link_to (image_tag( "contact.png", size: "132x29", :class=>'image_no_padding')),  contact_path  %>
-		<br>
- 
-		 
- </div>
-
-
-    <div  id='site-column' class="row-fluid ">
-
- <div>
- </div>
-
-<%= render :partial => 'carousel' , :picture => @events %></div>
- <div class="row-fluid">
-	 <div class="col-md-2 " style="height: 450px; width: 216px;">
-  <%= render :partial => 'side_event' , :picture => @events_side %></div>
-
-		  <div class="col-md-1"> 
-
 			<br>
 			<%= image_tag("join_us_long.png")%> 
 			<br>
@@ -40,7 +14,7 @@
 
 				&nbsp;<%= link_to (image_tag( "facebook.png", size: "40x50",
 				            alt: "http://#{facebook_link(@site_setup_menu.facebook)}", 
-				            mouseover: "facebook_hover.png")).html_safe,  "http://#{facebook_link(@site_setup_menu.facebook)}", :target => '_blank'  %>
+				            mouseover: "this.src='/assets/facebook_hover.png';")).html_safe,  "http://#{facebook_link(@site_setup_menu.facebook)}", :target => '_blank'  %>
 							<br>
 							<br>
 
@@ -67,27 +41,3 @@
 										<br>
 										<br>
 										<br>
-
-
-	</div>
-</div>
-</div>	
-
-
-</div> <%# row fluid %>
-
-
-
-
- 
-	
- </div>  <%# col-md- 12 %>
- 
-
-
-</div>  
- 
-
- 
-  
-  
