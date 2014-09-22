@@ -1,0 +1,41 @@
+
+ <div id='background' class='row-fluid '>
+        <div class='col-md-12'>
+	
+            <div class='row'>
+				<div class='col-md-10'>
+				    <div class='flat_line_images '>
+		<%= image_tag("disciples.png", size: "373x29")%><%= link_to (image_tag( "service_time.png", size: "273x29", :class=>'image_no_padding')),  abouts_path + "#service_times"  %><%= link_to (image_tag( "new_here.png", size: "131x29", :class=>'image_no_padding' )),  what_to_expect_abouts_path  %><%= link_to (image_tag( "contact.png", size: "132x29", :class=>'image_no_padding')),  contact_path  %> 
+					</div>
+		 	   </div> 
+ 		  </div>
+
+
+		    <div  id='site-column' class="row-fluid ">
+		       <%= render :partial => 'carousel' , :picture => @events %>
+		    </div>
+ 
+ 
+				 <div class="row-fluid">
+					 
+						 <div class="col-md-2 " style="height: 450px; width: 216px;">
+					  	   <%= render :partial => 'side_event' , :picture => @events_side %>
+						</div>
+
+
+						  <div class="col-md-1"> 
+							  <%= render :partial => 'join_us'  %> 
+						  </div>
+				</div>
+		
+		
+		</div>	<%# col-md- 12 %>
+
+
+</div> <%# BackGround %>
+
+
+
+ 
+  
+  
