@@ -21,11 +21,19 @@ img {
 .navbar-brand {
   font-size: inherit;
   }
-
+  
+  
+  .container-colour{
+  	
+	
+	background-color: #eee;
+	
+  }
+  
   #background{
   	background-color: #FFF;
 	
-	
+
   }
   body {
     min-height: 2000px;
@@ -528,7 +536,10 @@ img {
 
   }
  
+  #main {
+   float: none; margin-left: auto; margin-right: auto; margin:0 auto; 
 
+  }	
 
   .newStep {
       display: inline-block;
@@ -549,9 +560,7 @@ img {
   .pull-bottom{position:absolute;bottom:0;}
   .offsetHalf1 {margin-left:12.9% !important;} 
 
-  #main {
-   float: none; margin-left: auto; margin-right: auto; margin:0 auto; 
-  }
+
 
   #left {
    margin:0 auto;
