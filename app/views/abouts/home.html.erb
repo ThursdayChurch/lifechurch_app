@@ -1,32 +1,30 @@
 <br>
  
   <div class="row-fluid ">
-        <div class='col-md-12'>
+        <div class='col-md-12 background-white'>
 			
 	<br>
  <div class="row ">
-	    <div class='col-md-10'>
+	    <div class='col-md-12 hidden-xs hidden-sm'>
 	 
-				    <div>
+				   
 		<%= image_tag("disciples.png", size: "373x29", :class=>'pull-left')%><%= link_to (image_tag( "service_time.png", size: "273x29", :class=>'pull-left')),  abouts_path + "#service_times"  %><%= link_to (image_tag( "new_here.png", size: "131x29", :class=>'pull-left')),  what_to_expect_abouts_path  %><%= link_to (image_tag( "contact.png", size: "132x29", :class=>'pull-left')),  contact_path  %> 
 		            <br>
+				 
 					</div>
-					</div>
-					
-					 <div class="col-md-2 "  > 
-					</div>
+			 
 					</div>
  
 
-		    <div  id='site-column' class="row-fluid ">
-				 <div class='col-md-10'>
+		    <div  id='site-column' class="row ">
+				 <div class='col-md-12'>
 		       <%= render :partial => 'carousel' , :picture => @events %>
 		    </div>
  
  
 			 
 					 
-						 <div class="col-md-2 " >
+						 <div class="col-md-3" >
 					  	   <%= render :partial => 'side_event' , :picture => @events_side %>
 						</div>
 

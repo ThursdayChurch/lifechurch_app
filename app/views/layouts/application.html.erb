@@ -13,15 +13,34 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main id="main" role="main"> 
-   <div class="container-colour">
-	   <div class="row ">
+      <div class="container-fluid">
+	   <div class="content">
+	   	<div class="row ">
 	         <div class='col-md-12'>
-       <%= render 'layouts/messages' %>
-       <%= yield %>
+		       <%= render 'layouts/messages' %>
+		       <%= yield %>
 	   
-   </div>
-   </div>
-      </div>	   
+  		 	</div>
+   	 	</div>
+      </div>
+	
+ 
+	   	<div class="row ">
+	         <div class='col-md-12'>
+            <footer>
+  			  <%= render 'layouts/footer' %>
+            </footer>
+        </div>
+      </div>
+ 
+	  
+	  
+	  
+	  
+	  
+	 </div>	   
     </main>
+	
+	
   </body>
 </html>
