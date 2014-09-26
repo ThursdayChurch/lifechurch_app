@@ -1,21 +1,10 @@
-<div class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Some Store</a>
-    </div> <!-- end div class="navbar-header" -->
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Browse Products" %></li>
-        <li><%= link_to "Price List" %></li>
-        <li><%= link_to "Contact Us" %></li>
-        <li><%= link_to "Cart" %></li>
-      </ul>
-    </div> <!-- end div class="collapse navbar-collapse" -->
-  </div> <!-- end div class="container" -->
-</div> <!-- end div class="navbar navbar-default navbar-fixed-top" -->
+<%= navbar position: :top  do %>
+  <%= vertical do %>
+    <%= link_to 'Home', root_path %>
+  <% end %>
+  <%= horizontal do %>
+    <%= nav as: :pills, class: 'navbar' do %>
+  <%= render 'layouts/navigation_links' %>
+    <% end %>
+  <% end %>
+<% end %>
