@@ -28,7 +28,7 @@ class EventsPicturesController < ApplicationController
         if params[:event_id] !=nil
           format.html { redirect_to event_path(@event_picture.event_id), notice: 'This Event picture was successfully created.' }
         else 
-          format.html { redirect_to advertisement_path(@event_picture.advertisement_id), notice: 'This Advertisement picture was successfully created.' }
+          format.html { redirect_to advertisements_path, notice: 'This Advertisement picture was successfully created.' }
         end 
     
        else
