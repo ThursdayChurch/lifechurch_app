@@ -1,0 +1,91 @@
+
+
+  .table_zero {
+	
+  	margin: 0px;
+  	margin-top:10px;
+  	margin-bottom:10px;
+	
+	
+  }
+
+  
+  .container{
+            width: 975px;
+            }
+
+  .column-wrap
+  {
+      overflow: hidden;
+  }
+
+  .span8{
+    	border: 0px solid #DDD;
+  }
+
+  .span2{
+  
+  	border: 0px solid #DDD;
+  }
+  .span12{
+ 
+	
+  	width: 925px;
+  }
+ 
+  .twitter-button{
+	
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+  	border-radius:0px;
+    	border-width:0;
+    	background-image:none;
+    	padding:3px;
+    	margin:0 auto;
+    	margin-top:8px;
+    	//width:15%;
+      font-size:6pt;
+      text-align:center;
+      vertical-align:bottom;
+  }
+
+  .sideevent { 
+  	border-collapse: separate;
+      border-spacing: 0 0px;
+
+  }
+ 
+  #main {
+   float: none; margin-left: auto; margin-right: auto; margin:0 auto; 
+
+  }	
+
+  .newStep {
+      display: inline-block;
+      width: your-image-width;
+      height: your-image-height;
+      background: url('/assets/twitter.png');
+  }
+
+  .newStep:hover {
+      background: url('/assets/twitter-hover.png');
+  }
+
+ 
+
+
+
+
+
+
+  #left {
+   margin:0 auto;
+   float:left;
+  }
+
+  #right {
+   margin:0 auto;
+   float:right;
+  }
+  .center{
+  	text-align: center; 	
+  }
