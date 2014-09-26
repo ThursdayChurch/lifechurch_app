@@ -18,23 +18,38 @@ img {
   margin: 0 auto;
   }
 // override for the 'Home' navigation link
-.navbar-brand {
-  font-size: inherit;
-  }
-  
-  
-  .container-colour{
-  	
-	
-	background-color: #eee;
-	
-  }
-  
+ 
+.dropdown-menu.multi-column {
+        width: 410px;
+}
+
+
+ 
+.menuimage {
+    display: inline-block;
+    *display: inline; /* for older IE */
+    *zoom: 1; /* for older IE */
+}
+ 
+.dropdown-menu.multi-column .dropdown-menu {
+        display: block !important;
+        position: static !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        min-width:100px;
+}
+ 
  .background-white{
   	background-color: white;
-	
-
   }
+  
+  
+  .navbar-nav > li > a {padding-top:27px !important; padding-bottom:10px !important;}
+  .navbar {min-height:67px !important}
+  
+  
+  
   body {
     min-height: 2000px;
     padding-top: 70px;
