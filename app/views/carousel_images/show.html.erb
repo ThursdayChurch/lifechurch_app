@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @carousel_image.event_id %>
+</p>
+
+<p>
+  <strong>Advertisement:</strong>
+  <%= @carousel_image.advertisement_id %>
+</p>
+
+<p>
+  <strong>Carousel image name:</strong>
+  <%= @carousel_image.carousel_image_name %>
+</p>
+
+<%= link_to 'Edit', edit_carousel_image_path(@carousel_image) %> |
+<%= link_to 'Back', carousel_images_path %>

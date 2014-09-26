@@ -1,0 +1,101 @@
+<%- model_class = Advertisement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:event_id) %></th>
+      <th><%= model_class.human_attribute_name(:advertisement_name) %></th>
+      <th><%= model_class.human_attribute_name(:advertisement_date) %></th>
+      <th><%= model_class.human_attribute_name(:advertisement_time) %></th>
+      <th><%= model_class.human_attribute_name(:contact_email) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:contact_person) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:remove_advertisement_date) %></th>
+      <th><%= model_class.human_attribute_name(:display_main_page) %></th>
+      <th><%= model_class.human_attribute_name(:advertisement_start_time) %></th>
+      <th><%= model_class.human_attribute_name(:use_form_button) %></th>
+      <th><%= model_class.human_attribute_name(:which_form) %></th>
+      <th><%= model_class.human_attribute_name(:download_link) %></th>
+      <th><%= model_class.human_attribute_name(:share_download) %></th>
+      <th><%= model_class.human_attribute_name(:use_contact) %></th>
+      <th><%= model_class.human_attribute_name(:recurring_day) %></th>
+      <th><%= model_class.human_attribute_name(:recurring_on) %></th>
+      <th><%= model_class.human_attribute_name(:advertisement) %></th>
+      <th><%= model_class.human_attribute_name(:internal_link_url) %></th>
+      <th><%= model_class.human_attribute_name(:internal_link) %></th>
+      <th><%= model_class.human_attribute_name(:no_expiry) %></th>
+      <th><%= model_class.human_attribute_name(:template_selected) %></th>
+      <th><%= model_class.human_attribute_name(:full_advertisement) %></th>
+      <th><%= model_class.human_attribute_name(:advertisement_type) %></th>
+      <th><%= model_class.human_attribute_name(:force_on_main_page) %></th>
+      <th><%= model_class.human_attribute_name(:enable_disable_ad) %></th>
+      <th><%= model_class.human_attribute_name(:scheduled_when) %></th>
+      <th><%= model_class.human_attribute_name(:schedule) %></th>
+      <th><%= model_class.human_attribute_name(:next_occurence) %></th>
+      <th><%= model_class.human_attribute_name(:options) %></th>
+      <th><%= model_class.human_attribute_name(:slug) %></th>
+      <th><%= model_class.human_attribute_name(:create_own_page) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @advertisements.each do |advertisement| %>
+      <tr>
+		  
+        <td><%= link_to advertisement.id, advertisement_path(advertisement) %></td>
+        <td><%= advertisement.event_id %></td>
+        <td><%= advertisement.advertisement_name %></td>
+        <td><%= advertisement.advertisement_date %></td>
+        <td><%= advertisement.advertisement_time %></td>
+        <td><%= advertisement.contact_email %></td>
+        <td><%= advertisement.location %></td>
+        <td><%= advertisement.contact_person %></td>
+        <td><%= advertisement.description %></td>
+        <td><%= advertisement.remove_advertisement_date %></td>
+        <td><%= advertisement.display_main_page %></td>
+        <td><%= advertisement.advertisement_start_time %></td>
+        <td><%= advertisement.use_form_button %></td>
+        <td><%= advertisement.which_form %></td>
+        <td><%= advertisement.download_link %></td>
+        <td><%= advertisement.share_download %></td>
+        <td><%= advertisement.use_contact %></td>
+        <td><%= advertisement.recurring_day %></td>
+        <td><%= advertisement.recurring_on %></td>
+        <td><%= advertisement.advertisement %></td>
+        <td><%= advertisement.internal_link_url %></td>
+        <td><%= advertisement.internal_link %></td>
+        <td><%= advertisement.no_expiry %></td>
+        <td><%= advertisement.template_selected %></td>
+        <td><%= advertisement.full_advertisement %></td>
+        <td><%= advertisement.advertisement_type %></td>
+        <td><%= advertisement.force_on_main_page %></td>
+        <td><%= advertisement.enable_disable_ad %></td>
+        <td><%= advertisement.scheduled_when %></td>
+        <td><%= advertisement.schedule %></td>
+        <td><%= advertisement.next_occurence %></td>
+        <td><%= advertisement.options %></td>
+        <td><%= advertisement.slug %></td>
+        <td><%= advertisement.create_own_page %></td>
+        <td><%=l advertisement.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_advertisement_path(advertisement), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      advertisement_path(advertisement),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_advertisement_path,
+            :class => 'btn btn-primary' %>

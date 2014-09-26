@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  
+  resources :carousel_images
+
+  resources :advertisements
+
   resources :videos
 
   resources :summaries
@@ -50,6 +55,8 @@ Rails.application.routes.draw do
 
   resources :events_setup_forms
 
+  get "events_pictures/step_1"
+  get "events_pictures/step_2"
   resources :events_pictures
 
   resources :events_forms

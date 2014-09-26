@@ -8,6 +8,20 @@ class Event < ActiveRecord::Base
   has_many :events_setup_forms, :foreign_key => :event_id, :primary_key =>  :id, :inverse_of => :event 
 
 
+
+  has_many :carousel_images, :inverse_of => :event, :dependent => :destroy
+
+  after_create :add_carousel
+  
+  
+  def add_carousel
+ 
+   self.carousel_images.build({carousel_image_name: self.event_name.html_safe}).save!(:validate => false)
+ # self.events.save!(:validate => false)
+  #  self.event_id = self.events.id
+    
+  end
+
 validates  :event_name, :presence => true, length: { maximum: 250 }  
 
 validates  :event_type, :presence => true, length: { maximum: 250 }  

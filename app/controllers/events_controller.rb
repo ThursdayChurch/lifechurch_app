@@ -112,6 +112,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:event_name, :event_date, :event_time, :contact_email, :location, :contact_person, :description, :remove_event_date, :display_main_page, :event_start_time, :use_form_button, :which_form, :download_link, :share_download, :use_contact, :recurring_day, :recurring_on, :advertisement, :internal_link_url, :internal_link, :no_expiry, :template_selected, :full_event, :event_type, :summary, :force_on_main_page, :enable_disable_ad, :highlight, :scheduled_when, :schedule, :next_occurence, :options, :slug)
+      params.require(:event).permit(:event_name, :event_date, :advertisement_id, :event_time, :contact_email, :location, :contact_person, :description, :remove_event_date, :display_main_page, :event_start_time, :use_form_button, :which_form, :download_link, :share_download, :use_contact, :recurring_day, :recurring_on, :advertisement, :internal_link_url, :internal_link, :no_expiry, :template_selected, :full_event, :event_type, :summary, :force_on_main_page, :enable_disable_ad, :highlight, :scheduled_when, :schedule, :next_occurence, :options, :slug)
     end
 end
