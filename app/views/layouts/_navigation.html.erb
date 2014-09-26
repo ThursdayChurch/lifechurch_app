@@ -1,9 +1,11 @@
 <%= navbar position: :top  do %>
-  <%= vertical do %>
-    <%= link_to 'Home', root_path %>
+  <%= vertical do %> 
+	
+	<%= link_to image_tag("main_logo_final.png", :size => "216x44" ), root_path, :class=>'brand nav pull-left'%>
+	
   <% end %>
   <%= horizontal do %>
-    <%= nav class: 'navbar' do %>
+    <%= nav as: :pills, class: 'navbar' do %>
   <%= render 'layouts/navigation_links' %>
     <% end %>
   <% end %>

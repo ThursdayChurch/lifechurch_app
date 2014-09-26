@@ -1,0 +1,46 @@
+			<br>
+			<%= image_tag("join_us_long.png")%> 
+			<br>
+			<br>
+
+ 
+
+							&nbsp;<%= link_to @site_setup_menu.youtube, :target => '_blank' , alt: @site_setup_menu.youtube do
+							    image_tag("live.png",size: "40x50", onmouseover: "this.src='#{asset_path('live_hover.png')}'", onmouseout: "this.src='#{asset_path('live.png')}'")
+							end %>
+
+	<br>
+	<br> 
+							
+						&nbsp;<%= link_to "http://#{facebook_link(@site_setup_menu.facebook)}", :target => '_blank' , alt: "http://#{facebook_link(@site_setup_menu.facebook)}" do
+						    image_tag("facebook.png",size: "40x50", onmouseover: "this.src='#{asset_path('facebook_hover.png')}'", onmouseout: "this.src='#{asset_path('facebook.png')}'")
+						end %>
+							
+							<br>
+							<br> 
+										
+										&nbsp;<%= link_to "http://#{twitter_link(@site_setup_menu.twitter)}", :target => '_blank' , alt: "http://#{twitter_link(@site_setup_menu.twitter)}" do
+										    image_tag("twitter.png",size: "40x50", onmouseover: "this.src='#{asset_path('twitter_hover.png')}'", onmouseout: "this.src='#{asset_path('twitter.png')}'")
+										end %>
+										
+										
+										
+										<br>
+										<br>
+									   <% if @site_setup_menu.life_pulse? %>
+													&nbsp;<%= link_to life_pulses_path, :target => '_blank' , alt: life_pulses_path do
+													    image_tag("life_pulse_button_final.png",size: "40x50", onmouseover: "this.src='#{asset_path('pulse-hover_final.png')}'", onmouseout: "this.src='#{asset_path('life_pulse_button_final.png')}'")
+													end %>
+														<% end %>
+									 
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+
