@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :programs
+
   resources :carousel_images
 
   resources :advertisements

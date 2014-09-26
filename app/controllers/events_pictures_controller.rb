@@ -10,13 +10,7 @@ class EventsPicturesController < ApplicationController
       @uploader.success_action_redirect = events_pictures_step_2_url(:event_id => params[:event_id])
       else
         @uploader.success_action_redirect = events_pictures_step_2_url(:advertisement_id => params[:advertisement_id])
-    end
-      
- 
-  
-   
-   
-   
+    end 
  end
 
 
