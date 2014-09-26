@@ -2,16 +2,18 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_advertisement_path,
+            :class => 'btn btn-primary' %>
+			<br>
 <table class="table table-striped">
   <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th> 
+    <tr> 
       <th><%= model_class.human_attribute_name(:advertisement_name) %></th>
  
       <th><%= model_class.human_attribute_name(:display_main_page) %></th>
        
-      <th><%= model_class.human_attribute_name(:create_own_page) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:create_own_page) %></th> 
       <th>Picture</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -19,8 +21,7 @@
   <tbody>
     <% @advertisements.each do |advertisement| %>
       <tr>
-		  
-        <td><%= link_to advertisement.id, advertisement_path(advertisement) %></td>
+		   
     
         <td><%= advertisement.advertisement_name %></td>
          
@@ -30,7 +31,7 @@
         <td> 
     	<%  advertisement.programs.each do |app| %>
      		<p>
-  				<%= link_to "View/Edit Page", program_path(app), :class => 'btn btn-success' %>
+  				<%= link_to "View/Edit Page", program_path(app), :class => 'btn btn-success btn-xs' %>
 
   			<br></p>
      	 <% end %>
@@ -48,9 +49,7 @@
 
 		 
 				<% end %>
-		</td>
-		
-        <td><%=l advertisement.created_at %></td>
+		</td> 
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_advertisement_path(advertisement), :class => 'btn btn-default btn-xs' %>
@@ -65,6 +64,4 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_advertisement_path,
-            :class => 'btn btn-primary' %>
+

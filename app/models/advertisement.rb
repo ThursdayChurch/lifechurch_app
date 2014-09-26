@@ -5,15 +5,11 @@ class Advertisement < ActiveRecord::Base
   has_many :programs, :inverse_of => :advertisement, :dependent => :destroy
   
   after_create :add_carousel, :add_program_page
-  
-  
-  
+ 
   def add_program_page
   
     if self.create_own_page?
-  
        self.programs.create!({program_name: self.advertisement_name.html_safe})
- 
     end
  
   end

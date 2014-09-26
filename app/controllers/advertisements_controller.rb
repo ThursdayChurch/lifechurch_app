@@ -1,5 +1,5 @@
 class AdvertisementsController < ApplicationController
-  before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
+  before_action :set_advertisement, only: [:edit, :update, :destroy]
 
   # GET /advertisements
   # GET /advertisements.json
@@ -7,10 +7,7 @@ class AdvertisementsController < ApplicationController
     @advertisements = Advertisement.all
   end
 
-  # GET /advertisements/1
-  # GET /advertisements/1.json
-  def show
-  end
+ 
 
   # GET /advertisements/new
   def new
@@ -42,7 +39,7 @@ class AdvertisementsController < ApplicationController
   def update
     respond_to do |format|
       if @advertisement.update(advertisement_params)
-        format.html { redirect_to @advertisement, notice: 'Advertisement was successfully updated.' }
+        format.html { redirect_to advertisements_path, notice: 'Advertisement was successfully updated.' }
         format.json { render :show, status: :ok, location: @advertisement }
       else
         format.html { render :edit }

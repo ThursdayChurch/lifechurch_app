@@ -3,7 +3,7 @@
 		
 			<ol class="carousel-indicators">
 		  
-				<% @events.each.with_index  do |event, index| %> 
+				<% @carousel_images.each.with_index  do |carousel_image, index| %> 
 							<% if index == 0 %> 
 						<li data-target="#myCarousel" data-slide-to="0" class="active"></li> 
 						 <% else %>	
@@ -16,7 +16,7 @@
 		
 		<div class="carousel-inner">
 		 
-		 <% @events.each.with_index  do |event, index| %>
+		 <% @carousel_images.each.with_index  do |carousel_image, index| %>
 		    
 				<% if index == 0 %> 
 	 				<div class="item active">
@@ -25,14 +25,14 @@
 			    	<div class="item">
 			    <% end %> 
 		 	
-			
-				<%= display_carousel_event_picture(event) %>
+	 
+				<%= display_carousel_image(carousel_image) %>
 		 	 
 	  	  
-	  	     <% if event.event_type == 12 %>
+	  	     <% if carousel_image.event_id.present?%>
 			 		<div class="carousel-caption">
-			 		<h4><%= event.event_name.html_safe %></h4>
-			 	 		<p><%= event_happen_when(event)%> <%= link_to 'Learn More', event_path(event), :class => "pull-right btn btn-mini-flat btn-primary"%> </p>
+			 		<h4><%= carousel_image.carousel_image_name.html_safe %></h4>
+			 	 		<p><%= carousel_image_happen_when(carousel_image)%> <%= link_to 'Learn More', carousel_image_path(carousel_image), :class => "pull-right btn btn-mini-flat btn-primary"%> </p>
 			 		</div> 
 						 
 	  	      <% end %>
