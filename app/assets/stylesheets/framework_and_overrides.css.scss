@@ -23,6 +23,9 @@ img {
         width: 410px;
 }
 
+.dropdown-menu.multi-column_sm {
+        width: 370px;
+}
 
  
 .menuimage {
@@ -31,6 +34,15 @@ img {
     *zoom: 1; /* for older IE */
 }
  
+ 
+.dropdown-menu.multi-column_sm .dropdown-menu {
+        display: block !important;
+        position: static !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        min-width:100px;
+}
 .dropdown-menu.multi-column .dropdown-menu {
         display: block !important;
         position: static !important;
@@ -52,7 +64,7 @@ img {
   
   body {
     min-height: 2000px;
-    padding-top: 70px;
+    padding-top: 30px;
   }
   
   
