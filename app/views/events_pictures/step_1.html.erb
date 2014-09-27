@@ -1,0 +1,15 @@
+<div class="form-actions">
+  <h2>Upload an Picture</h2> <h4>Step 1</h4> 
+ 
+	
+ <p> Please ensure the picture has the correct ratio of 1.34  -  Example: 652px X 484px </p>
+	
+	
+	
+<%= direct_upload_form_for @uploader do |f| %>
+  <p><%= f.file_field :event_image %></p>
+  <p><%= f.submit "Upload Picture", :class => "btn btn-success btn-flat" %></p>
+<% end %>
+
+
+</div>

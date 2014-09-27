@@ -1,0 +1,13 @@
+<%= simple_form_for(@carousel_image) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :event_id %>
+    <%= f.input :advertisement_id %>
+    <%= f.input :carousel_image_name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

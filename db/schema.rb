@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916215838) do
+ActiveRecord::Schema.define(version: 20140927010155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,46 @@ ActiveRecord::Schema.define(version: 20140916215838) do
   end
 
   add_index "abouts", ["slug"], name: "index_abouts_on_slug", unique: true, using: :btree
+
+  create_table "advertisements", force: true do |t|
+    t.integer  "event_id"
+    t.string   "advertisement_name"
+    t.date     "advertisement_date"
+    t.string   "advertisement_time"
+    t.string   "contact_email"
+    t.string   "location"
+    t.string   "contact_person"
+    t.text     "description"
+    t.date     "remove_advertisement_date"
+    t.boolean  "display_main_page"
+    t.time     "advertisement_start_time"
+    t.boolean  "use_form_button"
+    t.integer  "which_form"
+    t.string   "download_link"
+    t.boolean  "share_download"
+    t.boolean  "use_contact"
+    t.string   "recurring_day"
+    t.boolean  "recurring_on"
+    t.boolean  "advertisement"
+    t.string   "internal_link_url"
+    t.boolean  "internal_link"
+    t.boolean  "no_expiry"
+    t.integer  "template_selected"
+    t.boolean  "full_advertisement"
+    t.integer  "advertisement_type"
+    t.boolean  "force_on_main_page"
+    t.boolean  "enable_disable_ad"
+    t.text     "scheduled_when"
+    t.text     "schedule"
+    t.datetime "next_occurence"
+    t.text     "options"
+    t.string   "slug"
+    t.boolean  "create_own_page"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "advertisements", ["slug"], name: "index_advertisements_on_slug", unique: true, using: :btree
 
   create_table "announcements", force: true do |t|
     t.text     "message"
@@ -97,6 +137,24 @@ ActiveRecord::Schema.define(version: 20140916215838) do
   end
 
   add_index "bulletins", ["slug"], name: "index_bulletins_on_slug", unique: true, using: :btree
+
+  create_table "calendars", force: true do |t|
+    t.string   "calendar_name"
+    t.date     "calendar_date"
+    t.string   "recurring_day"
+    t.boolean  "recurring_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "event_id"
+  end
+
+  create_table "carousel_images", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "advertisement_id"
+    t.string   "carousel_image_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "church_staffs", force: true do |t|
     t.string   "first_name"
@@ -217,6 +275,7 @@ ActiveRecord::Schema.define(version: 20140916215838) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "advertisement_id"
   end
 
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
@@ -258,6 +317,7 @@ ActiveRecord::Schema.define(version: 20140916215838) do
     t.boolean  "image_processed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "advertisement_id"
   end
 
   create_table "events_setup_forms", force: true do |t|
@@ -403,6 +463,23 @@ ActiveRecord::Schema.define(version: 20140916215838) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "programs", force: true do |t|
+    t.string   "program_name"
+    t.string   "contact_email"
+    t.string   "location"
+    t.string   "contact_person"
+    t.text     "description"
+    t.date     "remove_program_date"
+    t.boolean  "display_main_page"
+    t.integer  "event_id"
+    t.integer  "advertisement_id"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "programs", ["slug"], name: "index_programs_on_slug", unique: true, using: :btree
 
   create_table "schedules", force: true do |t|
     t.string   "name"

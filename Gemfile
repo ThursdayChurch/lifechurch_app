@@ -16,7 +16,7 @@ gem 'figaro', github: 'sealocal/figaro' #gem 'figaro', '>= 1.0.0.rc1'
 gem 'high_voltage'
 gem 'pg'
 gem 'pundit'
-gem 'simple_form'
+gem 'simple_form', '3.1.0.rc2'
 gem 'thin'
 group :development do
   gem 'better_errors'
@@ -57,9 +57,9 @@ gem 'validates_timeliness'
 gem 'redcarpet'
 #gem 'bluecloth'
  
- 
+gem 'activesupport'
 gem "heroku"
-gem "rmagick"
+gem 'rmagick', :require => 'RMagick'
 gem "mini_magick"
 gem "carrierwave"
 gem 'carrierwave_direct'

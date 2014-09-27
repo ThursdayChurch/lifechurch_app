@@ -118,7 +118,7 @@
   <dd><%= @event.recurring_day %></dd>
     <%end%> 
   <dt><strong><%= model_class.human_attribute_name(:event_date) %>:</strong></dt>
-  <dd><%= @event.event_date.strftime("%B #{@event.event_date.day.ordinalize}, %Y"), if @event.event_date !=nil%></dd>
+  <dd><%= @event.event_date.strftime("%B #{@event.event_date.day.ordinalize}, %Y") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:event_time) %>:</strong></dt>
   <dd><%= @event.event_start_time.strftime("%l:%M %p") %></dd>
   
@@ -179,7 +179,7 @@
     <%= link_to t('.back', :default => t("helpers.links.View all Events")),
                 events_events_path, :class => 'btn btn-flat btn-info'  %>
 				<% if user_signed_in? %>
-				<% if can? :edit, :events %>
+			  can? :edit, :events  
     <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_event_path(@event), :class => 'btn btn-flat btn-primary ' %>
     <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -187,7 +187,7 @@
                 :method => 'delete',
                 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                 :class => 'btn btn-danger btn-flat ' %>
-			    <%end%> 
+		 
 			    <%end%> 
 		 
 </div>
@@ -196,15 +196,15 @@
 <br>
  
 <% if user_signed_in? %>
-<% if can? :edit, :events %>
+  if can? :edit, :events 
 <h4>List of Available Forms </h4>
 <%= link_to "Create a New Form for #{@event.event_name}",
-              new_event_setup_form_path(:event_id => @event.id), :class => 'btn btn-mini-flat btn-success'  %>
+              new_events_setup_form_path(:event_id => @event.id), :class => 'btn btn-mini-flat btn-success'  %>
   <br>
   <br>
   
    <%= render :partial => 'setup_form', :event => @event %> 
-   <%end%> 
+  
    <%end%>  
   
 </div>

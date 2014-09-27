@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  
+  resources :calendars
+
+  resources :programs
+
+  resources :carousel_images
+
+  resources :advertisements
+
   resources :videos
 
   resources :summaries
@@ -47,9 +56,11 @@ Rails.application.routes.draw do
   get 'learn_more/:id' => 'events#learn_more', :as => 'learn_more'
 
   resources :events
-
+ 
   resources :events_setup_forms
 
+  get "events_pictures/step_1"
+  get "events_pictures/step_2"
   resources :events_pictures
 
   resources :events_forms

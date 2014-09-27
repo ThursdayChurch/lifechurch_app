@@ -1,0 +1,35 @@
+ 
+ 
+ <div class="row white">
+	 <div class="col-md-offset-2 col-md-6 ">
+    <%= simple_form_for(@advertisement, html: { class: 'form-horizontal' }) do |f|%>
+ 
+ <%= f.input :advertisement_name, :label=>"Name of Advertisment:", :placeholder=>' aka - "UpRoar 2014"', :input_html => { :class => "enroll_input col-xs-5"}   %>
+  <%= error_span(@advertisement[:advertisement_name]) %>
+  
+  
+ <%= f.input :display_main_page, :label=>"Enable Ad?:"  %>
+  <%= error_span(@advertisement[:display_main_page]) %>
+  
+ <%= f.input :force_on_main_page, :label=>"Force Ad on the Main Page?:" , :hint=>'Must be enabled to select this' %>
+ <%= error_span(@advertisement[:force_on_main_page]) %> 
+
+
+
+ <% unless @advertisement.programs.first.present? %> 
+<%= f.input :internal_link_url, :label=>"Link to URL:" , :hint=>'Leave blank if no link needed' %>
+ <%= error_span(@advertisement[:internal_link_url]) %>  
+ <%end%>
+ 
+ <% unless @advertisement.persisted? %>
+ <%= f.input :create_own_page, :label=>"Create Ad Page?:"  %>
+  <%= error_span(@advertisement[:create_own_page]) %>
+ <%end%>
+
+ 
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                advertisements_path, :class => 'btn btn-default' %>
+<% end %>
+</div>
+</div>

@@ -1,0 +1,26 @@
+<%= simple_form_for @program, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :program_name %>
+  <%= error_span(@program[:program_name]) %>
+  <%= f.input :contact_email %>
+  <%= error_span(@program[:contact_email]) %>
+  <%= f.input :location %>
+  <%= error_span(@program[:location]) %>
+  <%= f.input :contact_person %>
+  <%= error_span(@program[:contact_person]) %>
+  <%= f.input :description %>
+  <%= error_span(@program[:description]) %>
+  <%= f.input :remove_program_date %>
+  <%= error_span(@program[:remove_program_date]) %>
+  <%= f.input :display_main_page %>
+  <%= error_span(@program[:display_main_page]) %>
+  <%= f.input :event_id %>
+  <%= error_span(@program[:event_id]) %>
+  <%= f.input :advertisement_id %>
+  <%= error_span(@program[:advertisement_id]) %>
+  <%= f.input :slug %>
+  <%= error_span(@program[:slug]) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                program_path(@program), :class => 'btn btn-default' %>
+<% end %>

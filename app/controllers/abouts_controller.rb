@@ -7,8 +7,11 @@ class AboutsController < ApplicationController
   def home
     @today = DateTime.now.strftime("%Y-%m-%d")
     
-     @events = Event.where(:display_main_page => true).where("remove_event_date >= ?", @today).sample(5).shuffle 
-  
+     events = Event.where(:display_main_page => true).where("remove_event_date >= ?", @today).sample(5).shuffle 
+     advertisements = Advertisement.where(:display_main_page => true).where("remove_advertisement_date >= ?", @today).sample(5).shuffle 
+   
+    @carousel_images = CarouselImage.order("random()").first(5).shuffle
+   
    
      events_side_forced = Event.where(:display_main_page => true).where(:force_on_main_page => true)
      

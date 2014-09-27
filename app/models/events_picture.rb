@@ -1,7 +1,9 @@
 class EventsPicture < ActiveRecord::Base
   
    mount_uploader :event_image, EventImageUploader
-belongs_to :event, :inverse_of => :event_pictures
+   
+   belongs_to :event, :inverse_of => :events_pictures
+   belongs_to :advertisement, :inverse_of => :events_pictures
 
 
 
@@ -17,11 +19,11 @@ belongs_to :event, :inverse_of => :event_pictures
 
 
 
-     def perform(id, key)
-       eventpicture = EventPicture.find(id)
-       eventpicture.key = key
+     def perform(id, key) 
+       eventpicture = EventsPicture.find(id) 
+       eventpicture.key = key 
        eventpicture.remote_event_image_url = eventpicture.event_image.direct_fog_url(with_path: true)
-       eventpicture.save!
+       eventpicture.save  
        eventpicture.update_column(:image_processed, true)
      end
   
