@@ -11,9 +11,16 @@ class Event < ActiveRecord::Base
 
 
   has_many :carousel_images, :inverse_of => :event, :dependent => :destroy
-
-  after_create :add_carousel
+has_many :calendars, :inverse_of => :event, :dependent => :destroy
+  after_create :add_carousel, :create_calendar_event
   
+  def create_calendar_event
+ 
+   self.calendars.build({calendar_name: self.event_name.html_safe}).save!(:validate => false)
+ # self.events.save!(:validate => false)
+  #  self.event_id = self.events.id
+    
+  end
   
   def add_carousel
  

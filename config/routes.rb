@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :calendars
+
   resources :programs
 
   resources :carousel_images
