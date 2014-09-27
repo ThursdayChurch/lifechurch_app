@@ -7,3 +7,22 @@
     </div>
   <% end %>
 <% end %>
+ 
+<% Announcement.current(cookies.signed[:hidden_announcement_ids]).each do |announcement| %>
+ 
+  <div class="alert alert-<%= announcement.colours %>">
+  <%= div_for announcement do %>
+    <%= announcement.message %> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "x", hide_announcement_path(announcement), :class=>"close"%>
+  <% end %>
+   </div>
+<% end %>
+
+<% if user_signed_in? %>
+ <% if current_user.edit_site == true %>
+  <div class="alert alert-danger">
+   
+   Editing Abliity has been enabled &nbsp;&nbsp;&nbsp;&nbsp; 
+ 
+   </div>
+<% end %>
+<% end %>

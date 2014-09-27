@@ -29,7 +29,7 @@ module AnnouncementsHelper
     case announcement.colours
       when 'success'
         return content_tag(:div, content_tag(:span, "Green"), class: "label label-success") 
-      when 'error'
+      when 'danger'
         return content_tag(:div, content_tag(:span, "Red"), class: "label label-important") 
       when 'info'
         return content_tag(:div, content_tag(:span, "Blue"), class: "label label-info") 

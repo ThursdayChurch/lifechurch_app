@@ -78,7 +78,7 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  match 'announcements/:id/hide', to: 'announcements#hide', :via => :get
+  match 'announcements/:id/hide', to: 'announcements#hide', :via => :get,  as: 'hide_announcement'
   resources :announcements
 
   root :to => 'abouts#home'

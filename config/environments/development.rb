@@ -29,7 +29,8 @@ Rails.application.configure do
   
   config.serve_static_assets = true
 
- 
+  config.quiet_assets = true
+  
   
   config.action_mailer.smtp_settings = {
     address: "smtp.mandrillapp.com",

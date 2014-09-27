@@ -1,16 +1,71 @@
 <%= simple_form_for @announcement, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :message %>
-  <%= error_span(@announcement[:message]) %>
-  <%= f.input :starts_at %>
-  <%= error_span(@announcement[:starts_at]) %>
-  <%= f.input :ends_at %>
-  <%= error_span(@announcement[:ends_at]) %>
-  <%= f.input :green %>
-  <%= error_span(@announcement[:green]) %>
-  <%= f.input :colours %>
-  <%= error_span(@announcement[:colours]) %>
+ 
+ 
+ <%= f.input :message , :label=>'Message:',  :placeholder=>"Add a Short Message" , :hint=> "200 Characters max", :input_html => { :class => "enroll_input span4", :rows => 2} %> 
+    <%= error_span(@announcement[:message]) %>
+ 
+ 
+	 <% unless @announcement.persisted? %>
+
+			 <%= f.input :starts_at, :as => :datetimepicker, :input_html => {:value => DateTime.now.strftime("%Y-%m-%d %l:%M %p")} %>
+			    <%= error_span(@announcement[:starts_at]) %>
+			 <%= f.input :ends_at, :as => :datetimepicker, :input_html => {:value =>  1.day.from_now.strftime("%Y-%m-%d %l:%M %p")} %>
+			  <%= error_span(@announcement[:ends_at]) %>
+			  
+	 <%else%>
+
+
+			 <dl class="dl-horizontal">
+
+			   <dt><strong>Starts at:</strong></dt>
+			   <dd><%= @announcement.starts_at.strftime("%Y-%m-%d %l:%M %p")%></dd>
+			   <dt><strong>End at:</strong></dt>
+			   <dd><%= @announcement.ends_at.strftime("%Y-%m-%d %l:%M %p")%></dd>
+			 </dl>
+ 
+
+
+	 <%end%>
+ 
+ 
+   <%= f.input :colours, label: "Colour of the Alert:",  collection: [ ["Green" ,"success"] ,["Red","danger"], ["Yellow","warning"], ["Blue","info"] ]%> 
+ 
+ 
+ <dl class="dl-horizontal">
+ 
+   <dt><strong>Green:</strong></dt>
+   <dd><div class="alert alert-success">
+ A Happy Good News type message.
+ </div></dd>
+ 
+ 
+   <dt><strong>Red:</strong></dt>
+   <dd> <div class="alert alert-danger">
+  Immediate attention regarded type message - such as a cancellation.
+ </div></dd>
+ 
+ <dt><strong>Yellow:</strong></dt>
+ <dd><div class="alert alert-warning">
+  A Warning type message.
+ </div></dd>
+
+
+ <dt><strong>Blue:</strong></dt>
+ <dd>  <div class="alert alert-info">
+  This alert needs your attention, but it's not super important.
+ </div></dd>
+ 
+ </dl>
+ 
+ 
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 announcements_path, :class => 'btn btn-default' %>
 <% end %>
+ 
+   
+
+ 
+
+
