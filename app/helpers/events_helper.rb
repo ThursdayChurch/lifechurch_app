@@ -226,7 +226,7 @@ module EventsHelper
   
   def eventsetupform(event)
 
-    @eventsetup = EventSetupForm.where(:event_id => event.id).all
+    @eventsetup = EventsSetupForm.where(:event_id => event.id).all
 
     if @eventsetup.count >= 1
       return true

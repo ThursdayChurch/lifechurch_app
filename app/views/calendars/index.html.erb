@@ -31,13 +31,13 @@
   <tbody>
     <% @calendars.each do |calendar| %>
       <tr>
-        
+        <% unless calendar.event !=nil%>
         <td><%= calendar.calendar_name %></td>
         <td><%= calendar.calendar_date %></td>
         <td><%= calendar.recurring_day %></td>
         <td><%= calendar.recurring_on %></td> 
         <td>
-			<% unless calendar.event !=nil%>
+			
             <%= link_to t('.show', :default => t("helpers.links.show")),
                         calendar_path(calendar), :class => 'btn btn-primary btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -47,7 +47,13 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
-					  <%else%>
+					  <%else%>   
+					  
+		 <td><%= calendar.event.event_name %></td>
+        <td><%= calendar.event.event_date %></td>
+        <td>N/A</td>
+        <td>N/A</td> 
+        <td>
 		              <%= link_to t('.show', :default => t("helpers.links.show")),
 		                          event_path(calendar.event_id), :class => 'btn btn-primary btn-xs' %>
 		            <%= link_to t('.edit', :default => t("helpers.links.edit")),
