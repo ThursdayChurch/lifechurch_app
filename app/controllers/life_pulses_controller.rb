@@ -64,7 +64,7 @@ class LifePulsesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_life_pulse
-      @life_pulse = LifePulse.find(params[:id])
+      @life_pulse = LifePulse.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

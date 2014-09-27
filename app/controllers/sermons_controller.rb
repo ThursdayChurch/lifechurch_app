@@ -64,7 +64,7 @@ class SermonsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sermon
-      @sermon = Sermon.find(params[:id])
+      @sermon = Sermon.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
