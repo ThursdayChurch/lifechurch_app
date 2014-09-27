@@ -1,5 +1,18 @@
 module EventsHelper
   
+  def ordinalize
+     if (11..13).include?(self % 100)
+       "#{self}th"
+     else
+       case self % 10
+         when 1; "#{self}st"
+         when 2; "#{self}nd"
+         when 3; "#{self}rd"
+         else    "#{self}th"
+       end
+     end
+   end
+  
   def count_display_ev
    content_tag(:div, "", class: "countdown_ev")  
   end
@@ -11,12 +24,12 @@ module EventsHelper
   
       
  	  
-  def display_event_picture(event_pictures)
+  def display_event_picture(event)
   
-      if event_pictures.events_pictures.present?  
-      for event_picture in @event.event_pictures  
-        if event_picture.image_processed?  
-          return image_tag event_picture.event_image_url(:main), :class =>"img-rounded pull-center"   
+      if event.events_pictures.present?  
+      for picture in event.events_pictures  
+        if picture.image_processed?  
+          return image_tag picture.event_image_url(:main), :class =>"img-rounded pull-center"   
        
         
         end  
@@ -25,7 +38,7 @@ module EventsHelper
 
     
        # return link_to(image_tag(placeholder_image_url "486x276", :text => "#{event_pictures.event_name} - Picture soon", :bg => "000", :fg => "667"), event_path(event_pictures)) 
-        return link_to(image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
+        return link_to(image_tag(placeholder_image_url "652x484", :text => "#{event.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), event_path(event)) 
    
    end 
    end  

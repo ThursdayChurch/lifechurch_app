@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   extend FriendlyId
+ 
   friendly_id :slug_candidates, use: :slugged 
   
  # attr_accessible :contact_email, :event_type, :highlight,  :summary, :force_on_main_page,  :recurring_day,:template_selected, :no_expiry, :internal_link_url, :internal_link, :recurring_on, :contact_person, :use_contact, :use_form_button, :which_form, :download_link, :share_download, :description, :event_start_time, :display_main_page, :event_date, :event_name, :event_time, :location, :remove_event_date

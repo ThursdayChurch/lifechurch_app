@@ -57,7 +57,7 @@ gem 'validates_timeliness'
 gem 'redcarpet'
 #gem 'bluecloth'
  
- 
+gem 'activesupport'
 gem "heroku"
 gem 'rmagick', :require => 'RMagick'
 gem "mini_magick"

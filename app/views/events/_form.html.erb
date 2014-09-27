@@ -30,11 +30,7 @@
   <%= f.input :event_type, as: :hidden, input_html: {value: f.object.event_type || 12}  %>
 
    <div class="form-actions">
-	  
-	   
- 	   <% if params[:event_type] == '11' ||  @event.event_type == 11 %>
- 	   <%= render :partial => 'ad' , :locals => {:f => f} %>
- 	   <% end %>
+ 
  	     <% if params[:event_type] == '12' ||  @event.event_type == 12 %>
  	   <%= render :partial => 'full_event', :locals => {:f => f}  %>
  	      <% end %>
@@ -49,11 +45,7 @@
 	
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-   
-   <% if params[:event_type] == '11' ||  @event.event_type == 11 %>
-   <%= link_to  "cancel" ,
-                events_advertisment_path, :class => 'btn ' %>
-   <% end %>
+ 
      <% if params[:event_type] == '12' ||  @event.event_type == 12 %>
        <%= link_to  "cancel" ,
                  events_events_path, :class => 'btn ' %>

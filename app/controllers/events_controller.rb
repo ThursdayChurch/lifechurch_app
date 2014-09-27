@@ -71,7 +71,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save!(:validate => false)
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to events_pictures_step_1_path(:event_id => @event.id), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }

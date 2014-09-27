@@ -32,8 +32,8 @@
  
         <td><%= event.remove_event_date %></td>
         <td>
-			<% if event.event_pictures.present? %>
-			<% for event_picture in event.event_pictures %>
+			<% if event.events_pictures.present? %>
+			<% for event_picture in event.events_pictures %>
 			<% if event_picture.image_processed? %>
 			    <%= image_tag(event_picture.event_image_url(:stamp), :class =>"img-rounded" ) %>
 			  <% else %>

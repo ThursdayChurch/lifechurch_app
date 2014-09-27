@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   get 'learn_more/:id' => 'events#learn_more', :as => 'learn_more'
 
   resources :events
-
+ 
   resources :events_setup_forms
 
   get "events_pictures/step_1"
