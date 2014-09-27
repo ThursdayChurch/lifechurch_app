@@ -1,6 +1,8 @@
 class CalendarsController < ApplicationController
   before_action :set_calendar, only: [:show, :edit, :update, :destroy]
 
+layout "main_body_layout" 
+
   # GET /calendars
   # GET /calendars.json
   def index

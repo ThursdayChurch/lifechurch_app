@@ -1,3 +1,6 @@
+<div class="col-md-offset-1 col-md-9">
+<br>
+
 <%= simple_form_for @calendar, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :calendar_name, :label=>"Name of Calendar Event:", :placeholder=>' aka - "UpRoar 2014"', :input_html => { :class => "enroll_input col-md-4"}   %>
   <%= error_span(@calendar[:calendar_name]) %>
@@ -26,3 +29,6 @@
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 calendars_path, :class => 'btn btn-default' %>
 <% end %>
+
+<br>
+</div>

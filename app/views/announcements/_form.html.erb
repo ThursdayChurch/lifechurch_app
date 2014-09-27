@@ -1,7 +1,10 @@
+<div class="col-md-offset-1 col-md-9">
+<br>
+
 <%= simple_form_for @announcement, :html => { :class => 'form-horizontal' } do |f| %>
  
  
- <%= f.input :message , :label=>'Message:',  :placeholder=>"Add a Short Message" , :hint=> "200 Characters max", :input_html => { :class => "enroll_input span4", :rows => 2} %> 
+ <%= f.input :message , :label=>'Message:',  :placeholder=>"Add a Short Message" , :hint=> "200 Characters max", :input_html => { :class => "enroll_input col-md-2", :rows => 2} %> 
     <%= error_span(@announcement[:message]) %>
  
  
@@ -28,7 +31,7 @@
 	 <%end%>
  
  
-   <%= f.input :colours, label: "Colour of the Alert:",  collection: [ ["Green" ,"success"] ,["Red","danger"], ["Yellow","warning"], ["Blue","info"] ]%> 
+   <%= f.input :colours, label: "Colour of the Alert:",  collection: [ ["Green" ,"success"] ,["Red","danger"], ["Yellow","warning"], ["Blue","info"] ], :input_html => { :class =>  "col-md-2"} %> 
  
  
  <dl class="dl-horizontal">
@@ -57,15 +60,19 @@
  
  </dl>
  
- 
+  <div class="pull-center">
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 announcements_path, :class => 'btn btn-default' %>
 <% end %>
+
+ </div>
  
-   
+   <br>
+   <br>
 
  
+ </div>
 
 

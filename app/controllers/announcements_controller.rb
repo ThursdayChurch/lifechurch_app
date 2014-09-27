@@ -1,17 +1,14 @@
 class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: [:show, :edit, :update, :destroy]
-
-
-
   before_filter :authenticate_user!, :except => [:hide]
   
+  layout "main_body_layout" 
+ 
   def hide
      ids = [params[:id], *cookies.signed[:hidden_announcement_ids]]
      cookies.permanent.signed[:hidden_announcement_ids] = ids
      redirect_to :back
    end
-  
-
 
   # GET /announcements
   # GET /announcements.json

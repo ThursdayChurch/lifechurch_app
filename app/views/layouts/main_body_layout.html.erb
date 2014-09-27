@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Lifechurch App" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Lifechurch App" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %> 
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main id="main" role="main"> 
+      <div class="container-fluid">
+	   <div class="content">
+	   	<div class="row ">
+	         <div class='col-md-12'>
+		       <%= render 'layouts/messages' %>
+			      <!--  start of new -->
+				  
+				  
+			   <div class="row">
+				   	<div class="col-md-12">
+					   <div class="col-md-10 mission_bg img-rounded min-box-size">
+						   <div class="mission_bg img-rounded ">
+							   <br>
+							    <br>
+				         <%= yield %>
+					   		</div>
+					   </div>
+				 
+				 
+				   <div class="col-md-2">
+				     <%= render :partial => 'abouts/side_buttons'%>
+				   </div>
+		    
+			
+			
+			    </div><!--  end of Col MD 12 -->
+			
+			
+			  </div><!--  end of Row-->
+			   
+			   
+			   
+			   <!--  end of new -->
+	   
+  		 	</div>
+   	 	</div>
+      </div>
+	
+ 
+	   	<div class="row ">
+	         <div class='col-md-12'>
+            <footer>
+  			  <%= render 'layouts/footer' %>
+            </footer>
+        </div>
+      </div>
+ 
+	  
+	  
+	  
+	  
+	  
+	 </div>	   
+    </main>
+	
+	
+  </body>
+</html>
