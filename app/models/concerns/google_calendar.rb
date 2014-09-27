@@ -1,6 +1,6 @@
 #https://wiki.terena.org/display/~federated-user-4/Google+Calendar+integration+with+Ruby+on+Rails
 
-module Calendar
+module CalendarGoogle
   require 'google/api_client'
   extend ActiveSupport::Concern
  
