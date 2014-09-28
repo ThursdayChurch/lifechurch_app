@@ -92,6 +92,7 @@ class EventsPicturesController < ApplicationController
   # DELETE /events_pictures/1
   # DELETE /events_pictures/1.json
   def destroy
+    @events_picture.remove_event_image!
     @events_picture.destroy
     respond_to do |format|
       format.html { redirect_to events_pictures_url, notice: 'Events picture was successfully destroyed.' }

@@ -2,17 +2,15 @@ class Bulletin < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged 
   
- mount_uploader :bulletin_image, BulletinImageUploader
+  mount_uploader :bulletin_image, BulletinImageUploader
  
-  
-   
+ 
   validates :display_start, presence: true
   
   after_create :enqueue_image  
   
-  
- # default_scope order: 'bulletins.display_start DESC' 
-  default_scope -> { order(:display_start => :DESC) }
+   
+  default_scope -> { order(:display_start => :desc) }
  
    
   after_validation :move_friendly_id_error_to_name
@@ -23,10 +21,7 @@ class Bulletin < ActiveRecord::Base
    
     def slug_candidates
       [
-        :name#,
-      #  [:name, :history]#,
-       # [:name, :street, :city],
-       # [:name, :street_number, :street, :city]
+        :name
       ]
     end
    
@@ -53,16 +48,13 @@ class Bulletin < ActiveRecord::Base
      perform(id, key) if key.present?
   end
 
-
-
-
-
+ 
 
     def perform(id, key)
       bulletin = Bulletin.find(id)
       bulletin.key = key
       bulletin.remote_bulletin_image_url = bulletin.bulletin_image.direct_fog_url(with_path: true)
-      bulletin.save!
+      bulletin.save
       bulletin.update_column(:image_processed, true)
     end
   

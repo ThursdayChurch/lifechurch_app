@@ -1,5 +1,6 @@
 class AdvertisementsController < ApplicationController
   before_action :set_advertisement, only: [:edit, :update, :destroy]
+  layout "main_body_layout" 
 
   # GET /advertisements
   # GET /advertisements.json
@@ -39,7 +40,7 @@ class AdvertisementsController < ApplicationController
   def update
     respond_to do |format|
       if @advertisement.update(advertisement_params)
-        format.html { redirect_to advertisement_path, notice: 'Advertisement was successfully updated.' }
+        format.html { redirect_to advertisements_path, notice: 'Advertisement was successfully updated.' }
         format.json { render :show, status: :ok, location: @advertisement }
       else
         format.html { render :edit }
@@ -50,8 +51,8 @@ class AdvertisementsController < ApplicationController
 
   # DELETE /advertisements/1
   # DELETE /advertisements/1.json
-  def destroy
-    @advertisement.destroy
+  def destroy  
+       @advertisement.destroy
     respond_to do |format|
       format.html { redirect_to advertisements_url, notice: 'Advertisement was successfully destroyed.' }
       format.json { head :no_content }

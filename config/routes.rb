@@ -73,7 +73,7 @@ Rails.application.routes.draw do
 
   resources :church_staffs_pictures
 
-
+  get "bulletins/step_1"
   resources :bulletins
 
   resources :articles

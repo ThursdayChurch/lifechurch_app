@@ -1,29 +1,31 @@
+require 'carrierwave/processing/mime_types'
 class  BulletinImageUploader < CarrierWave::Uploader::Base
-  include CarrierWaveDirect::Uploader
-   #require 'carrierwave/processing/mini_magick'
-  include CarrierWave::RMagick
+  include CarrierWaveDirect::Uploader 
+  include CarrierWave::RMagick 
 
-  # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
-#  include Sprockets::Helpers::RailsHelper
+ # include Sprockets::Helpers::RailsHelper
 #  include Sprockets::Helpers::IsolatedHelper
 
   include CarrierWave::MimeTypes
   process :set_content_type
 
- 
+ puts "SET CONTENT TYPE!!!!!!!!!!!!!!!!!!!!!!!"
            version :main do
+             puts "processing Main"
              process :resize_first_page
              process :convert => :jpg
              process :set_content_type
            end
 
            version :cropped do
+             puts "processing cropped"
              process :resize_to_fill => [275, 500, Magick::NorthWestGravity]
              process :convert => :jpg
              process :set_content_type
            end
            
            version :thumb, :from_version => :cropped do
+             puts "processing thumb"
               process resize_to_fill: [137, 250]
             end
 

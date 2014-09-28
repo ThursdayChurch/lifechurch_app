@@ -1,7 +1,13 @@
 <%- model_class = Advertisement -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
+ <% provide(:title, "Advertisements" ) %>
+ 
+
+ <table width="100%" class="table_zero"> 
+  <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">Advertisement</span> </td>
+   <td><hr class="round_line_hoz" /></td>
+ </table>
+ 
+  
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_advertisement_path,
             :class => 'btn btn-primary' %>
@@ -63,5 +69,6 @@
     <% end %>
   </tbody>
 </table>
+<br>
 
 
