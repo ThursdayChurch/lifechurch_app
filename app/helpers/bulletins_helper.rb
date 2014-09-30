@@ -29,7 +29,7 @@ module BulletinsHelper
   def display_bulletin_picture(bulletin)
  
       if bulletin.image_processed?  
-        link_to(image_tag(bulletin.bulletin_image_url(:thumb), :class =>"img-rounded"  ), bulletin_path(bulletin)) 
+        link_to(image_tag(bulletin.bulletin_image_url(:cropped), :class =>"img-rounded"  ), bulletin_path(bulletin)) 
       else
         return link_to(image_tag(placeholder_image_url "137x250", :text => "Oops-No Picture", :bg => "000", :fg => "667"), bulletin_path(bulletin)) 
       end 

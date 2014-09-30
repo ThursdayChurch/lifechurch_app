@@ -60,8 +60,9 @@ gem 'redcarpet'
 gem 'activesupport'
 gem "heroku"
 gem 'rmagick', :require => 'RMagick'
+
 gem "mini_magick"
-gem "carrierwave"
+gem "carrierwave" 
 gem 'carrierwave_direct'
 gem "bootstrap-switch-rails"
 gem 'country_select'

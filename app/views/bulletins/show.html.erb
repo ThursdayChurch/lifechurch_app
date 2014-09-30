@@ -32,7 +32,7 @@
 	   
 	  <% if user_signed_in? %>
 		   <% if @bulletin.image_processed? %>
-		       <%= image_tag(@bulletin.bulletin_image_url(:cropped), :class =>"img-rounded" ) %>cropped
+		       <%= image_tag(@bulletin.bulletin_image_url(:cropped), :class =>"img-rounded" ) %>
 
 		     <% else %>
 		       <em>Processing...</em>

@@ -2,7 +2,7 @@
 
  if can? :edit, :bulletins  
  
-<li class="col-md-2">  
+<li class="col-md-6">  
 		         <div class="thumbnail center"> 
 		           	<%= display_bulletin_picture(bulletin)%>
 					 <div class="caption">  
@@ -22,7 +22,7 @@
  else
  
  <% if bulletin.display_start <= DateTime.now.to_date %>
-<li class="col-md-2">  
+<li class="col-md-6">  
 		         <div class="thumbnail center"> 
 							<%= display_bulletin_picture(bulletin)%>
 		           <div class="caption">  
@@ -37,7 +37,7 @@
   <% else %> 
 
  <% if bulletin.display_start <= DateTime.now.to_date %>
-<li class="col-md-2">  
+<li class="col-md-6">  
 		         <div class="thumbnail center"> 
 							<%= display_bulletin_picture(bulletin)%>
 		           <div class="caption">  

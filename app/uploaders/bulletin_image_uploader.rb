@@ -1,15 +1,14 @@
 require 'carrierwave/processing/mime_types'
 class  BulletinImageUploader < CarrierWave::Uploader::Base
   include CarrierWaveDirect::Uploader 
-  include CarrierWave::RMagick 
-
+#include CarrierWave::RMagick 
+include CarrierWave::MiniMagick
  # include Sprockets::Helpers::RailsHelper
 #  include Sprockets::Helpers::IsolatedHelper
 
   include CarrierWave::MimeTypes
   process :set_content_type
-
- puts "SET CONTENT TYPE!!!!!!!!!!!!!!!!!!!!!!!"
+  puts "set_content_type -------------------------------"
            version :main do
              puts "processing Main"
              process :resize_first_page
