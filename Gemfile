@@ -91,4 +91,5 @@ gem 'twitter-bootstrap-rails', '>= 3.2.0'
  gem 'jquery-ui-rails'
  gem 'bh', '~> 1.1.0'
  gem 'google-api-client'
+ gem "date_validator"
  

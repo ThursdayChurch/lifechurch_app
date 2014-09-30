@@ -111,6 +111,8 @@ GEM
     currencies (0.4.2)
     daemons (1.1.9)
     database_cleaner (1.3.0)
+    date_validator (0.7.0)
+      activemodel (>= 3)
     debug_inspector (0.0.2)
     devise (3.3.0)
       bcrypt (~> 3.0)
@@ -462,6 +464,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   country_select
   database_cleaner
+  date_validator
   devise
   devise_invitable
   exception_notification

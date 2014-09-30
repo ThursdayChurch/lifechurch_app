@@ -10,13 +10,17 @@
  
  <br>
  
-	 
+	 <% if user_signed_in? %>   
+	  <% if policy(Bulletin.new).edit?  %>
 &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.step_1', :default => t("helpers.links.new Bulletin")),
             bulletins_step_1_path,
             :class => 'btn btn-primary' %>
 		 
 			<br>
 			<br>
+		 <% end %> 
+	 <% end %>
+			
 				
 <div class="col-md-9 ">
 	<ul class="thumbnails">

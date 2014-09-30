@@ -8,32 +8,25 @@ include CarrierWave::MiniMagick
 
   include CarrierWave::MimeTypes
   process :set_content_type
-  puts "set_content_type -------------------------------"
-           version :main do
-             puts "processing Main"
+ 
+           version :main do 
              process :resize_first_page
              process :convert => :jpg
              process :set_content_type
            end
 
-           version :cropped do
-             puts "processing cropped"
+           version :cropped do 
              process :resize_to_fill => [275, 500, Magick::NorthWestGravity]
              process :convert => :jpg
              process :set_content_type
            end
            
-           version :thumb, :from_version => :cropped do
-             puts "processing thumb"
+           version :thumb, :from_version => :cropped do 
               process resize_to_fill: [137, 250]
             end
 
 
-           private
-           
-
-         
-           
+           private 
            
            def resize_first_page
              manipulate! do |pdff|

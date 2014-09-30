@@ -21,3 +21,12 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+       annoucement:
+         attributes:
+           date_expiration:
+             before: Can not be before other date
+             after: Your Annoucement is Expired
+             not_a_date: can't be blank

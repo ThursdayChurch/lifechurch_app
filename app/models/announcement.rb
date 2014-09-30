@@ -8,6 +8,12 @@ class Announcement < ActiveRecord::Base
   validates_datetime :ends_at, :after => :starts_at, :after_message => 'must be before "Start Time"'
   
   
+  validates :ends_at,
+            date: { after: :starts_at,
+                    before: Proc.new { Time.now + 11.year } } 
+  
+  
+  
   
   def self.current(hidden_ids = nil)
     result = where("starts_at <= :now and ends_at >= :now", now: Time.zone.now)

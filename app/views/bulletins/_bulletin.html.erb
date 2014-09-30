@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
-
- if can? :edit, :bulletins  
+ 
+ 
+<%  if policy(Bulletin.new).edit? %>
  
 <li class="col-md-6">  
 		         <div class="thumbnail center"> 
@@ -19,7 +20,7 @@
 				   </div>  
 		         </div>  
 </li>
- else
+<% else %> 
  
  <% if bulletin.display_start <= DateTime.now.to_date %>
 <li class="col-md-6">  
@@ -30,7 +31,7 @@
 				   </div>  
 		         </div>  
 </li>
-  end
+ <% end %>  
 
  <% end %>  
 
