@@ -54,6 +54,7 @@ class SermonsPicturesController < ApplicationController
   # DELETE /sermons_pictures/1
   # DELETE /sermons_pictures/1.json
   def destroy
+    @sermons_picture.remove_sermon_image!
     @sermons_picture.destroy
     respond_to do |format|
       format.html { redirect_to sermons_pictures_url, notice: 'Sermons picture was successfully destroyed.' }

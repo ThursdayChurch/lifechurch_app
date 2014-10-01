@@ -54,6 +54,7 @@ class LifePulsesStocksPicturesController < ApplicationController
   # DELETE /life_pulses_stocks_pictures/1
   # DELETE /life_pulses_stocks_pictures/1.json
   def destroy
+    @life_pulses_stocks_picture.remove_life_pulse_stock_image!
     @life_pulses_stocks_picture.destroy
     respond_to do |format|
       format.html { redirect_to life_pulses_stocks_pictures_url, notice: 'Life pulses stocks picture was successfully destroyed.' }

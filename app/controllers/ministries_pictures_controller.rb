@@ -54,6 +54,7 @@ class MinistriesPicturesController < ApplicationController
   # DELETE /ministries_pictures/1
   # DELETE /ministries_pictures/1.json
   def destroy
+    @ministries_picture.remove_ministry_image!
     @ministries_picture.destroy
     respond_to do |format|
       format.html { redirect_to ministries_pictures_url, notice: 'Ministries picture was successfully destroyed.' }
