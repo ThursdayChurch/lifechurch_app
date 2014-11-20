@@ -1,4 +1,4 @@
-class BulletinPolicy
+class BulletinPolicy < ApplicationPolicy
   attr_reader :current_user, :model
 
   def initialize(current_user, model)
@@ -7,7 +7,7 @@ class BulletinPolicy
   end
 
   def edit?
-    false
+    true
     #@current_user.admin?
   end
 

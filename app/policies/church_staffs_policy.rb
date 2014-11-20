@@ -1,9 +1,19 @@
-class UserPolicy < ApplicationPolicy
+class ChurchStaffsPolicy < ApplicationPolicy
   attr_reader :current_user, :model
 
   def initialize(current_user, model)
     @current_user = current_user
     @user = model
+  end
+  
+  def new?
+    true
+    #@current_user.admin?
+  end
+
+  def edit?
+    true
+    #@current_user.admin?
   end
 
   def index?

@@ -1,5 +1,6 @@
 class ChurchStaffsController < ApplicationController
   before_action :set_church_staff, only: [:show, :edit, :update, :destroy]
+    layout "main_body_layout" 
 
   # GET /church_staffs
   # GET /church_staffs.json
