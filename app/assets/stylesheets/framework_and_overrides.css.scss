@@ -10,11 +10,7 @@
 @import url('http://fonts.googleapis.com/css?family=Roboto+Slab');
 @import url('http://fonts.googleapis.com/css?family=Vollkorn'); 
 
-main { padding-top: 16px; }  
 
-.container{
-          width: 975px;
-          }
 
 // make all images responsive by default
 img {
@@ -60,21 +56,17 @@ img {
   	background-color: white;
   }
   
- 
-  .white{
-   	background-color: white;
-   }
   
-  .navbar-nav > li > a {padding-top:27px !important; padding-bottom:20px !important;}
-  //.navbar {height:67px !important}  Causing the nav bar issues
+  .navbar-nav > li > a {padding-top:27px !important; padding-bottom:10px !important;}
+  .navbar {min-height:67px !important}
   
-   .min-box-size{
-   	
-	min-height: 500px;
-	
-   }
   
- 
+  
+  body {
+    min-height: 2000px;
+    padding-top: 30px;
+  }
+  
   
   .body {
    padding: 0px;
@@ -85,7 +77,7 @@ img {
  
   .nav {
  
-  font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+    	font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
   }
   
   
@@ -499,10 +491,13 @@ img {
 main {
   @extend .container;
   background-color: #fff;
-  padding-bottom: 1px;
-  width: 1000px; // 100%;
-  margin-top: -5px; // accommodate the navbar
+  padding-bottom: 80px;
+  width: 100%;
+  margin-top: 5px; // accommodate the navbar
   }
+  
+ 
+  
 section {
   @extend .row;
   margin-top: 20px;
@@ -543,9 +538,5 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
-
-
-
-
 
 
