@@ -1,0 +1,582 @@
+// import the CSS framework
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap/variables";
+@import "bootstrap/mixins"; 
+ 
+
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:200,300');
+@import url('http://fonts.googleapis.com/css?family=Roboto+Slab');
+@import url('http://fonts.googleapis.com/css?family=Vollkorn'); 
+
+main { padding-top: 16px; }  
+
+.container{
+          width: 975px;
+          }
+
+// make all images responsive by default
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+  }
+// override for the 'Home' navigation link
+ 
+.dropdown-menu.multi-column {
+        width: 410px;
+}
+
+.dropdown-menu.multi-column_sm {
+        width: 370px;
+}
+
+ 
+.menuimage {
+    display: inline-block;
+    *display: inline; /* for older IE */
+    *zoom: 1; /* for older IE */
+}
+ 
+ 
+.dropdown-menu.multi-column_sm .dropdown-menu {
+        display: block !important;
+        position: static !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        min-width:100px;
+}
+.dropdown-menu.multi-column .dropdown-menu {
+        display: block !important;
+        position: static !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        min-width:100px;
+}
+ 
+ .background-white{
+  	background-color: white;
+  }
+  
+ 
+  .white{
+   	background-color: white;
+   }
+  
+  .navbar-nav > li > a {padding-top:27px !important; padding-bottom:20px !important;}
+  //.navbar {height:67px !important}  Causing the nav bar issues
+  
+   .min-box-size{
+   	
+	min-height: 500px;
+	
+   }
+  
+ 
+  
+  .body {
+   padding: 0px;
+   font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+   font-size:13pt;
+  }
+
+ 
+  .nav {
+ 
+  font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+  }
+  
+  
+  /* Drop down Sub Menu start */
+  .dropdown-submenu {
+      position:relative;
+  }
+  .dropdown-submenu>.dropdown-menu {
+      top:0;
+      left:100%;
+      margin-top:-6px;
+      margin-left:-1px;
+      -webkit-border-radius:0 6px 6px 6px;
+      -moz-border-radius:0 6px 6px 6px;
+      border-radius:0 6px 6px 6px;
+  }
+  .dropdown-submenu:hover>.dropdown-menu {
+      display:block;
+  }
+  .dropdown-submenu>a:after {
+      display:block;
+      content:" ";
+      float:right;
+      width:0;
+      height:0;
+      border-color:transparent;
+      border-style:solid;
+      border-width:5px 0 5px 5px;
+      border-left-color:#cccccc;
+      margin-top:5px;
+      margin-right:-10px;
+  }
+  .dropdown-submenu:hover>a:after {
+      border-left-color:#ffffff;
+  }
+  .dropdown-submenu.pull-left {
+      float:none;
+  }
+  .dropdown-submenu.pull-left>.dropdown-menu {
+      left:-100%;
+      margin-left:10px;
+      -webkit-border-radius:6px 0 6px 6px;
+      -moz-border-radius:6px 0 6px 6px;
+      border-radius:6px 0 6px 6px;
+  }
+  /* Dropdown sub menu stop */
+
+  $grayLight: #999;
+  $red: #9d261d;
+  
+  
+ 
+  /* Micropost character countdown */
+
+
+
+
+  .remaining, .countdown {
+    display: inline;
+    color: $grayLight;
+    float: center;
+  }
+
+  .remaining_mc, .countdown_mc {
+    display: inline;
+    color: $grayLight;
+    float: center;
+  }
+  .remaining_ev, .countdown_ev {
+    display: inline;
+    color: $grayLight;
+    float: center;
+  }
+  .overlimit {
+    color: $red;
+  }
+
+  .almostlimit {
+    color: hsl(360, 57%, 21%);
+  }
+
+  .nearlimit {
+    color: $gray;
+  }
+  // ...
+ 
+ 
+  .verticalLine {
+      border-left: 3px solid #7F8F54;
+  		padding-left:10px;
+  		padding-right:100px;
+  }
+
+  .icon-arrow-right {
+  	background-image:none;
+      color: #007DC3;
+      font-size: 2.5em;
+  }
+ 
+
+  .icon-time, .icon-map-marker, .icon-phone {
+  	background-image:none;
+      color: #007DC3;   
+  }
+
+  .icon-lock, icon-unlock{
+  	background-image:none;
+   
+  }
+
+
+
+  .table_event td, .table_event th
+  {
+      padding: 0; /* 'cellpadding' equivalent */
+  	padding:0px;
+  	padding-bottom:2px;
+  	padding-top:0px;
+  	padding-right:0px;
+  	padding-left:2px;
+  }
+
+  li {list-style-type: none;}
+
+  .text_offset_bottom{
+	
+  	padding-top:23px;
+	
+  }
+ 
+  .drop_text{
+  	vertical-align:-4px;
+	
+	
+	
+  }
+ 
+  .sign_up_text{
+ 
+    	font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+    	color:#5A5A59;
+        font-size:12pt;
+        text-align:left;
+  	  padding-right:40px;
+	 
+  }
+
+  .sign_up_small_text{
+ 
+    	font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+    	color:#5A5A59;
+        font-size:11pt;
+        text-align:left;
+  	  padding-right:40px;
+	 
+  }
+  .smaller_text{
+  
+        font-size:10pt;
+ 
+	 
+  }
+ 
+ 
+  .line_break {
+      width: 80%;
+  	align: center;
+      //height: 5px;
+      //float: left;
+      //color: black;
+      //padding-top: 3px;
+      //background-color: rgba(255,255,255,.5);
+      border: none;  // remove default style
+      border-bottom: 3px solid black;  //apply style
+  }
+  .text_center_v_align {
+    vertical-align:-4px;
+  	font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+  	color:#5A5A59;
+      font-size:11pt;
+      text-align:left;
+  	font-weight:700;
+  }
+  .top_line {
+      width:300px;
+      //height: 5px;
+      //float: left;
+      //color: black;
+      //padding-top: 3px;
+      //background-color: rgba(255,255,255,.5);
+      border: none;  // remove default style
+      border-bottom: 10px solid red;  //apply style
+  }
+ 
+   .mission_text{
+ 
+     	font-family: Georgia,'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+ 
+	 
+   }
+ 
+ 
+  .ministry_text{
+ 
+    	font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+    	color:#5A5A59;
+        font-size:10pt;
+        text-align:left;
+  	  padding-right:40px;
+	 
+  }
+
+  html,body{height:100%;}
+  .carousel,.item,.active{height:100%;}
+  .carousel-inner{height:100%;}
+  .fill{width:100%;height:100%;background-position:center;background-size:cover;}
+
+ 
+  .side_event_top{
+	
+  	padding-top:5px;
+	
+  }
+
+  .carousel {
+  	padding-left:5px;
+  	padding-top:5px;	
+  }
+ 
+
+
+  /* faster sliding speed */
+  .carousel-inner > .item {
+      -webkit-transition: 0.5s ease-in-out left;
+      -moz-transition: 0.5s ease-in-out left;
+      -o-transition: 0.5s ease-in-out left;
+      transition: 0.5s ease-in-out left;
+  }
+  
+  /* Carousel base class */
+   .carousel {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #3f2416;
+    z-index: 1000;
+    margin-top: 50px !important;
+    }
+
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+   z-index: 10;
+   top: 50px;
+   }
+
+  /* Declare heights because of positioning of img element */
+  .carousel .item {
+   ///height: 300px; //needed
+   background-color: #777;
+   width:100%;
+   }
+
+  .carousel-inner>.item>img, .carousel-inner>.item>a>img{
+      min-height: 100%;
+      width: auto;
+      min-width: 100%;
+      max-width: none;
+      margin: 0 auto;
+  }
+
+  .image_no_padding{
+	
+  	padding:0px;
+  	padding-left:0px;
+  	padding-right:0px;	
+  }
+
+  .italic_text{
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+    	color:#000;
+      font-size:9pt;
+      text-align:center;
+  	font-weight:700;
+  	font-style: italic;
+  	text-align:center;
+  }
+
+  .staff_descrip{
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+  	background-color: #828F4D;	
+  	color: white;
+  	font-size:10pt;
+  	padding:10px;
+  	padding-left:10px;
+  	padding-right:10px;
+  }
+  .main_text{
+  	font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+    	color:#5A5A59;
+      font-size:22pt;
+      text-align:center;
+  	font-weight:900;
+  }
+
+  .site_blue{
+  	color:#007DC3;
+	
+	
+  }
+  .sermon_text{
+  	font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+  	color:#5A5A59;
+      font-size:15pt;
+      text-align:left;
+  	font-weight:900;
+  }
+
+
+  .sermon_text_small{ 
+     font-size:8pt;
+   
+  }
+
+
+
+  .round_line_hoz {
+      height: .1px;
+      width: 88%;
+      border-style: solid;
+      border-color: #E6E6E6;
+      border-width: 7px 7px 7px 7px;
+      border-radius: 10px;
+  	float:left;
+	
+  }
+
+  .round_line_hoz2 {
+      height: .1px;
+      width: 91%;
+      border-style: solid;
+      border-color: #000;
+      border-width: 1px 2px 2px 2px;
+      border-radius: 10px;
+  	float:center;
+  	margin: 0px;
+  	margin-left: 5%;
+  	margin-top:10px;
+	 
+	 
+  }
+ 
+ 
+ 
+  /// Image adjust for Life Pulse
+
+
+  .life_pulse_left {
+  	 float: left; 
+  	 padding: 3px 3px 0px 3px;
+  	 margin: 4px; 
+  }
+
+  .life_pulse_right {
+  	 float: right; 
+  	 padding: 3px 3px 0px 3px;
+  	 margin: 4px; 
+  }
+
+
+
+  #mission_bg {
+     background-color: #FFF;	
+  }
+  .mission_bg {
+     background-color: #FFF;	
+  }
+  .contact_bg {
+     background-color: #FFF;	
+  }
+ 
+ 
+   .table-striped2 tbody>tr:nth-child(odd)>td,.table-striped tbody>tr:nth-child(odd)>th{background-color:#FFF}
+ 
+
+  .top_line {
+  	width:5px; 
+  	padding: 0 10px; 
+  	white-space: nowrap;
+  	border-color: #FFF;
+  }
+ 
+
+
+
+  .round_line_wid {
+      height: 100px;
+      width: 100px;
+      border-style: solid;
+      border-color: #E6E6E6;
+      border-width: 5px 5px 5px 5px;
+      border-radius: 20px;
+  }
+
+
+  #site-column
+  {
+      top: 0;
+      bottom: 0;
+      min-height: 100%;
+      border-left: 0px solid;
+      border-right: 0px solid;
+      background-color: white;
+      min-height: 100%;
+      min-width: 100%;
+  }
+  
+  
+  .pull-center{text-align:center;margin:0 auto !important;}
+  .pull-middle{vertical-align:middle;padding-top:17% !important;}
+  .pull-bottom{position:absolute;bottom:0;}
+  .offsetHalf1 {margin-left:12.9% !important;} 
+
+// THESE ARE EXAMPLES YOU CAN MODIFY
+// create your own classes
+// to make views framework-neutral
+.column {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.form {
+  @extend .col-md-6;
+  }
+.form-centered {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.submit {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-lg;
+  }
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @extend .container;
+  background-color: #fff;
+  padding-bottom: 1px;
+  width: 1000px; // 100%;
+  margin-top: -5px; // accommodate the navbar
+  }
+section {
+  @extend .row;
+  margin-top: 20px;
+  }
+
+// Styles for form views
+// using Bootstrap
+// generated by the rails_layout gem
+.authform {
+  padding-top: 30px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.authform form {
+  @extend .well;
+  @extend .well-lg;
+  padding-bottom: 40px;
+}
+.authform .right {
+  float: right !important;
+}
+.authform .button {
+  @extend .btn;
+  @extend .btn-primary;
+}
+.authform fieldset {
+  @extend .well;
+}
+#error_explanation {
+  @extend .alert;
+  @extend .alert-danger;
+}
+#error_explanation h2 {
+  font-size: 16px;
+}
+.button-xs {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-xs;
+}
+
+
+
+
+
+
