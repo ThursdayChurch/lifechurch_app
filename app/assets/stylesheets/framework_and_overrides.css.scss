@@ -27,7 +27,12 @@ img {
         width: 370px;
 }
 
- 
+
+.container{
+          max-width: 1000px;
+          }
+		  
+		  
 .menuimage {
     display: inline-block;
     *display: inline; /* for older IE */
