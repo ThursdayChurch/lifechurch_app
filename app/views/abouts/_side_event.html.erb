@@ -1,11 +1,11 @@
-<div class="side_event_top">
-	 <table  border="0" cellspacing="0" cellpadding="0" class="table_event">
+<div class="side_event_top sidebar">
+	 <table  border="0" cellspacing="0" cellpadding="0" class="table_event  sidebar">
 		  <tbody>
 		 	<% @side_events = @events_side %>
 		 	<% @side_events.each   do |event| %>	 
 			
 					<tr>
-						<td>
+						<td class="each_pictures">
 							
 				  <%= display_sidebar_event_picture(event) %>
 						

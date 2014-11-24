@@ -40,10 +40,10 @@ module CarouselImagesHelper
         
                           else 
                                    if carousel_image.advertisement.internal_link_url.blank?
-                                   return  image_tag(placeholder_image_url "652x484", :text => "#{carousel_image.advertisement.advertisement_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
+                                   return  image_tag(placeholder_image_url "673x489", :text => "#{carousel_image.advertisement.advertisement_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
                                  else
-                                   return link_to(image_tag(placeholder_image_url "652x484", :text => "#{carousel_image.advertisement.advertisement_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), "#{event_pictures.internal_link_url}") 
- 
+                                   return link_to(image_tag(placeholder_image_url "673x489", :text => "#{carousel_image.advertisement.advertisement_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), "#{event_pictures.internal_link_url}") 
+                                   #673x489
                                  end 
                           end 
                       
@@ -51,9 +51,9 @@ module CarouselImagesHelper
              else
 
                       if carousel_image.advertisement.internal_link_url.blank?
-                      return  image_tag(placeholder_image_url "652x484", :text => "#{carousel_image.advertisement.advertisement_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
+                      return  image_tag(placeholder_image_url "673x489", :text => "#{carousel_image.advertisement.advertisement_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
                     else
-                      return link_to(image_tag(placeholder_image_url "652x484", :text => "#{carousel_image.advertisement.advertisement_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), "#{event_pictures.internal_link_url}") 
+                      return link_to(image_tag(placeholder_image_url "673x489", :text => "#{carousel_image.advertisement.advertisement_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), "#{event_pictures.internal_link_url}") 
  
                     end
         
@@ -74,7 +74,7 @@ module CarouselImagesHelper
                else
  
    
-                return link_to(image_tag(placeholder_image_url "652x484", :text => "#{carousel_image.event.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), event_path(carousel_image.event)) 
+                return link_to(image_tag(placeholder_image_url "673x489", :text => "#{carousel_image.event.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), event_path(carousel_image.event)) 
  
               end
         

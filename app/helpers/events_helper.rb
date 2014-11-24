@@ -66,9 +66,9 @@ module EventsHelper
                   else
 
                   if  event_pictures.internal_link_url.blank?
-                      return  image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
+                      return  image_tag(placeholder_image_url "205x142", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
                     else
-                      return link_to(image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"),  "#{event_pictures.internal_link_url}") 
+                      return link_to(image_tag(placeholder_image_url "205x142", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"),  "#{event_pictures.internal_link_url}") 
         
                     end
        
@@ -88,12 +88,12 @@ module EventsHelper
   
              else
  
-                 return link_to(image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
+                 return link_to(image_tag(placeholder_image_url "205x142", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
     
             end
             
         end    
-       # return image_tag (placeholder_image_url "216x150")   
+       # return image_tag (placeholder_image_url "205x142")   
     end
    
    def display_carousel_event_picture(event_pictures)
