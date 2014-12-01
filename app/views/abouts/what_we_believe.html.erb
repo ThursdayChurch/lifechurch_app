@@ -46,27 +46,28 @@
 			<br>
 	    </div>		 
 	</div>
-
+<% if user_signed_in? %> 
+	  <% if policy(@summaries).new? %>
+	
+	<br>
+	 
+		<div class="row">
+			<div class="col-md-10">	
+	<%= link_to t('.new', :default => t("helpers.links.new")),
+	            new_summary_path,
+	            :class => 'btn btn-primary' %>
+			</div></div> 
+	 <% end %> 
+	  <% end %> 
 	<div class="row">	
-		<div class="col-md-12" style="margin-left:30px;">	
+		<div class="col-md-offset-1 col-md-9" >	
 			 	 
 			 
 	<%= render @summaries %>	
  
 	</div>
 </div>
-<% if user_signed_in? %> 
-	<% if can? :edit, :abouts  %>
-	<br>
-	<div class="pull-left">
-		<div class="row">
-			<div class="col-md-9">	
-	<%= link_to t('.new', :default => t("helpers.links.new")),
-	            new_summary_path,
-	            :class => 'btn btn-primary' %>
-			</div></div></div>
-	 <% end %> 
-	  <% end %> 
+
 	 		 
 	<br>			  
  
