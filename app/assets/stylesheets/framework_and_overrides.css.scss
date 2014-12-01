@@ -333,6 +333,12 @@ img {
       transition: 0.5s ease-in-out left;
   }
 
+
+  .force_on_same_line {
+    border: 1px solid black; 
+    overflow: hidden;
+    white-space: nowrap;
+}
   .image_no_padding{
 	
   	padding:0px;

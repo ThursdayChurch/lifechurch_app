@@ -28,7 +28,7 @@ class SummariesController < ApplicationController
 
     respond_to do |format|
       if @summary.save
-        format.html { redirect_to @summary, notice: 'Summary was successfully created.' }
+        format.html { redirect_to what_we_believe_abouts_path, notice: 'Summary was successfully created.' }
         format.json { render :show, status: :created, location: @summary }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SummariesController < ApplicationController
   def update
     respond_to do |format|
       if @summary.update(summary_params)
-        format.html { redirect_to @summary, notice: 'Summary was successfully updated.' }
+        format.html { redirect_to what_we_believe_abouts_path, notice: 'Summary was successfully updated.' }
         format.json { render :show, status: :ok, location: @summary }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class SummariesController < ApplicationController
   def destroy
     @summary.destroy
     respond_to do |format|
-      format.html { redirect_to summaries_url, notice: 'Summary was successfully destroyed.' }
+      format.html { redirect_to what_we_believe_abouts_url, notice: 'Summary was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
