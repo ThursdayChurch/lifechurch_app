@@ -3,6 +3,7 @@ class AboutsController < ApplicationController
  # load_and_authorize_resource :except => [:index, :home, :our_staff, :who_we_are,:privacy, :terms, :what_to_expect, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
 #  before_filter :authenticate_user!, :except => [:index, :our_staff, :who_we_are, :privacy, :terms, :what_to_expect, :home, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
  
+ layout "main_body_layout", :only => [  :our_staff, :who_we_are, :privacy, :terms, :what_to_expect,  :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
 
   def home
     @today = DateTime.now.strftime("%Y-%m-%d")
