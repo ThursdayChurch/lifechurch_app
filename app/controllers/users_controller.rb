@@ -13,8 +13,10 @@ class UsersController < ApplicationController
     else
        @user.edit_site = false     
    end
+   params = @user
+   params[:edit_site => false ] 
     
-    if @user.update_attributes(secure_params_edit_site)
+    if @user.update_column(secure_params_edit_site)
      
       if @user.edit_site == true then
          redirect_to session[:previous_url], :alert => "You can now edit the Site."
@@ -47,6 +49,7 @@ class UsersController < ApplicationController
   def approve
   
      user = User.find(params[:id])
+   
      user.update_attributes(:approved => true)
     # MemberMailer.your_approved(user).deliver
      redirect_to :action => "index", :approved => "false"
@@ -80,7 +83,7 @@ class UsersController < ApplicationController
   private
 
   def secure_params_edit_site
-    @user.require(:user).permit(:edit_site)
+    params.require(:user).permit!
   end
 
   def secure_params

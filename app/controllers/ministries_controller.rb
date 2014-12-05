@@ -24,7 +24,7 @@ class MinistriesController < ApplicationController
   # POST /ministries
   # POST /ministries.json
   def create
-    @ministry = Ministry.new(ministry_params)
+    @ministry = Ministry.new(ministry_params, as : user_role)
 
     respond_to do |format|
       if @ministry.save
@@ -71,4 +71,11 @@ class MinistriesController < ApplicationController
     def ministry_params
       params.require(:ministry).permit(:name, :contact_person, :contact_email, :description, :display_rank, :ta1, :ta2, :ta3, :ta4, :ta5, :advert_main_page, :slug)
     end
+    
+    
+    if current_user && current_user.admin?
+       params[:book].permit(:name, :author, :public)
+     else
+       params[:book].permit(:name, :author)
+     end
 end
